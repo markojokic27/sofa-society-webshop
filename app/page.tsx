@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { Icon } from "@/components/Icon";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { LinkAsButton } from "@/components/LinkAsButton";
 
@@ -82,7 +83,8 @@ export default function Home() {
           <LayoutColumn span={3} className="text-center p-2 text-2xs">
             <Button variant="link" size="sm">Kabek</Button>
             <Button variant="link" size="md">Kabek</Button>
-
+            <Icon name="bag"/>
+            <Icon name="user"/>
             
           </LayoutColumn>
         

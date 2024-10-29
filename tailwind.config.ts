@@ -63,6 +63,9 @@ const config: Config = {
       borderRadius: {
         '1': '4px',
       },
+      borderWidth: {
+        '6': '6px',
+      },
     },
   },
   plugins: [],

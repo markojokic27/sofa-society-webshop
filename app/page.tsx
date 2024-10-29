@@ -64,30 +64,67 @@ export default function Home() {
             <Button variant="outline" size="md" isVisuallyDisabled>
               Ladel
             </Button>
-            
           </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="bg-black">
-          <LayoutColumn span={3} className="text-center p-2">
-            <Button variant="dark" size="md">Label</Button>
+          <LayoutColumn span={3} className="p-2 text-center">
+            <Button variant="dark" size="md">
+              Label
+            </Button>
           </LayoutColumn>
-          <LayoutColumn span={3} className="text-center p-2">
-            <Button variant="dark" isVisuallyDisabled>AAAa</Button>
+          <LayoutColumn span={3} className="p-2 text-center">
+            <Button variant="dark" isVisuallyDisabled>
+              AAAa
+            </Button>
           </LayoutColumn>
-          
         </LayoutRow>
-        <LayoutRow className="my-4" >
-          <LayoutColumn span={3} className="text-center p-2">
-            <LinkAsButton href={"a"} variant="solid" size="md">Label</LinkAsButton>
+        <LayoutRow className="my-4">
+          <LayoutColumn span={3} className="p-2 text-center">
+            <LinkAsButton href={"a"} variant="solid" size="md">
+              Label
+            </LinkAsButton>
           </LayoutColumn>
-          <LayoutColumn span={3} className="text-center p-2 text-2xs">
-            <Button variant="link" size="sm">Kabek</Button>
-            <Button variant="link" size="md">Kabek</Button>
-            <Icon name="bag"/>
-            <Icon name="user"/>
-            
+          <LayoutColumn
+            span={3}
+            className="p-2 text-center text-2xs text-blue-700"
+          >
+            <Button variant="link" size="sm">
+              Kabek
+            </Button>
+            <Button variant="link" size="md">
+              Kabek
+            </Button>
+            <Icon name="bag" />
+            <Icon name="user" />
+            <Icon name="search" />
+            <Icon name="heart" />
+            <Icon name="chevronUp" />
+            <Icon name="chevronDown" />
+            <Icon name="chevronLeft" />
+            <Icon name="chevronRight" />
+            <Icon name="minus" />
+            <Icon name="plus" />
+            <Icon name="arrowRight" />
+            <Icon name="arrowLeft" />
+            <Icon name="info" />
           </LayoutColumn>
-        
+          <LayoutColumn
+            span={3}
+            className="p-2 text-center text-2xs text-blue-700"
+          >
+            <Icon name="trash" />
+            <Icon name="arrowUpRight" />
+            <Icon name="calendar" />
+            <Icon name="truck" />
+            <Icon name="mapPin" />
+            <Icon name="receipt" />
+            <Icon name="check" />
+            <Icon name="package" />
+            <Icon name="creditCard" />
+            <Icon name="undo" />
+            <Icon name="x" />
+            <Icon name="hamburger" />
+          </LayoutColumn>
         </LayoutRow>
       </Layout>
     </div>

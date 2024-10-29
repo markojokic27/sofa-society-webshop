@@ -1,4 +1,3 @@
-
 export const User: React.FC<React.ComponentPropsWithoutRef<'svg'>> = ({
   ...rest
 }) => (

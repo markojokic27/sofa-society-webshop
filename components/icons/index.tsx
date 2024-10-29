@@ -23,6 +23,7 @@ import { CreditCard } from "./CreditCard";
 import { Undo } from "./Undo";
 import { X } from "./X";
 import { Hamburger } from "./Hamburger";
+import { Checkbox } from "./Checkbox";
 
 export {
   Bag,
@@ -50,4 +51,5 @@ export {
   Undo,
   X,
   Hamburger,
+  Checkbox
 };

@@ -66,6 +66,9 @@ const config: Config = {
       borderWidth: {
         '6': '6px',
       },
+      height: {
+        18: '4.5rem',
+      },
     },
   },
   plugins: [],

@@ -4,10 +4,10 @@ export const ArrowRight: React.FC<React.ComponentPropsWithoutRef<"svg">> = ({
   <svg
     {...rest}
     viewBox="0 0 24 24"
-    fill="none"
+    fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <mask id="a" fill="#fff">
+    <mask id="a" fill="#000">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

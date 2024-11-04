@@ -1,4 +1,3 @@
-"use client";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
@@ -12,7 +11,8 @@ export const Footer = () => {
           <LayoutColumn
             span={12}
             className="mb-14 md:order-last md:mb-0"
-            mdOffset={1}
+            lgOffset={1}
+            lgSpan={4}
             mdSpan={4}
           >
             <h3 className="mb-2 text-lg">Join our newsletter</h3>
@@ -37,7 +37,7 @@ export const Footer = () => {
             </p>
           </LayoutColumn>
           <LayoutColumn span={12} mdSpan={2} className="mb-8 md:mb-0">
-            <h2 className="mb-2 text-xl leading-none md:text-3xl">
+            <h2 className="mb-2 text-xl leading-none lg:text-3xl">
               Sofa
               <br />
               Society
@@ -46,7 +46,7 @@ export const Footer = () => {
             </h2>
             <p className="text-2xs">© 2024, Sofa Society</p>
           </LayoutColumn>
-          <LayoutColumn span={12} mdOffset={1} mdSpan={4}>
+          <LayoutColumn span={12}  mdSpan={6} lgOffset={1} lgSpan={4}>
             <div className="flex">
               <ul className="flex flex-1 flex-col gap-4">
                 <li>

@@ -73,9 +73,16 @@ const config: Config = {
         7.5: "1.875rem",
       },
       margin: {
+        15: "3.75rem",
         18: "4.5rem",
         26: "6.5rem",
         34: "8.5rem",
+      },
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
+      minWidth: {
+        124: "31rem",
       },
     },
   },

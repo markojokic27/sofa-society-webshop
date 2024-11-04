@@ -26,7 +26,6 @@ export const Arrow: React.FC<
 }) => (
   <AriaButton
     {...rest}
-    isDisabled={rest.disabled}
     className={twMerge(
       "flex h-10 w-10 items-center justify-center rounded-full border border-black bg-black text-white outline-none focus:outline-none",
       color === "white" && "bg-white text-black",

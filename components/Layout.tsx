@@ -1,27 +1,30 @@
-import React from 'react';
-import { twMerge } from 'tailwind-merge';
+import React from "react";
+import { twMerge } from "tailwind-merge";
 
-export const Layout: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
+export const Layout: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
   className,
   children,
   ...rest
 }) => (
-  <div {...rest} className={twMerge('container mx-auto px-6', className)}>
+  <div {...rest} className={twMerge("container mx-auto px-6", className)}>
     {children}
   </div>
 );
 
-export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<'div'>> = ({
+export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
   className,
   children,
   ...rest
 }) => (
-  <div {...rest} className={twMerge('-mx-6 flex flex-wrap', className)}>
+  <div
+    {...rest}
+    className={twMerge("-mx-1 flex flex-wrap md:-mx-6", className)}
+  >
     {children}
   </div>
 );
 
-type LayoutColumnProps = React.ComponentPropsWithoutRef<'div'> & {
+type LayoutColumnProps = React.ComponentPropsWithoutRef<"div"> & {
   span?: number;
   offset?: number;
   smSpan?: number;
@@ -32,11 +35,11 @@ type LayoutColumnProps = React.ComponentPropsWithoutRef<'div'> & {
   lgOffset?: number;
 };
 
-const spanClasses = (span: number, prefix: string = '') => {
+const spanClasses = (span: number, prefix: string = "") => {
   return prefix ? `${prefix}:w-column-${span}` : `w-column-${span}`;
 };
 
-const offsetClasses = (offset: number, prefix: string = '') => {
+const offsetClasses = (offset: number, prefix: string = "") => {
   return prefix ? `${prefix}:offset-${offset}` : `offset-${offset}`;
 };
 
@@ -55,19 +58,19 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
 }) => {
   const baseClasses = `${spanClasses(span)} ${offsetClasses(offset)}`;
   const smClasses = smSpan
-    ? `${spanClasses(smSpan, 'sm')} ${smOffset ? offsetClasses(smOffset, 'sm') : ''}`
-    : '';
+    ? `${spanClasses(smSpan, "sm")} ${smOffset ? offsetClasses(smOffset, "sm") : ""}`
+    : "";
   const mdClasses = mdSpan
-    ? `${spanClasses(mdSpan, 'md')} ${mdOffset ? offsetClasses(mdOffset, 'md') : ''}`
-    : '';
+    ? `${spanClasses(mdSpan, "md")} ${mdOffset ? offsetClasses(mdOffset, "md") : ""}`
+    : "";
   const lgClasses = lgSpan
-    ? `${spanClasses(lgSpan, 'lg')} ${lgOffset ? offsetClasses(lgOffset, 'lg') : ''}`
-    : '';
+    ? `${spanClasses(lgSpan, "lg")} ${lgOffset ? offsetClasses(lgOffset, "lg") : ""}`
+    : "";
   return (
     <div
       {...rest}
       className={twMerge(
-        `relative px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}`
+        `relative px-1 md:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}`,
       )}
     >
       {children}

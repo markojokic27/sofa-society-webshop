@@ -5,6 +5,7 @@ import Link from "next/link";
 // Components
 import { Icon } from "@/components/Icon";
 import { Input } from "@/components/Input";
+import { SelectLanguage } from "./SelectLanguage";
 
 export const HamburgerMenu: React.FC<
   React.ComponentPropsWithoutRef<"button"> & {
@@ -48,7 +49,7 @@ export const HamburgerMenu: React.FC<
               </li>
             </ul>
           </div>
-          <div className="m-8 text-grayscale-10">HR</div>
+          <div className="m-8 text-grayscale-10"><SelectLanguage variant="mobile"/></div>
         </div>
       </RadixDialog.Content>
     </RadixDialog.Overlay>

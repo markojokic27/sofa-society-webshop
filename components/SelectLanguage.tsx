@@ -15,8 +15,8 @@ import {
 import { Icon } from "@/components/Icon";
 
 export const SelectLanguage: React.FC<
-  React.ComponentPropsWithoutRef<"div">
-> = ({ className, ...rest }) => {
+  React.ComponentPropsWithoutRef<"div"> & { variant?: "default" | "mobile" }
+> = ({ variant = "default", className, ...rest }) => {
   const [selectedValue, setSelectedValue] = React.useState("HR");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
@@ -44,13 +44,13 @@ export const SelectLanguage: React.FC<
         <div className="flex" {...rest}>
           <SelectValue>{selectedValue}</SelectValue>
           <Icon
-            name="chevronDown"
+            name={variant === "mobile" ? "chevronUp" : "chevronDown"}
             className={`color-grayscale-400 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
           />
         </div>
       </AriaButton>
       <Popover
-        className={`mr-5 flex w-60 cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none`}
+        className={`z-[100] mr-5 flex w-60 cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none`}
       >
         <ListBox className={`max-h-48 w-full overflow-y-auto outline-none`}>
           {Object.values(selectItems).map((item, key) => {

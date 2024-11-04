@@ -2,11 +2,12 @@
 
 // External packages
 import * as React from "react";
-import { Link, Button } from "react-aria-components";
+import { Link, Button, Select } from "react-aria-components";
 
 // Components
 import { Icon } from "@/components/Icon";
 import { HamburgerMenu } from "@/components/HamburgerMenu";
+import { SelectLanguage } from "@/components/SelectLanguage";
 
 export const Header: React.FC<{
   headerTheme?: "light" | "dark";
@@ -62,7 +63,7 @@ export const Header: React.FC<{
         </div>
         <ul className="flex items-center gap-8 justify-self-end">
           <li className="hidden md:flex">
-            <Button className="uppercase focus:outline-none">hr</Button>
+            <SelectLanguage />
           </li>
           <li className="hidden items-center md:flex">
             <Button className="focus:outline-none">

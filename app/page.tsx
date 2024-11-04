@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 
 // Assets
@@ -20,6 +19,7 @@ export default function Home() {
           alt="header image"
           src={HeaderImage}
           className="w-full object-cover md:h-full"
+          priority={true}
         />
       </div>
       <Layout>

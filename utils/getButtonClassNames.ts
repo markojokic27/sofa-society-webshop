@@ -20,7 +20,7 @@ export const getButtonClassNames = ({
     size === "sm" && "px-4 py-2.5 text-2xs leading-none",
     size === "md" && "px-6 py-4 text-base leading-none",
     variant === "link" &&
-      "border-0 bg-transparent hover:bg-transparent underline underline-offset-8 disabled:bg-transparent disabled:text-blue-100 text-black p-0 m-0 h-auto font-normal not-italic focus:outline-none text-lg hover:no-underline active:no-outline",
+      "border-0 bg-transparent hover:bg-transparent underline underline-offset-4 disabled:bg-transparent disabled:text-blue-100 text-black p-0 m-0 h-auto font-normal not-italic focus:outline-none text-base hover:no-underline active:no-outline text-left md:text-lg md:underline-offset-8",
     variant === "link" && size === "sm" && "text-base underline-offset-4",
     isVisuallyDisabled &&
       variant === "solid" &&

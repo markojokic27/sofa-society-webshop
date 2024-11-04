@@ -40,9 +40,9 @@ export const Header: React.FC<{
   return (
     <div
       ref={headerRef}
-      className="group fixed top-0 z-40 w-full bg-white data-[theme=light]:bg-transparent data-[theme=dark]:border-b border-b-white"
+      className="group fixed top-0 z-40 w-full border-b-white bg-white data-[theme=dark]:border-b md:data-[theme=light]:bg-transparent"
     >
-      <div className="mx-auto grid grid-cols-2 items-center p-6 md:container group-data-[theme=light]:text-white md:grid-cols-[1fr_auto_1fr] md:py-8">
+      <div className="mx-auto grid grid-cols-2 items-center p-6 md:container md:grid-cols-[1fr_auto_1fr] md:py-7.5 md:group-data-[theme=light]:text-white ">
         <Link
           href="/"
           className="justify-self-start text-lg leading-none focus:outline-none"

@@ -74,18 +74,22 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
   ...rest
 }) => {
   const baseClasses = `${spanClasses(span)} ${offsetClasses(offset)}`;
-  const smClasses = smSpan
-    ? `${spanClasses(smSpan, "sm")} ${smOffset ? offsetClasses(smOffset, "sm") : ""}`
-    : "";
-  const mdClasses = mdSpan
-    ? `${spanClasses(mdSpan, "md")} ${mdOffset ? offsetClasses(mdOffset, "md") : ""}`
-    : "";
-  const lgClasses = lgSpan
-    ? `${spanClasses(lgSpan, "lg")} ${lgOffset ? offsetClasses(lgOffset, "lg") : ""}`
-    : "";
-  const xlClasses = xlSpan
-    ? `${spanClasses(xlSpan, "xl")} ${xlOffset ? offsetClasses(xlOffset, "xl") : ""}`
-    : "";
+  const smClasses =
+    smSpan || smOffset
+      ? `${smSpan ? spanClasses(smSpan, "sm") : ""} ${smOffset ? offsetClasses(smOffset, "sm") : ""}`
+      : "";
+  const mdClasses =
+    mdSpan || mdOffset
+      ? `${mdSpan ? spanClasses(mdSpan, "md") : ""} ${mdOffset ? offsetClasses(mdOffset, "md") : ""}`
+      : "";
+  const lgClasses =
+    lgSpan || lgOffset
+      ? `${lgSpan ? spanClasses(lgSpan, "lg") : ""} ${lgOffset ? offsetClasses(lgOffset, "lg") : ""}`
+      : "";
+  const xlClasses =
+    xlSpan || xlOffset
+      ? `${xlSpan ? spanClasses(xlSpan, "xl") : ""} ${xlOffset ? offsetClasses(xlOffset, "xl") : ""}`
+      : "";
   return (
     <div
       {...rest}

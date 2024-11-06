@@ -11,8 +11,8 @@ export const Footer = () => {
           <LayoutColumn
             span={12}
             className="mb-14 md:order-last md:mb-0"
-            lgOffset={1}
-            lgSpan={4}
+            xlOffset={1}
+            xlSpan={4}
             mdSpan={4}
           >
             <h3 className="mb-2 text-lg">Join our newsletter</h3>
@@ -25,11 +25,9 @@ export const Footer = () => {
                 className="h-12 text-2xs"
                 inputProps={{ className: "h-12 text-2xs m-0" }}
               />
-              <div>
-                <Button size="sm" className="ml-2 py-4">
-                  Subscribe
-                </Button>
-              </div>
+              <Button size="sm" className="ml-2 py-4">
+                Subscribe
+              </Button>
             </div>
             <p className="text-2xs text-grayscale-500">
               By subscribing you agree to with our Privacy Policy and provide
@@ -46,7 +44,7 @@ export const Footer = () => {
             </h2>
             <p className="text-2xs">© 2024, Sofa Society</p>
           </LayoutColumn>
-          <LayoutColumn span={12}  mdSpan={6} lgOffset={1} lgSpan={4}>
+          <LayoutColumn span={12} mdSpan={6} xlOffset={1} xlSpan={4}>
             <div className="flex">
               <ul className="flex flex-1 flex-col gap-4">
                 <li>

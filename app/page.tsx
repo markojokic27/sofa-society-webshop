@@ -7,12 +7,13 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { Arrow } from "@/components/Arrow";
+import { CollectionCard } from "@/components/CollectionCard";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 import Collection from "@/public/assets/images/collection.png";
-import { CollectionCard } from "@/components/CollectionCard";
+import AboutImage from "@/public/assets/images/about-sofa.png";
 
 export default function Home() {
   return (
@@ -137,6 +138,37 @@ export default function Home() {
               name="Scandinavian Simplicity"
               description="Minimalistic designs, neutral colors, and high-quality textures"
             />
+          </LayoutColumn>
+        </LayoutRow>
+        <LayoutRow>
+          <LayoutColumn span={12} className="md:mb-15 mb-8">
+            <h2 className="text-xl md:text-4xl">About Sofa Society</h2>
+          </LayoutColumn>
+          <LayoutColumn span={12} className="mb-8 md:mb-16">
+            <Image
+              src={AboutImage}
+              alt="About image"
+              className="object-cover"
+            />
+          </LayoutColumn>
+        </LayoutRow>
+        <LayoutRow className="mb-26 md:mb-36">
+          <LayoutColumn mdSpan={6}>
+            <h3 className="mb-6 text-xl md:mb-0 md:text-4xl">
+              At Sofa Society, we believe that a sofa is the heart of every
+              home.
+            </h3>
+          </LayoutColumn>
+          <LayoutColumn mdSpan={6} className="md:mt-18 md:text-lg lg:pl-20">
+            <p className="mb-6 md:mb-10">
+              We are dedicated to delivering high-quality, thoughtfully designed
+              sofas that merge comfort and style effortlessly.
+            </p>
+            <p className="md:6 mb-4">
+              Our mission is to transform your living space into a sanctuary of
+              relaxation and beauty, with products built to last.
+            </p>
+            <Button variant="link">Read more about Sofa Society</Button>
           </LayoutColumn>
         </LayoutRow>
       </Layout>

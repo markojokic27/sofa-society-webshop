@@ -30,9 +30,11 @@ type LayoutColumnProps = React.ComponentPropsWithoutRef<"div"> & {
   smSpan?: number;
   mdSpan?: number;
   lgSpan?: number;
+  xlSpan?: number;
   smOffset?: number;
   mdOffset?: number;
   lgOffset?: number;
+  xlOffset?: number;
 };
 
 const spanClasses = (span: number, prefix: string = "") => {
@@ -49,9 +51,11 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
   smSpan,
   mdSpan,
   lgSpan,
+  xlSpan,
   smOffset,
   mdOffset,
   lgOffset,
+  xlOffset,
   children,
   className,
   ...rest
@@ -66,11 +70,14 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
   const lgClasses = lgSpan
     ? `${spanClasses(lgSpan, "lg")} ${lgOffset ? offsetClasses(lgOffset, "lg") : ""}`
     : "";
+  const xlClasses = xlSpan
+    ? `${spanClasses(xlSpan, "xl")} ${xlOffset ? offsetClasses(xlOffset, "xl") : ""}`
+    : "";
   return (
     <div
       {...rest}
       className={twMerge(
-        `relative px-1 md:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${className}`,
+        `relative px-1 md:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${xlClasses} ${className}`,
       )}
     >
       {children}

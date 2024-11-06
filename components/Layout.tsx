@@ -24,6 +24,19 @@ export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
   </div>
 );
 
+export const LayoutRowRef = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, children, ...rest }, ref) => (
+  <div
+    {...rest}
+    ref={ref}
+    className={twMerge("-mx-1 flex flex-wrap md:-mx-6", className)}
+  >
+    {children}
+  </div>
+));
+
 type LayoutColumnProps = React.ComponentPropsWithoutRef<"div"> & {
   span?: number;
   offset?: number;
@@ -77,7 +90,8 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
     <div
       {...rest}
       className={twMerge(
-        `relative px-1 md:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${xlClasses} ${className}`,
+        `relative px-1 md:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${xlClasses}`,
+        className,
       )}
     >
       {children}

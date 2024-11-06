@@ -79,14 +79,14 @@ const config: Config = {
         34: "8.5rem",
       },
       aspectRatio: {
-        '4/3': '4 / 3',
+        "4/3": "4 / 3",
       },
       minWidth: {
         124: "31rem",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
 
 export default config;

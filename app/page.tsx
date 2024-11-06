@@ -7,13 +7,12 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { Arrow } from "@/components/Arrow";
-import { CollectionCard } from "@/components/CollectionCard";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
-import Collection from "@/public/assets/images/collection.png";
 import AboutImage from "@/public/assets/images/about-sofa.png";
+import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 export default function Home() {
   return (
@@ -67,79 +66,10 @@ export default function Home() {
             <p className="text-2xs md:text-lg">Sofas</p>
           </LayoutColumn>
         </LayoutRow>
-        <LayoutRow>
-          <LayoutColumn
-            span={12}
-            className="md:mb-15 mb-8 flex justify-between"
-          >
-            <h2 className="text-xl md:text-4xl">Collections</h2>
-            <div className="flex items-center">
-              <Button size="sm" className="md:h-10 md:py-0 md:leading-10">
-                View All
-              </Button>
-              <Arrow
-                variant="left"
-                color="white"
-                className="ml-6 hidden md:block"
-              />
-              <Arrow color="white" className="ml-2 hidden md:block" />
-            </div>
-          </LayoutColumn>
-        </LayoutRow>
-        <LayoutRow className="mb-26 flex-nowrap overflow-x-auto md:mb-36">
-          <LayoutColumn span={8} mdSpan={5}>
-            <CollectionCard
-              image={
-                <Image
-                  alt="collection image"
-                  src={Collection}
-                  className="mb-4 w-full object-cover md:mb-10"
-                />
-              }
-              name="Scandinavian Simplicity"
-              description="Minimalistic designs, neutral colors, and high-quality textures"
-            />
-          </LayoutColumn>
-          <LayoutColumn span={8} mdSpan={5}>
-            <CollectionCard
-              image={
-                <Image
-                  alt="collection image"
-                  src={Collection}
-                  className="mb-4 w-full object-cover md:mb-10"
-                />
-              }
-              name="Scandinavian Simplicity"
-              description="Minimalistic designs, neutral colors, and high-quality textures"
-            />
-          </LayoutColumn>
-          <LayoutColumn span={8} mdSpan={5}>
-            <CollectionCard
-              image={
-                <Image
-                  alt="collection image"
-                  src={Collection}
-                  className="mb-4 w-full object-cover md:mb-10"
-                />
-              }
-              name="Scandinavian Simplicity"
-              description="Minimalistic designs, neutral colors, and high-quality textures"
-            />
-          </LayoutColumn>
-          <LayoutColumn span={8} mdSpan={5}>
-            <CollectionCard
-              image={
-                <Image
-                  alt="collection image"
-                  src={Collection}
-                  className="mb-4 w-full object-cover md:mb-10"
-                />
-              }
-              name="Scandinavian Simplicity"
-              description="Minimalistic designs, neutral colors, and high-quality textures"
-            />
-          </LayoutColumn>
-        </LayoutRow>
+      </Layout>
+
+      <CollectionsScroll />
+      <Layout>
         <LayoutRow>
           <LayoutColumn span={12} className="md:mb-15 mb-8">
             <h2 className="text-xl md:text-4xl">About Sofa Society</h2>
@@ -172,7 +102,6 @@ export default function Home() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-
       <Footer />
     </>
   );

@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <>
       <Header headerTheme="light" />
-      <div className="mt-18 md:mb-26 mb-8 w-full overflow-hidden md:mt-0 md:h-screen">
+      <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
         <Image
           alt="header image"
           src={HeaderImage}
@@ -34,7 +34,7 @@ export default function Page() {
               home.
             </h2>
           </LayoutColumn>
-          <LayoutColumn lgSpan={5} className="md:mt-18 mt-6 md:text-lg">
+          <LayoutColumn lgSpan={5} className="mt-6 md:mt-18 md:text-lg">
             <p>
               Welcome to Sofa Society, where we believe that comfort and style
               should be effortlessly intertwined. Our mission is to help you
@@ -47,7 +47,7 @@ export default function Page() {
             </p>
           </LayoutColumn>
         </LayoutRow>
-        <LayoutRow className="md:mb-26 mb-8">
+        <LayoutRow className="mb-8 md:mb-26">
           <LayoutColumn>
             <Image
               alt="sofa image"
@@ -95,7 +95,7 @@ export default function Page() {
               />
             </div>
           </LayoutColumn>
-          <LayoutColumn mdSpan={5} mdOffset={1}>
+          <LayoutColumn mdSpan={6} lgSpan={5} lgOffset={1}>
             <p className="mb-6 md:mb-36">
               Our design philosophy revolves around creating pieces that are
               both beautiful and practical. Inspired by Scandinavian simplicity,
@@ -119,7 +119,7 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <div className="md:mb-26 mx-4 mb-8 md:mx-0 md:w-full">
+      <div className="mx-auto px-4 pb-8 md:mb-26 md:w-full md:px-0">
         <Image
           alt="sofa image"
           src={AboutImage3}
@@ -139,7 +139,7 @@ export default function Page() {
           <LayoutColumn
             lgSpan={5}
             lgOffset={1}
-            className="md:mt-18 mt-6 md:text-lg"
+            className="mt-6 md:mt-18 md:text-lg"
           >
             <p className="md:mb-6">
               Our team is here to help guide you through the process, offering

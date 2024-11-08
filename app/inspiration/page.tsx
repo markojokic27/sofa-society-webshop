@@ -6,13 +6,13 @@ import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
+import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header-inspiration.png";
 import Sofa from "@/public/assets/images/product-card.png";
 import AboutImage from "@/public/assets/images/about1.png";
 import AboutImage2 from "@/public/assets/images/about3.png";
-import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 export default function Page() {
   return (

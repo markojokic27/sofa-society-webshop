@@ -6,12 +6,12 @@ import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
+import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 import AboutImage from "@/public/assets/images/about-sofa.png";
-import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 export default function Page() {
   return (

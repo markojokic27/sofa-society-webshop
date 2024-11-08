@@ -86,6 +86,7 @@ export default function Page() {
               className="object-cover"
               height={702}
               width={1248}
+              priority={true}
             />
           </LayoutColumn>
         </LayoutRow>

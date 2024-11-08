@@ -35,7 +35,7 @@ export const CollectionsScroll: React.FC<
   return (
     <Layout {...rest}>
       <LayoutRow>
-        <LayoutColumn span={12} className="md:mb-15 mb-8 flex justify-between">
+        <LayoutColumn span={12} className="mb-8 flex justify-between md:mb-15">
           <h2 className="text-xl md:text-4xl">Collections</h2>
           <div className="flex items-center">
             <Button size="sm" className="md:h-10 md:py-0 md:leading-10">
@@ -56,7 +56,7 @@ export const CollectionsScroll: React.FC<
         </LayoutColumn>
       </LayoutRow>
       <LayoutRowRef
-        className="mb-26 scrollbar-hide flex-nowrap overflow-x-auto md:mb-36"
+        className="mb-26 flex-nowrap overflow-x-auto scrollbar-hide md:mb-36"
         ref={rowRef}
       >
         <LayoutColumn span={8} mdSpan={5} className="shrink-0">
@@ -67,6 +67,8 @@ export const CollectionsScroll: React.FC<
                 src={Collection}
                 className="mb-4 w-full object-cover md:mb-10"
                 priority={true}
+                height={661}
+                width={496}
               />
             }
             name="Scandinavian Simplicity"
@@ -81,6 +83,8 @@ export const CollectionsScroll: React.FC<
                 src={Collection}
                 className="mb-4 w-full object-cover md:mb-10"
                 priority={true}
+                height={661}
+                width={496}
               />
             }
             name="Scandinavian Simplicity"
@@ -95,6 +99,8 @@ export const CollectionsScroll: React.FC<
                 src={Collection}
                 className="mb-4 w-full object-cover md:mb-10"
                 priority={true}
+                height={661}
+                width={496}
               />
             }
             name="Scandinavian Simplicity"
@@ -109,6 +115,8 @@ export const CollectionsScroll: React.FC<
                 src={Collection}
                 className="mb-4 w-full object-cover md:mb-10"
                 priority={true}
+                height={661}
+                width={496}
               />
             }
             name="Scandinavian Simplicity"

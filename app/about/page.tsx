@@ -22,6 +22,8 @@ export default function Page() {
           src={HeaderImage}
           className="w-full object-cover md:h-full"
           priority={true}
+          height={750}
+          width={1440}
         />
       </div>
       <Layout>
@@ -52,6 +54,8 @@ export default function Page() {
               src={AboutImage1}
               className="w-full object-cover"
               priority={true}
+              height={702}
+              width={1248}
             />
           </LayoutColumn>
         </LayoutRow>
@@ -86,8 +90,8 @@ export default function Page() {
                 src={AboutImage2}
                 className="w-full object-cover"
                 priority={true}
-                width={240}
-                height={343}
+                width={600}
+                height={800}
               />
             </div>
           </LayoutColumn>

@@ -6,7 +6,10 @@ export const Layout: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
   children,
   ...rest
 }) => (
-  <div {...rest} className={twMerge("container mx-auto px-6", className)}>
+  <div
+    {...rest}
+    className={twMerge("container mx-auto px-4 md:px-6", className)}
+  >
     {children}
   </div>
 );

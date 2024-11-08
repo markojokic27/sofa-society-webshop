@@ -23,6 +23,8 @@ export default function Page() {
           src={HeaderImage}
           className="w-full object-cover md:h-full"
           priority={true}
+          height={750}
+          width={1440}
         />
       </div>
       <Layout>
@@ -50,6 +52,8 @@ export default function Page() {
                 alt="sofa image"
                 src={Sofa}
                 className="md:aspect-4/3 mb-2 w-full object-cover md:mb-8"
+                height={225}
+                width={168}
               />
             </div>
             <p className="text-2xs md:text-lg">Sofas</p>
@@ -60,6 +64,8 @@ export default function Page() {
                 alt="sofa image"
                 src={Sofa}
                 className="md:aspect-4/3 mb-2 w-full object-cover md:mb-8"
+                height={225}
+                width={168}
               />
             </div>
             <p className="text-2xs md:text-lg">Sofas</p>
@@ -78,6 +84,8 @@ export default function Page() {
               src={AboutImage}
               alt="About image"
               className="object-cover"
+              height={702}
+              width={1248}
             />
           </LayoutColumn>
         </LayoutRow>

@@ -6,7 +6,7 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <div className="bg-grayscale-50">
-      <Layout>
+      <Layout className="px-8 sm:px-6">
         <LayoutRow className="py-8 md:pb-20">
           <LayoutColumn
             span={12}

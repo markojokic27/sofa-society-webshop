@@ -21,7 +21,7 @@ export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
 }) => (
   <div
     {...rest}
-    className={twMerge("-mx-1 flex flex-wrap md:-mx-6", className)}
+    className={twMerge("-mx-1 flex flex-wrap md:-mx-4 lg:-mx-6", className)}
   >
     {children}
   </div>
@@ -34,7 +34,7 @@ export const LayoutRowRef = React.forwardRef<
   <div
     {...rest}
     ref={ref}
-    className={twMerge("-mx-1 flex flex-wrap md:-mx-6", className)}
+    className={twMerge("-mx-1 flex flex-wrap md:-mx-4 lg:-mx-6", className)}
   >
     {children}
   </div>
@@ -97,7 +97,7 @@ export const LayoutColumn: React.FC<LayoutColumnProps> = ({
     <div
       {...rest}
       className={twMerge(
-        `relative px-1 md:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${xlClasses}`,
+        `relative px-1 md:px-4 lg:px-6 ${baseClasses} ${smClasses} ${mdClasses} ${lgClasses} ${xlClasses}`,
         className,
       )}
     >

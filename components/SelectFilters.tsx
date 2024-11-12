@@ -5,35 +5,20 @@ import * as React from "react";
 import {
   Button as AriaButton,
   Label,
-  ListBox,
-  ListBoxItem,
   Popover,
   Select,
-  SelectValue,
 } from "react-aria-components";
 
 // Components
 import { Icon } from "@/components/Icon";
-import { Checkbox } from "@/components/Checkbox";
 
 export const SelectFilters: React.FC<
-  React.ComponentPropsWithoutRef<"div"> & { items: string[]; name: string }
-> = ({ items, name, className, ...rest }) => {
+  React.ComponentPropsWithoutRef<"div"> & { name: string }
+> = ({ name, children, className, ...rest }) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  let [selectedItems, setSelectedItems] = React.useState<string[]>([]);
-
-  const handleFilterChange = (item: string) => {
-    setSelectedItems((prevItems) =>
-      prevItems.includes(item)
-        ? prevItems.filter((i) => i !== item)
-        : [...prevItems, item],
-    );
-    console.log(selectedItems);
-  };
-
   return (
     <Select
-      className=""
+      className={className}
       onOpenChange={setIsOpen}
       isOpen={isOpen}
       aria-label="Select language"
@@ -48,24 +33,9 @@ export const SelectFilters: React.FC<
         </div>
       </AriaButton>
       <Popover
-        className={`z-[100] mr-5 flex w-60 cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none`}
+        className={`z-[100] mr-5  flex cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none md:min-w-64`}
       >
-        <ListBox className={`w-full overflow-y-auto outline-none`}>
-          {items.map((item, key) => {
-            return (
-              <ListBoxItem
-                key={key}
-                textValue={item}
-                className={`border-none p-4 outline-none`}
-                onAction={() => handleFilterChange(item)}
-              >
-                <Checkbox>
-                  <p className="ml-4">{item}</p>
-                </Checkbox>
-              </ListBoxItem>
-            );
-          })}
-        </ListBox>
+        {children}
       </Popover>
     </Select>
   );

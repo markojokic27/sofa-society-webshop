@@ -17,7 +17,6 @@ import { Icon } from "@/components/Icon";
 export const SelectSort: React.FC<
   React.ComponentPropsWithoutRef<"div"> & { name: string; items: string[] }
 > = ({ name, items, className, ...rest }) => {
-  const [selectedValue, setSelectedValue] = React.useState("HR");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (
@@ -39,21 +38,7 @@ export const SelectSort: React.FC<
       <Popover
         className={`z-[100] mr-5 flex w-60 cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none`}
       >
-        <ListBox className={`w-full overflow-y-auto outline-none`}>
-          {items.map((item, key) => {
-            return (
-              <ListBoxItem
-                key={key}
-                onAction={() => {
-                  setSelectedValue(item);
-                }}
-                className={`border-none p-4 outline-none ${item === selectedValue ? "font-semibold" : ""}`}
-              >
-                {item}
-              </ListBoxItem>
-            );
-          })}
-        </ListBox>
+        
       </Popover>
     </Select>
   );

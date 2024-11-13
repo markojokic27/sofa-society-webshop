@@ -8,14 +8,14 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CollectionsScroll } from "@/components/CollectionsScroll";
 import { ProductCard } from "@/components/ProductCard";
-import { SelectFilters } from "@/components/SelectFilters";
-import { SelectSort } from "@/components/SelectSort";
+import { Filter } from "@/components/Filter";
 import { MultipleSelection } from "@/components/MultipleSelection";
 import { SingleSelection } from "@/components/SingleSelection";
 
 // Assets
 import Collection from "@/public/assets/images/collection.png";
 import Sofa from "@/public/assets/images/product-card.png";
+import { SliderSelection } from "@/components/SliderSelection";
 
 export default function Page() {
   return (
@@ -62,16 +62,23 @@ export default function Page() {
 
         <LayoutRow>
           <LayoutColumn className="mb-8 flex gap-4">
-            {/*<SelectFilters name="Price"></SelectFilters>*/}
-            <SelectFilters name="Color">
+            <Filter name="Price">
+              <SliderSelection
+                defaultValue={[0, 5000]}
+                maxValue={5000}
+                thumbLabels={["Start", "End"]}
+                aria-label="Range selection"
+              />
+            </Filter>
+            <Filter name="Color">
               <MultipleSelection items={["Black", "Gray", "White", "Red"]} />
-            </SelectFilters>
-            <SelectFilters name="Materials">
+            </Filter>
+            <Filter name="Materials">
               <MultipleSelection
                 items={["Velvet", "Linen", "Bouclé", "Leather"]}
               />
-            </SelectFilters>
-            <SelectFilters name="Colection">
+            </Filter>
+            <Filter name="Colection">
               <MultipleSelection
                 items={[
                   "Scandinavian Simplicity",
@@ -80,8 +87,8 @@ export default function Page() {
                   "Timeless Classics",
                 ]}
               />
-            </SelectFilters>
-            <SelectFilters name="Sort by" className="ml-auto">
+            </Filter>
+            <Filter name="Sort by" className="ml-auto">
               <SingleSelection
                 items={[
                   "Featured",
@@ -90,10 +97,9 @@ export default function Page() {
                   "Highest price",
                 ]}
               />
-            </SelectFilters>
+            </Filter>
           </LayoutColumn>
         </LayoutRow>
-
         <LayoutRow className="-mx-2 mb-20 md:-mx-4 lg:-mx-6">
           {Array(12).fill(
             <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">

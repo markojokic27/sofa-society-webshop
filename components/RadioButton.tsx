@@ -35,7 +35,7 @@ export const Radio: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
     <div
       {...rest}
       className={twMerge(
-        "group-data-[selected=true]/radio:border-6 h-4 w-4 rounded-full border border-grayscale-200 transition-all duration-300 group-hover/radio:border-grayscale-600 group-data-[selected=true]/radio:border-black",
+        "h-4 w-4 rounded-full border border-grayscale-200 transition-all duration-300 group-hover/radio:border-grayscale-600 group-data-[selected=true]/radio:border-6 group-data-[selected=true]/radio:border-black",
         className,
       )}
     />

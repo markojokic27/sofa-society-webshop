@@ -1,7 +1,15 @@
+"use client";
+
 // External packages
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import { Label, Radio as AriaRadio, RadioProps } from "react-aria-components";
+import {
+  Label,
+  Radio as AriaRadio,
+  RadioProps,
+  RadioGroup as AriaRadioGroup,
+  RadioGroupProps,
+} from "react-aria-components";
 
 export const RadioButton: React.FC<
   RadioProps &
@@ -39,5 +47,20 @@ export const Radio: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
         className,
       )}
     />
+  );
+};
+
+export const RadioGroup: React.FC<RadioGroupProps & { className?: string }> = ({
+  className,
+  children,
+  ...rest
+}) => {
+  return (
+    <AriaRadioGroup
+      className={twMerge("flex flex-col gap-6", className)}
+      {...rest}
+    >
+      {children}
+    </AriaRadioGroup>
   );
 };

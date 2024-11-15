@@ -15,6 +15,8 @@ export type ButtonOwnProps = {
   variant?: "solid" | "outline" | "dark" | "link";
   size?: "sm" | "md";
   isVisuallyDisabled?: boolean;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
 };
 
 export const Button: React.FC<
@@ -23,6 +25,8 @@ export const Button: React.FC<
   variant = "solid",
   size = "md",
   isVisuallyDisabled,
+  iconLeft,
+  iconRight,
   className,
   children,
   ...rest
@@ -31,10 +35,13 @@ export const Button: React.FC<
     {...rest}
     isDisabled={rest.disabled}
     className={twMerge(
+      `${iconLeft || iconRight ? "flex items-center gap-2" : ""}`,
       getButtonClassNames({ size, variant, isVisuallyDisabled }),
       className,
     )}
   >
+    {Boolean(iconLeft) && iconLeft}
     {children}
+    {Boolean(iconRight) && iconRight}
   </AriaButton>
 );

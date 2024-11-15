@@ -19,10 +19,11 @@ export const SliderSelection: React.FC<
     <Slider
       {...rest}
       value={value}
+      maxValue={5000}
       onChange={(value: number | number[]) =>
         setValue(value as [number, number])
       }
-      className={twMerge("w-full px-6 pb-4 pt-6", className as string)}
+      className={twMerge("w-full", className as string)}
     >
       <SliderTrack className="relative mb-4 h-[1px] w-full bg-black hover:cursor-pointer">
         {({ state }) =>

@@ -6,8 +6,10 @@
   .hamburger-menu {
     width: calc(100% - 72px);
   }
+  .mobile-filter {
+    height: calc(100vh - 144px);
+  }
 }
-
 @layer utilities {
   .w-column-1 {
     width: calc((1 / 12) * 100%);

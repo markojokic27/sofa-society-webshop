@@ -16,6 +16,7 @@ export const SingleSelection: React.FC<
         `w-full overflow-y-auto outline-none`,
         className as string,
       )}
+      aria-label="Select item"
       {...rest}
     >
       {items.map((item, key) => {
@@ -27,7 +28,7 @@ export const SingleSelection: React.FC<
                 ? setSelectedValue("")
                 : setSelectedValue(item);
             }}
-            className={`border-none p-4 outline-none hover:cursor-pointer ${item === selectedValue ? "font-semibold" : ""}`}
+            className={`border-none p-4 text-2xs outline-none hover:cursor-pointer md:text-base ${item === selectedValue ? "font-semibold" : ""}`}
           >
             {item}
           </ListBoxItem>

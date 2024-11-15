@@ -1,65 +1,59 @@
 // External packages
 import Image from "next/image";
-import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CollectionsScroll } from "@/components/CollectionsScroll";
-import { ProductCard } from "@/components/ProductCard";
-import { Filter } from "@/components/Filter";
-import { MultipleSelection } from "@/components/MultipleSelection";
-import { SingleSelection } from "@/components/SingleSelection";
 import { MobileFilters } from "@/components/MobileFilters";
 import { Icon } from "@/components/Icon";
 import { SliderSelection } from "@/components/SliderSelection";
+import { MultipleSelection } from "@/components/MultipleSelection";
 import { RadioButton, RadioGroup } from "@/components/RadioGruop";
+import { Filter } from "@/components/Filter";
+import { SingleSelection } from "@/components/SingleSelection";
+import { ProductCard } from "@/components/ProductCard";
 
 // Assets
-import Collection from "@/public/assets/images/collection.png";
-import Sofa from "@/public/assets/images/product-card.png";
+import HeaderImage from "@/public/assets/images/header.png";
+import Sofa from "@/public/assets/images/sofa.png";
 
 export default function Page() {
   return (
     <>
-      <Header headerTheme="dark" />
-      <CollectionsScroll className="mb-26 mt-26 md:mb-36 md:mt-48 md:hidden" />
-      <Layout className="mb-26 mr-0 mt-26 hidden pr-0 sm:mx-auto md:mb-36 md:mt-48 md:flex md:pr-6">
-        <LayoutRow>
-          <LayoutColumn>
-            <h1 className="mb-8 text-xl md:text-4xl">Collections</h1>
+      <Header headerTheme="light" />
+      <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
+        <Image
+          alt="header image"
+          src={HeaderImage}
+          className="w-full object-cover md:h-full"
+          priority={true}
+          height={750}
+          width={1440}
+        />
+      </div>
+      <Layout>
+        <LayoutRow className="mb-26 lg:mb-36">
+          <LayoutColumn lgSpan={6} className="mb-6 text-xl lg:text-4xl">
+            Scandinavian Simplicity: Effortless elegance, timeless comfort
           </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
-              <Image src={Collection} alt="Collection" className="mb-6" />
-              <p>Scandinavian Simplicity</p>
-            </Link>
-          </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
-              <Image src={Collection} alt="Collection" className="mb-6" />
-              <p>Scandinavian Simplicity</p>
-            </Link>
-          </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
-              <Image src={Collection} alt="Collection" className="mb-6" />
-              <p>Scandinavian Simplicity</p>
-            </Link>
-          </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
-              <Image src={Collection} alt="Collection" className="mb-6" />
-              <p>Scandinavian Simplicity</p>
-            </Link>
+          <LayoutColumn lgSpan={6} className="lg:text-lg">
+            <p className="lg:ml-15 lg:mt-18">
+              Minimalistic designs, neutral colors, and high-quality textures.
+              Perfect for those who seek comfort with a clean and understated
+              aesthetic. <br />
+              <br /> This collection brings the essence of Scandinavian elegance
+              to your living room.
+            </p>
           </LayoutColumn>
         </LayoutRow>
       </Layout>
       <Layout>
         <LayoutRow>
           <LayoutColumn>
-            <h1 className="mb-6 text-xl md:mb-8 md:text-4xl">Shop</h1>
+            <h1 className="mb-6 text-xl md:mb-8 md:text-4xl">
+              Scandinavian Simplicity
+            </h1>
           </LayoutColumn>
         </LayoutRow>
 
@@ -163,32 +157,73 @@ export default function Page() {
             </Filter>
           </LayoutColumn>
         </LayoutRow>
-        <LayoutRow className="-mx-2 mb-20 md:-mx-4 lg:-mx-6">
-          {Array(12)
-            .fill(0)
-            .map((_, index) => (
-              <LayoutColumn
-                key={index}
-                span={6}
-                mdSpan={4}
-                className="px-2 md:px-4 lg:px-6"
-              >
-                <ProductCard
-                  name="Nordic Haven"
-                  description="Scandinavian Simplicity"
-                  price="1000€"
-                  image={
-                    <Image
-                      alt="about image"
-                      src={Sofa}
-                      className="mb-4 aspect-square md:mb-6 md:aspect-4/3"
-                      priority={true}
-                    />
-                  }
-                  className="mb-10 md:mb-16"
+        <LayoutRow className="-mx-2 mb-26 md:-mx-4 lg:-mx-6 lg:mb-36">
+          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
+            <ProductCard
+              name="Nordic Haven"
+              description="Scandinavian Simplicity"
+              price="1000€"
+              image={
+                <Image
+                  alt="about image"
+                  src={Sofa}
+                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+                  priority={true}
                 />
-              </LayoutColumn>
-            ))}
+              }
+              className="mb-10 md:mb-16"
+            />
+          </LayoutColumn>
+          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
+            <ProductCard
+              name="Nordic Haven"
+              description="Scandinavian Simplicity"
+              price="1000€"
+              originalPrice="1200€"
+              image={
+                <Image
+                  alt="about image"
+                  src={Sofa}
+                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+                  priority={true}
+                />
+              }
+              className="mb-10 md:mb-16"
+            />
+          </LayoutColumn>
+          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
+            <ProductCard
+              name="Nordic Haven"
+              description="Scandinavian Simplicity"
+              price="1000€"
+              image={
+                <Image
+                  alt="about image"
+                  src={Sofa}
+                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+                  priority={true}
+                />
+              }
+              className="mb-10 md:mb-16"
+            />
+          </LayoutColumn>
+          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
+            <ProductCard
+              name="Nordic Haven"
+              description="Scandinavian Simplicity"
+              price="1000€"
+              originalPrice="1200€"
+              image={
+                <Image
+                  alt="about image"
+                  src={Sofa}
+                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+                  priority={true}
+                />
+              }
+              className="mb-10 md:mb-16"
+            />
+          </LayoutColumn>
         </LayoutRow>
       </Layout>
 

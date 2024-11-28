@@ -1,8 +1,9 @@
+// External packages
 import * as React from "react";
-import { Radio, RadioGroup } from "react-aria-components";
+import { Radio, RadioGroup, RadioGroupProps } from "react-aria-components";
 
 export const ColorSelection: React.FC<
-  React.ComponentPropsWithoutRef<"div"> & {
+  RadioGroupProps & {
     colors: Array<{ name: string; value: string }>;
     product: { material: string; color: string; quantity: number };
     setProduct: React.Dispatch<
@@ -19,10 +20,10 @@ export const ColorSelection: React.FC<
       value={product.color}
       onChange={(color) => {
         setProduct((prev) => ({ ...prev, color }));
-        console.log("Selected color:", color); // Log the selected value
       }}
       className={"mb-8 flex flex-row gap-4 sm:mb-24"}
       aria-label="Color Selection"
+      {...rest}
     >
       {colors.map((color) => (
         <Radio

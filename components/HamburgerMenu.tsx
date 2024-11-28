@@ -5,7 +5,7 @@ import Link from "next/link";
 // Components
 import { Icon } from "@/components/Icon";
 import { Input } from "@/components/Input";
-import { SelectLanguage } from "./SelectLanguage";
+import { FunctionalSelect } from "./FunctionalSelect";
 
 export const HamburgerMenu: React.FC<
   React.ComponentPropsWithoutRef<"button"> & {
@@ -49,7 +49,24 @@ export const HamburgerMenu: React.FC<
               </li>
             </ul>
           </div>
-          <div className="m-8 text-grayscale-10"><SelectLanguage variant="mobile"/></div>
+          <div className="m-8 text-grayscale-10">
+            <FunctionalSelect
+              variant="language-select-mobile"
+              items={[
+                { name: "Arabic", value: "AR" },
+                { name: "Chinese", value: "ZH" },
+                { name: "Hrvatski", value: "HR" },
+                { name: "English", value: "EN" },
+                { name: "Français", value: "FR" },
+                { name: "Deutsch", value: "DE" },
+                { name: "Italiano", value: "IT" },
+                { name: "Japanese", value: "JA" },
+                { name: "Russian", value: "RU" },
+                { name: "Español", value: "ES" },
+              ]}
+              defaultValue={"HR"}
+            />
+          </div>
         </div>
       </RadixDialog.Content>
     </RadixDialog.Overlay>

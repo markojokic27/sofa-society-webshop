@@ -16,7 +16,7 @@ export type ArrowOwnProps = {
 };
 
 export const Arrow: React.FC<
-  React.ComponentPropsWithoutRef<"button"> & AriaButtonProps & ArrowOwnProps
+  AriaButtonProps & ArrowOwnProps & { className?: string }
 > = ({
   variant = "right",
   color = "black",
@@ -28,7 +28,7 @@ export const Arrow: React.FC<
     {...rest}
     className={twMerge(
       "flex h-10 w-10 items-center justify-center rounded-full border border-black bg-black text-white outline-none focus:outline-none",
-      color === "white" && "bg-white text-black",
+      color === "white" && "bg-transparent text-black",
       size === "sm" && "h-6 w-6 border-[0.5px]",
       className,
     )}
@@ -36,6 +36,31 @@ export const Arrow: React.FC<
     <Icon
       name={variant === "left" ? "arrowLeft" : "arrowRight"}
       className={size === "sm" ? "h-3.5 w-3.5" : ""}
-    ></Icon>
+    />
   </AriaButton>
+);
+
+export const ArrowIcon: React.FC<
+  React.ComponentPropsWithoutRef<"div"> & ArrowOwnProps
+> = ({
+  variant = "right",
+  color = "black",
+  size = "md",
+  className,
+  ...rest
+}) => (
+  <div
+    {...rest}
+    className={twMerge(
+      "flex h-10 w-10 items-center justify-center rounded-full border border-black bg-black text-white outline-none focus:outline-none",
+      color === "white" && "bg-transparent text-black",
+      size === "sm" && "h-6 w-6 border-[0.5px]",
+      className,
+    )}
+  >
+    <Icon
+      name={variant === "left" ? "arrowLeft" : "arrowRight"}
+      className={size === "sm" ? "h-3.5 w-3.5" : "max-h-6 max-w-6"}
+    />
+  </div>
 );

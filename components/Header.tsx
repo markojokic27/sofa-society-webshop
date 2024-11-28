@@ -7,7 +7,7 @@ import { Link, Button, Select } from "react-aria-components";
 // Components
 import { Icon } from "@/components/Icon";
 import { HamburgerMenu } from "@/components/HamburgerMenu";
-import { SelectLanguage } from "@/components/SelectLanguage";
+import { FunctionalSelect } from "@/components/FunctionalSelect";
 
 export const Header: React.FC<{
   headerTheme?: "light" | "dark";
@@ -63,7 +63,21 @@ export const Header: React.FC<{
         </div>
         <ul className="flex items-center gap-8 justify-self-end">
           <li className="hidden md:flex">
-            <SelectLanguage />
+            <FunctionalSelect
+              items={[
+                { name: "Arabic", value: "AR" },
+                { name: "Chinese", value: "ZH" },
+                { name: "Hrvatski", value: "HR" },
+                { name: "English", value: "EN" },
+                { name: "Français", value: "FR" },
+                { name: "Deutsch", value: "DE" },
+                { name: "Italiano", value: "IT" },
+                { name: "Japanese", value: "JA" },
+                { name: "Russian", value: "RU" },
+                { name: "Español", value: "ES" },
+              ]}
+              defaultValue={"HR"}
+            />
           </li>
           <li className="hidden items-center md:flex">
             <Button className="focus:outline-none">

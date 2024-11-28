@@ -9,6 +9,36 @@
   .mobile-filter {
     height: calc(100vh - 144px);
   }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none;
+  }
+  div .swiper-button-prev,
+  div .swiper-button-next {
+    width: 40px;
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    div .swiper-button-prev,
+    div .swiper-button-next {
+      display: block;
+    }
+  }
+  div .swiper-button-prev.swiper-button-disabled,
+  div .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+  }
+
+  div .swiper-pagination-bullet-active {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: default;
+  }
+
+  .popout-width {
+    min-width: calc(100% - 32px);
+  }
 }
 @layer utilities {
   .w-column-1 {

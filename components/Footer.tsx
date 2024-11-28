@@ -1,7 +1,10 @@
+// External packages
+import Link from "next/link";
+
+// Copmonents
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
-import Link from "next/link";
 
 export const Footer = () => {
   return (

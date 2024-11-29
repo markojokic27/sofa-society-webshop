@@ -62,7 +62,7 @@ export const FunctionalSelect: React.FC<
           className={twMerge(
             "flex",
             variant === "order-settings" ? "justify-between" : "",
-            selectedValue ? "text-black" : "text-grayscale-500",
+            selectedValue ? "" : "text-grayscale-500",
           )}
           {...rest}
         >

@@ -1,5 +1,8 @@
+"use client";
+
 // External packages
 import * as React from "react";
+import { twMerge } from "tailwind-merge";
 import {
   NumberField,
   Group,
@@ -12,8 +15,8 @@ import {
 import { Icon } from "@/components/Icon";
 
 export const Counter: React.FC<
-  React.ComponentPropsWithoutRef<"div"> & NumberFieldProps
-> = ({ className, ...rest }) => {
+  NumberFieldProps & { variant?: "default" | "small" }
+> = ({ className, variant, ...rest }) => {
   const [value, setValue] = React.useState<number>(1);
 
   return (
@@ -25,22 +28,30 @@ export const Counter: React.FC<
       aria-label="Counter"
       {...rest}
     >
-      <Group className="flex items-center justify-between rounded-1 border border-grayscale-200 px-6 py-3 md:w-40">
+      <Group
+        className={twMerge(
+          "flex items-center justify-between rounded-1 border border-grayscale-200 px-6 py-3",
+          variant === "small" ? "w-22 py-1.75 px-3" : "md:w-40",
+        )}
+      >
         <Button
           slot="decrement"
           className="outline-none data-[disabled=true]:text-grayscale-200"
         >
-          <Icon name="minus" />
+          <Icon name="minus" className={variant === "small" ? "h-4 w-4" : ""} />
         </Button>
         <Input
           inputMode="numeric"
-          className="h-5 w-5 text-center outline-none"
+          className={twMerge(
+            "h-5 w-5 text-center outline-none",
+            variant === "small" ? "h-4 w-4 text-2xs" : "",
+          )}
         />
         <Button
           slot="increment"
           className="outline-none data-[disabled=true]:text-grayscale-200"
         >
-          <Icon name="plus" />
+          <Icon name="plus" className={variant === "small" ? "h-4 w-4" : ""} />
         </Button>
       </Group>
     </NumberField>

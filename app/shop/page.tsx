@@ -14,7 +14,7 @@ import { SingleSelection } from "@/components/SingleSelection";
 import { MobileFilters } from "@/components/MobileFilters";
 import { Icon } from "@/components/Icon";
 import { SliderSelection } from "@/components/SliderSelection";
-import { RadioButton, RadioGroup } from "@/components/RadioGruop";
+import { RadioButton, RadioGroup } from "@/components/RadioGroup";
 
 // Assets
 import Collection from "@/public/assets/images/collection.png";

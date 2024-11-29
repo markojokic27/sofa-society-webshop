@@ -70,6 +70,7 @@ const config: Config = {
         18: "4.5rem",
       },
       padding: {
+        1.75: "0.4375rem",
         7.5: "1.875rem",
       },
       margin: {
@@ -83,6 +84,7 @@ const config: Config = {
       },
       minWidth: {
         124: "31rem",
+        30: "7.5rem",
       },
     },
   },

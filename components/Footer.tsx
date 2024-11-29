@@ -51,41 +51,41 @@ export const Footer = () => {
             <div className="flex">
               <ul className="flex flex-1 flex-col gap-4">
                 <li>
-                  <Link href={"FAQ"}>FAQ</Link>
+                  <Link href={"faq"}>FAQ</Link>
                 </li>
                 <li>
-                  <Link href={"Help"}>Help</Link>
+                  <Link href={"help"}>Help</Link>
                 </li>
                 <li>
-                  <Link href={"Delivery"}>Delivery</Link>
+                  <Link href={"delivery"}>Delivery</Link>
                 </li>
                 <li>
-                  <Link href={"Returns"}>Returns</Link>
-                </li>
-              </ul>
-              <ul className="flex flex-1 flex-col gap-4">
-                <li>
-                  <Link href={"Instagram"}>Instagram</Link>
-                </li>
-                <li>
-                  <Link href={"TikTok"}>TikTok</Link>
-                </li>
-                <li>
-                  <Link href={"Pinterest"}>Pinterest</Link>
-                </li>
-                <li>
-                  <Link href={"Facebook"}>Facebook</Link>
+                  <Link href={"returns"}>Returns</Link>
                 </li>
               </ul>
               <ul className="flex flex-1 flex-col gap-4">
                 <li>
-                  <Link href={"Privacy Policy"}>Privacy Policy</Link>
+                  <Link href={"instagrm"}>Instagram</Link>
                 </li>
                 <li>
-                  <Link href={"Cookie Policy"}>Cookie Policy</Link>
+                  <Link href={"tiktok"}>TikTok</Link>
                 </li>
                 <li>
-                  <Link href={"Terms of Use"}>Terms of Use</Link>
+                  <Link href={"pinterest"}>Pinterest</Link>
+                </li>
+                <li>
+                  <Link href={"facebook"}>Facebook</Link>
+                </li>
+              </ul>
+              <ul className="flex flex-1 flex-col gap-4">
+                <li>
+                  <Link href={"privacy-policy"}>Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link href={"cookie-policy"}>Cookie Policy</Link>
+                </li>
+                <li>
+                  <Link href={"terms-of-use"}>Terms of Use</Link>
                 </li>
               </ul>
             </div>

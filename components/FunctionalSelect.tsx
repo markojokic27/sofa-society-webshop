@@ -46,7 +46,6 @@ export const FunctionalSelect: React.FC<
   const [selectedValue, setSelectedValue] = React.useState(defaultValue);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
-
   return (
     <Select
       className={twMerge(
@@ -63,7 +62,7 @@ export const FunctionalSelect: React.FC<
           className={twMerge(
             "flex",
             variant === "order-settings" ? "justify-between" : "",
-            selectedValue === "" ? "text-grayscale-500" : "",
+            selectedValue ? "text-black" : "text-grayscale-500",
           )}
           {...rest}
         >

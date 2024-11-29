@@ -52,16 +52,17 @@ export const OrderSettings: React.FC<
         />
       </div>
 
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="mb-4 flex flex-col gap-4 md:flex-row">
         <Counter />
         <Button
-          className="w-full"
+          className={`w-full ${!(product.color && product.material) ? "hover:border-grayscale-2000 border-grayscale-200 bg-grayscale-200" : ""}`}
           isDisabled={!(product.color && product.material)}
           disabled={!(product.color && product.material)}
         >
-          Add to cart{" "}
+          Add to cart
         </Button>
       </div>
+      <p className="text-grayscale-500 text-2xs md:text-base">Estimate delivery 2-3 days</p>
     </div>
   );
 };

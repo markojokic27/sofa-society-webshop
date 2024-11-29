@@ -21,7 +21,7 @@ export const ColorSelection: React.FC<
       onChange={(color) => {
         setProduct((prev) => ({ ...prev, color }));
       }}
-      className={"mb-8 flex flex-row gap-4 sm:mb-24"}
+      className={"mb-8 flex flex-row gap-4 sm:mb-10 lg:mb-24"}
       aria-label="Color Selection"
       {...rest}
     >

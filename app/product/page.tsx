@@ -57,7 +57,7 @@ export default function Page() {
                 Paloma Haven
               </h2>
               <h3 className="mb-8 text-lg">€12000</h3>
-              <p className="sm:md-16 mb-8 text-2xs text-grayscale-500 sm:text-black md:text-base">
+              <p className="sm:md-16 mb-8 text-2xs text-grayscale-500 sm:text-black md:text-base xl:mb-16">
                 Minimalistic designs, neutral colors, and high-quality textures.
                 Perfect for those who seek comfort with a clean and understated
                 aesthetic. This collection brings the essence of Scandinavian

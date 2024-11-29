@@ -26,7 +26,7 @@ export const ImageSwiper: React.FC<
         pagination={pagination}
         spaceBetween={16}
         breakpoints={{
-          768: {
+          1024: {
             slidesPerView: 1.4,
           },
         }}

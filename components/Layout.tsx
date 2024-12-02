@@ -27,19 +27,6 @@ export const LayoutRow: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
   </div>
 );
 
-export const LayoutRowRef = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<"div">
->(({ className, children, ...rest }, ref) => (
-  <div
-    {...rest}
-    ref={ref}
-    className={twMerge("-mx-1 flex flex-wrap md:-mx-4 lg:-mx-6", className)}
-  >
-    {children}
-  </div>
-));
-
 type LayoutColumnProps = React.ComponentPropsWithoutRef<"div"> & {
   span?: number;
   offset?: number;

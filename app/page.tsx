@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <>
       <Header headerTheme="light" />
-      <div className="mt-18 md:mb-26 mb-8 w-full overflow-hidden md:mt-0 md:h-screen">
+      <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
         <Image
           alt="header image"
           src={HeaderImage}
@@ -43,7 +43,7 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="mb-26 md:mb-36">
-          <LayoutColumn span={12} className="md:mb-15 mb-8">
+          <LayoutColumn span={12} className="mb-8 md:mb-15">
             <h2 className="text-xl md:text-4xl">Our products</h2>
           </LayoutColumn>
           <LayoutColumn span={6}>
@@ -51,7 +51,7 @@ export default function Page() {
               <Image
                 alt="sofa image"
                 src={Sofa}
-                className="md:aspect-4/3 mb-2 w-full object-cover md:mb-8"
+                className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
                 height={225}
                 width={168}
               />
@@ -63,7 +63,7 @@ export default function Page() {
               <Image
                 alt="sofa image"
                 src={Sofa}
-                className="md:aspect-4/3 mb-2 w-full object-cover md:mb-8"
+                className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
                 height={225}
                 width={168}
               />
@@ -76,14 +76,14 @@ export default function Page() {
       <CollectionsScroll />
       <Layout>
         <LayoutRow>
-          <LayoutColumn span={12} className="md:mb-15 mb-8">
+          <LayoutColumn span={12} className="mb-8 md:mb-15">
             <h2 className="text-xl md:text-4xl">About Sofa Society</h2>
           </LayoutColumn>
           <LayoutColumn span={12} className="mb-8 md:mb-16">
             <Image
               src={AboutImage}
               alt="About image"
-              className="object-cover"
+              className="w-full object-cover"
               height={702}
               width={1248}
               priority={true}

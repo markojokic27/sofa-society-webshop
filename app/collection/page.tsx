@@ -9,7 +9,7 @@ import { MobileFilters } from "@/components/MobileFilters";
 import { Icon } from "@/components/Icon";
 import { SliderSelection } from "@/components/SliderSelection";
 import { MultipleSelection } from "@/components/MultipleSelection";
-import { RadioButton, RadioGroup } from "@/components/RadioGruop";
+import { RadioButton, RadioGroup } from "@/components/RadioGroup";
 import { Filter } from "@/components/Filter";
 import { SingleSelection } from "@/components/SingleSelection";
 import { ProductCard } from "@/components/ProductCard";

@@ -30,26 +30,20 @@ export default function Page() {
           <LayoutColumn>
             <h1 className="mb-8 text-xl md:text-4xl">Collections</h1>
           </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
+          <LayoutColumn className="flex gap-6">
+            <Link href={"/collection"} className="flex-1">
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
             </Link>
-          </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
+            <Link href={"/collection"} className="flex-1">
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
             </Link>
-          </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
+            <Link href={"/collection"} className="flex-1">
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
             </Link>
-          </LayoutColumn>
-          <LayoutColumn span={3}>
-            <Link href={"/collection"}>
+            <Link href={"/collection"} className="flex-1">
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
             </Link>

@@ -86,6 +86,20 @@ const config: Config = {
         124: "31rem",
         30: "7.5rem",
       },
+      keyframes: {
+        slideDownCollapsible: {
+          from: { height: "0" },
+          to: { height: "var(--radix-collapsible-content-height)" },
+        },
+        slideUpCollapsible: {
+          from: { height: "var(--radix-collapsible-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        slideDownCollapsible: "slideDownCollapsible 300ms ease-out",
+        slideUpCollapsible: "slideUpCollapsible 300ms ease-out",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],

@@ -64,3 +64,24 @@ export const RadioGroup: React.FC<RadioGroupProps & { className?: string }> = ({
     </AriaRadioGroup>
   );
 };
+
+export const RadioButtonVissualy: React.FC<
+  React.ComponentPropsWithoutRef<"div"> & {
+    labelLeft?: React.ReactNode;
+    labelRight?: React.ReactNode;
+  }
+> = ({ labelLeft, labelRight, className, ...rest }) => {
+  return (
+    <div
+      {...rest}
+      className={twMerge(
+        "group flex items-center justify-start gap-3 border px-4 py-5 hover:cursor-pointer hover:border-blue-700",
+        className,
+      )}
+    >
+      <Radio />
+      {labelLeft && <Label>{labelLeft}</Label>}
+      {labelRight && <Label className="ml-auto">{labelRight}</Label>}
+    </div>
+  );
+};

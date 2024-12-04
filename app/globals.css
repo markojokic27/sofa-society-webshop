@@ -9,6 +9,11 @@
   .mobile-filter {
     height: calc(100vh - 144px);
   }
+
+  /*
+   * Swiper
+   */
+
   .swiper-button-prev::after,
   .swiper-button-next::after {
     display: none;
@@ -65,16 +70,38 @@
       .swiper-container {
         padding-inline: calc(50% - 512px);
       }
+      .pulled-background::after {
+        width: calc((100% + 48px) + ((100vw - 1024px) / 2));
+        margin-left: -48px;
+      }
     }
     @media (min-width: 1296px) {
       .swiper-container {
         padding-inline: calc(50% - 648px);
+      }
+      .pulled-background::after {
+        width: calc((100% + 48px) + ((100vw - 1296px) / 2));
+        margin-left: -48px;
       }
     }
     @media (min-width: 1536px) {
       .swiper-container {
         padding-inline: calc(50% - 768px);
       }
+      .pulled-background::after {
+        width: calc((100% + 48px) + ((100vw - 1536px) / 2));
+        margin-left: -48px;
+      }
+    }
+
+    /*
+    * Pulled background
+    */
+    .pulled-background-account::after {
+      width: 100vw;
+    }
+    .pulled-background-account::before {
+      width: 100vw;
     }
   }
   @layer utilities {

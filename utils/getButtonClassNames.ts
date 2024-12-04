@@ -11,7 +11,7 @@ export const getButtonClassNames = ({
   isVisuallyDisabled?: ButtonOwnProps["isVisuallyDisabled"];
 }): string =>
   twJoin(
-    "bg-transparent hover:bg-transparent rounded-1 border border-black hover:border-grayscale-500 outline-none focus:outline-none",
+    "bg-transparent hover:bg-transparent rounded-1 border border-black hover:border-grayscale-500 outline-none focus:outline-none leading-none",
     variant === "solid" && "text-white bg-black hover:bg-grayscale-500",
     variant === "outline" &&
       "hover:border-grayscale-500 hover:text-grayscale-500",
@@ -24,10 +24,10 @@ export const getButtonClassNames = ({
     variant === "link" && size === "sm" && "text-base underline-offset-4",
     isVisuallyDisabled &&
       variant === "solid" &&
-      "border-grayscale-200 bg-grayscale-200 hover:bg-grayscale-200 hover:border-grayscale-200",
+      "border-grayscale-200 bg-grayscale-200 hover:bg-grayscale-200 hover:border-grayscale-200 hover:cursor-default",
     isVisuallyDisabled &&
       variant === "outline" &&
-      "border-grayscale-200 text-grayscale-200 hover:text-grayscale-200 hover:border-grayscale-200",
+      "border-grayscale-200 text-grayscale-200 hover:text-grayscale-200 hover:border-grayscale-200 ",
     isVisuallyDisabled &&
       variant === "dark" &&
       "text-grayscale-500 border-grayscale-500 hover:text-grayscale-500 hover:border-grayscale-500",

@@ -16,13 +16,40 @@
     @apply flex items-center p-4 outline-none hover:cursor-pointer;
   }
   input:-webkit-autofill {
-    background-color: transparent ; 
-    box-shadow: 0 0 0px 1000px white inset; 
+    background-color: transparent;
+    box-shadow: 0 0 0px 1000px white inset;
   }
 
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus {
     background-color: transparent;
+  }
+
+  /*
+   * Article
+   */
+
+  .article h1 {
+    @apply mb-16 text-2xl md:mb-28 lg:-mr-[30%] lg:text-4xl;
+  }
+
+  .article h2 {
+    @apply mb-8 mt-16 text-lg font-semibold;
+  }
+
+  .article ul {
+    @apply my-4 list-disc pl-6 text-left;
+  }
+  .article ol{
+    @apply my-4 list-decimal pl-6 text-left;
+  }
+
+  .article div {
+    @apply mt-10;
+  }
+
+  .article p {
+    @apply my-4;
   }
 
   /*

@@ -1,15 +1,21 @@
 // External packages
-import Image from "next/image";
-
-// Assets
-import ImageOrder from "@/public/assets/images/product1.png";
+import { twMerge } from "tailwind-merge";
 
 // Components
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 
-export const OrderContent = () => (
-  <div className="container mx-auto px-8 py-4 lg:p-0">
+export const OrderContent: React.FC<
+  React.ComponentPropsWithoutRef<"div"> & {
+    image: React.ReactNode;
+    name: string;
+    price: string;
+    originalPrice?: string;
+    material: string;
+    color: string;
+  }
+> = ({ image, name, price, originalPrice, material, color, ...rest }) => (
+  <div className="container mx-auto px-8 py-4 lg:p-0" {...rest}>
     <div className="mb-8 flex justify-between text-base lg:mb-16">
       <p>Order - 1 item</p>
       <Button variant="link" className="md:text-base">
@@ -17,27 +23,20 @@ export const OrderContent = () => (
       </Button>
     </div>
     <div className="mb-8 flex gap-4 lg:gap-6">
-      <div className="min-w-24 lg:min-w-32">
-        <Image
-          src={ImageOrder}
-          priority
-          alt="product"
-          className="w-full object-cover"
-          width={99}
-          height={132}
-        />
-      </div>
+      <div className="min-w-24 lg:min-w-32">{image}</div>
       <div className="flex w-full justify-between sm:flex-row sm:justify-between">
         <div className="flex flex-col justify-between">
-          <h4 className="font-bold">Paloma Haven</h4>
+          <h4 className="font-bold">{name}</h4>
           <div className="flex flex-col gap-2 text-2xs md:text-base">
-            <p>Material: Linen</p>
-            <p>Color: Gray</p>
+            <p>Material: {material}</p>
+            <p>Color: {color}</p>
           </div>
         </div>
         <div className="text-right">
-          <p className="font-bold text-red-700">€1200</p>
-          <p className="text-sm text-gray-400 line-through">€1500</p>
+          <p className={twMerge(originalPrice && "text-red-700", "font-bold")}>
+            {price}
+          </p>
+          <p className="text-sm text-gray-400 line-through">{originalPrice}</p>
         </div>
       </div>
     </div>

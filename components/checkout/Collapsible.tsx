@@ -2,10 +2,14 @@
 
 // External packages
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
+import Image from "next/image";
 
 // Components
 import { Icon } from "@/components/Icon";
 import { OrderContent } from "@/components/checkout/OrderContent";
+
+// Assets
+import ImageOrder from "@/public/assets/images/product1.png";
 
 export const Collapsible = () => {
   return (
@@ -19,7 +23,22 @@ export const Collapsible = () => {
         />
       </RadixCollapsible.Trigger>
       <RadixCollapsible.Content className="collapsible-content data-[state=open]:animate-slideDownCollapsible data-[state=closed]:animate-slideUpCollapsible overflow-hidden bg-grayscale-50">
-        <OrderContent />
+        <OrderContent
+          image={
+            <Image
+              src={ImageOrder}
+              priority
+              alt="product"
+              className="w-full object-cover"
+              width={99}
+              height={132}
+            />
+          }
+          name="Paloma Haven"
+          price="€1200"
+          material="Linen"
+          color="Gray"
+        />
       </RadixCollapsible.Content>
     </RadixCollapsible.Root>
   );

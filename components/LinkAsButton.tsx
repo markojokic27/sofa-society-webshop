@@ -29,6 +29,9 @@ export const LinkAsButton: React.FC<
       getButtonClassNames({ size, variant, isVisuallyDisabled }),
       className,
     )}
+    onClick={(e) => {
+      if (isVisuallyDisabled) e.preventDefault();
+    }}
   >
     {children}
   </NextLink>

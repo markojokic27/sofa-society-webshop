@@ -45,7 +45,7 @@ export const Input: React.FC<
       {...rest}
       className={twMerge("group w-full text-base text-gray-400", className)}
     >
-      <div className="relative mb-2 outline-none focus:outline-none">
+      <div className="relative mb-1.5 outline-none focus:outline-none">
         <Label
           ref={labelRef}
           className="peer absolute left-4 top-1/2 origin-left -translate-y-1/2 transition-transform data-[label-floating=true]:-translate-y-[22px] data-[label-floating=true]:scale-75 text-grayscale-400"

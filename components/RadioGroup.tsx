@@ -11,6 +11,21 @@ import {
   RadioGroupProps,
 } from "react-aria-components";
 
+export const RadioGroup: React.FC<RadioGroupProps & { className?: string }> = ({
+  className,
+  children,
+  ...rest
+}) => {
+  return (
+    <AriaRadioGroup
+      className={twMerge("flex flex-col gap-6", className)}
+      {...rest}
+    >
+      {children}
+    </AriaRadioGroup>
+  );
+};
+
 export const RadioButton: React.FC<
   RadioProps &
     React.ComponentPropsWithoutRef<"label"> & {
@@ -43,25 +58,10 @@ export const Radio: React.FC<React.ComponentPropsWithoutRef<"div">> = ({
     <div
       {...rest}
       className={twMerge(
-        "h-4 w-4 rounded-full border border-grayscale-200 transition-all duration-300 group-hover/radio:border-grayscale-600 group-data-[selected=true]/radio:border-6 group-data-[selected=true]/radio:border-black",
+        "h-4 w-4 rounded-full border border-grayscale-200 transition-all duration-300 group-hover/radio:border-grayscale-600 group-hover/trigger:border-grayscale-600 group-data-[selected=true]/radio:border-6 group-data-[state=open]/trigger:border-6 group-data-[selected=true]/radio:border-black group-data-[state=open]/trigger:border-black",
         className,
       )}
     />
-  );
-};
-
-export const RadioGroup: React.FC<RadioGroupProps & { className?: string }> = ({
-  className,
-  children,
-  ...rest
-}) => {
-  return (
-    <AriaRadioGroup
-      className={twMerge("flex flex-col gap-6", className)}
-      {...rest}
-    >
-      {children}
-    </AriaRadioGroup>
   );
 };
 
@@ -75,7 +75,7 @@ export const RadioButtonVissualy: React.FC<
     <div
       {...rest}
       className={twMerge(
-        "group flex items-center justify-start gap-3 border px-4 py-5 hover:cursor-pointer hover:border-blue-700",
+        "group flex items-center justify-start gap-3 border px-4 py-5 hover:cursor-pointer hover:border-black",
         className,
       )}
     >

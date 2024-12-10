@@ -41,7 +41,7 @@ export const Header: React.FC<{
   return (
     <div
       ref={headerRef}
-      className="group fixed top-0 z-40 mx-auto w-full border-b border-b-transparent bg-white data-[theme=dark]:border-b-white md:data-[theme=light]:bg-transparent"
+      className="group fixed top-0 z-40 mx-auto w-full border-b bg-white md:border-b-transparent md:data-[theme=light]:bg-transparent"
     >
       <div className="mx-auto grid grid-cols-2 items-center px-8 py-6 sm:container md:grid-cols-[1fr_auto_1fr] md:px-6 md:py-7.5 md:group-data-[theme=light]:text-white">
         <Link

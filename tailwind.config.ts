@@ -78,6 +78,7 @@ const config: Config = {
         18: "4.5rem",
         26: "6.5rem",
         34: "8.5rem",
+        39: "9.75rem",
       },
       aspectRatio: {
         "4/3": "4 / 3",
@@ -101,9 +102,8 @@ const config: Config = {
         },
         slideUpAccordion: {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },  
-        }
-
+          to: { height: "0" },
+        },
       },
       animation: {
         slideDownCollapsible: "slideDownCollapsible 300ms ease-out",

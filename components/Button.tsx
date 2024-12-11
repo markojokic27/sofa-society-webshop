@@ -45,3 +45,4 @@ export const Button: React.FC<
     {Boolean(iconRight) && iconRight}
   </AriaButton>
 );
+

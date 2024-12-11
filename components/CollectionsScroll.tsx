@@ -73,6 +73,7 @@ export const CollectionsScroll: React.FC<
             },
             1024: {
               spaceBetween: 40,
+              slidesPerView: 2.5,
             },
           }}
           modules={[Navigation]}

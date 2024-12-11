@@ -76,6 +76,7 @@ const config: Config = {
       margin: {
         15: "3.75rem",
         18: "4.5rem",
+        21: "5.25rem",
         26: "6.5rem",
         34: "8.5rem",
         39: "9.75rem",

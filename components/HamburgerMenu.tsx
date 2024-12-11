@@ -24,13 +24,14 @@ export const HamburgerMenu: React.FC<
         <RadixDialog.DialogDescription />
         <div className="flex h-full flex-col justify-between">
           <div>
-            <div className="relative flex h-fit w-full items-center border-b border-b-white px-8 text-white">
+            <div className="relative flex h-18 w-full items-center border-b border-b-white px-8 text-white">
               <Icon name="search" className="scale-110" />
               <Input
                 label="Search"
-                className="-mb-2 p-0"
+                className="-mb-2 self-start p-0"
                 inputProps={{
-                  className: "bg-black text-white h-18 m-0 border-0",
+                  className:
+                    "bg-black text-white h-18 m-0 border-0 border-b border-white rounded-none hover:border-white focus:border-white active:border-white ",
                 }}
               />
               <RadixDialog.Trigger>

@@ -1,5 +1,6 @@
 // External packages
 import Image from "next/image";
+import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
@@ -106,7 +107,9 @@ export default function Page() {
               Our mission is to transform your living space into a sanctuary of
               relaxation and beauty, with products built to last.
             </p>
-            <Button variant="link">Read more about Sofa Society</Button>
+            <Link href="/about" className="underline underline-offset-4">
+              Read more about Sofa Society
+            </Link>
           </LayoutColumn>
         </LayoutRow>
       </Layout>

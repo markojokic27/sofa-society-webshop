@@ -21,7 +21,7 @@ export const getButtonClassNames = ({
     size === "md" && "px-6 py-4 text-base leading-none",
     variant === "link" &&
       "border-0 bg-transparent hover:bg-transparent underline underline-offset-4 disabled:bg-transparent disabled:text-blue-100 text-black p-0 m-0 h-auto font-normal not-italic focus:outline-none text-base hover:no-underline active:no-outline text-left md:text-lg md:underline-offset-8",
-    variant === "link" && size === "sm" && "text-base underline-offset-4",
+    variant === "link" && size === "sm" && "md:text-base md:underline-offset-4",
     isVisuallyDisabled &&
       variant === "solid" &&
       "border-grayscale-200 bg-grayscale-200 hover:bg-grayscale-200 hover:border-grayscale-200 hover:cursor-default",

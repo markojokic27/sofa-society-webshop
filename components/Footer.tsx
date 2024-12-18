@@ -23,11 +23,7 @@ export const Footer = () => {
               We will also send you our discount coupons!
             </p>
             <div className="mb-4 flex items-center leading-none">
-              <Input
-                label="Your email"
-                className="h-12 text-2xs"
-                inputProps={{ className: "h-12 text-2xs m-0" }}
-              />
+              <Input label="Your email" size="sm" />
               <Button size="sm" className="ml-2 py-4">
                 Subscribe
               </Button>

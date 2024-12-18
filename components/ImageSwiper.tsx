@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import { twMerge } from "tailwind-merge";
 
 //components
-import { ArrowIcon } from "./Arrow";
+import { Arrow } from "./Arrow";
 
 export const ImageSwiper: React.FC<
   SwiperProps & { images: React.ReactNode[] }
@@ -44,15 +44,15 @@ export const ImageSwiper: React.FC<
       </Swiper>
 
       <button className="swiper-button-prev group absolute left-2 top-1/2 z-10 hidden -translate-y-1/2 transform sm:flex">
-        <ArrowIcon
+        <Arrow
           variant="left"
           className="group-disabled:bg-transparent group-disabled:text-black"
         />
       </button>
       <button className="swiper-button-next group absolute right-2 top-1/2 z-10 h-10 w-10 -translate-y-1/2">
-        <ArrowIcon
-          variant="right"
-          className="group-disabled:bg-transparent group-disabled:text-black"
+        <Arrow
+          variant="left"
+          className="rotate-180 group-disabled:bg-transparent group-disabled:text-black"
         />
       </button>
       <div className="custom-pagination -mt-10 mb-8 flex justify-center gap-2 sm:mb-0 sm:mt-6"></div>

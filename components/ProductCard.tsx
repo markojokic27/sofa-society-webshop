@@ -21,7 +21,7 @@ export const ProductCard: React.FC<
 }) => (
   <div {...rest} className={twMerge("w-full", className)}>
     <Link href={"/product"}>
-      <div className="mb-6 w-full object-cover">{image}</div>
+      <div className="mb-6 w-full">{image}</div>
       <div className="flex justify-between">
         <div>
           <p>{name}</p>

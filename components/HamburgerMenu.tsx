@@ -5,7 +5,7 @@ import Link from "next/link";
 // Components
 import { Icon } from "@/components/Icon";
 import { Input } from "@/components/Input";
-import { FunctionalSelect } from "./FunctionalSelect";
+import { FunctionalSelect } from "@/components/FunctionalSelect";
 
 export const HamburgerMenu: React.FC<
   React.ComponentPropsWithoutRef<"button"> & {
@@ -16,9 +16,9 @@ export const HamburgerMenu: React.FC<
     <RadixDialog.Trigger className="group h-6 w-6 focus:outline-none">
       <Icon name="hamburger" className="group-data-[state=open]:hidden" />
     </RadixDialog.Trigger>
-    <RadixDialog.Overlay>
+    <RadixDialog.Overlay className="data-[state=closed]:animate-overlayShow data-[state=open]:animate-overlayHide">
       <RadixDialog.Content
-        className={`hamburger-menu fixed bottom-0 left-0 top-0 z-[70] -translate-x-full transform bg-black transition-all duration-300 data-[state=open]:translate-x-0`}
+        className={`hamburger-menu fixed bottom-0 left-0 top-0 z-[70] bg-black data-[state=closed]:animate-hamburgerMenuOut data-[state=open]:animate-hamburgerMenu`}
       >
         <RadixDialog.Title />
         <RadixDialog.DialogDescription />

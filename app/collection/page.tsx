@@ -167,7 +167,40 @@ export default function Page() {
                 <Image
                   alt="about image"
                   src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+                  className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
+                  priority
+                />
+              }
+              className="mb-10 md:mb-16"
+            />
+          </LayoutColumn>
+          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
+            <ProductCard
+              name="Nordic Haven"
+              description="Scandinavian Simplicity"
+              price="1000€"
+              originalPrice="1200€"
+              image={
+                <Image
+                  alt="about image"
+                  src={Sofa}
+                  className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
+                  priority={true}
+                />
+              }
+              className="mb-10 md:mb-16"
+            />
+          </LayoutColumn>
+          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
+            <ProductCard
+              name="Nordic Haven"
+              description="Scandinavian Simplicity"
+              price="1000€"
+              image={
+                <Image
+                  alt="about image"
+                  src={Sofa}
+                  className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
                   priority={true}
                 />
               }
@@ -184,40 +217,7 @@ export default function Page() {
                 <Image
                   alt="about image"
                   src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                  priority={true}
-                />
-              }
-              className="mb-10 md:mb-16"
-            />
-          </LayoutColumn>
-          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
-            <ProductCard
-              name="Nordic Haven"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              image={
-                <Image
-                  alt="about image"
-                  src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                  priority={true}
-                />
-              }
-              className="mb-10 md:mb-16"
-            />
-          </LayoutColumn>
-          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
-            <ProductCard
-              name="Nordic Haven"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              originalPrice="1200€"
-              image={
-                <Image
-                  alt="about image"
-                  src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+                  className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
                   priority={true}
                 />
               }

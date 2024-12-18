@@ -1,11 +1,5 @@
-"use client";
-
 // External packages
 import * as React from "react";
-import {
-  Button as AriaButton,
-  ButtonProps as AriaButtonProps,
-} from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 import { Icon } from "./Icon";
 
@@ -16,31 +10,6 @@ export type ArrowOwnProps = {
 };
 
 export const Arrow: React.FC<
-  AriaButtonProps & ArrowOwnProps & { className?: string }
-> = ({
-  variant = "right",
-  color = "black",
-  size = "md",
-  className,
-  ...rest
-}) => (
-  <AriaButton
-    {...rest}
-    className={twMerge(
-      "flex h-10 w-10 items-center justify-center rounded-full border border-black bg-black text-white outline-none focus:outline-none",
-      color === "white" && "bg-transparent text-black",
-      size === "sm" && "h-6 w-6 border-[0.5px]",
-      className,
-    )}
-  >
-    <Icon
-      name={variant === "left" ? "arrowLeft" : "arrowRight"}
-      className={size === "sm" ? "h-3.5 w-3.5" : ""}
-    />
-  </AriaButton>
-);
-
-export const ArrowIcon: React.FC<
   React.ComponentPropsWithoutRef<"div"> & ArrowOwnProps
 > = ({
   variant = "right",

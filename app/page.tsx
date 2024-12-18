@@ -40,7 +40,9 @@ export default function Page() {
             className="flex flex-col justify-center md:text-lg"
           >
             <p>Discover Your Perfect Sofa Today</p>
-            <Button variant="link">Explore Now</Button>
+            <Link href="/shop" className="underline underline-offset-4 md:underline-offset-">
+              Explore Now
+            </Link>
           </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="mb-26 md:mb-36">
@@ -113,6 +115,7 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
+
       <Footer />
     </>
   );

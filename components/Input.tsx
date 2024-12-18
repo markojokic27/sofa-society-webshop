@@ -17,10 +17,11 @@ export const Input: React.FC<
     TextFieldProps & {
       icon?: React.ReactNode;
       label: string;
+      size?: "md" | "sm";
       inputProps?: React.ComponentPropsWithoutRef<"input"> &
         InputProps & { validationError?: string };
     }
-> = ({ label, inputProps = {}, icon, className, ...rest }) => {
+> = ({ icon, label, size = "md", inputProps = {}, className, ...rest }) => {
   const labelRef = React.useRef<HTMLLabelElement | null>(null);
   const {
     validationError,
@@ -43,20 +44,27 @@ export const Input: React.FC<
   return (
     <TextField
       {...rest}
-      className={twMerge("group w-full text-base text-gray-400", className)}
+      className={twMerge(
+        "group w-full text-base text-gray-400",
+        size === "sm" && "h-12 text-2xs",
+        className,
+      )}
     >
       <div className="relative outline-none focus:outline-none">
         <Label
           ref={labelRef}
-          className="peer absolute left-4 top-1/2 origin-left -translate-y-1/2 transition-transform data-[label-floating=true]:-translate-y-[22px] data-[label-floating=true]:scale-75 text-grayscale-400"
+          className={twMerge(
+            "peer absolute left-[18px] top-1/2 origin-left -translate-y-1/2 text-grayscale-400 transition-transform data-[label-floating=true]:-translate-y-[22px] data-[label-floating=true]:scale-75",
+            size === "sm" && "data-[label-floating=true]:-translate-y-[16px]",
+          )}
         >
           {label}
         </Label>
         <AriaInput
           {...restInputProps}
           className={twMerge(
-            "h-[56px] w-full border border-grayscale-200 px-4 text-gray-900 outline-none hover:border-grayscale-500 focus:border-grayscale-500 active:border-grayscale-500 group-data-[invalid=true]:border-red-700 peer-data-[label-floating=true]:pt-3 rounded-1",
-
+            "h-[56px] w-full rounded-1 border border-grayscale-200 px-4 text-gray-900 outline-none hover:border-grayscale-500 focus:border-grayscale-500 active:border-grayscale-500 group-data-[invalid=true]:border-red-700 peer-data-[label-floating=true]:pt-3",
+            size === "sm" && "m-0 h-12 text-2xs",
             inputClassName,
           )}
           onChange={handleChange}
@@ -69,7 +77,7 @@ export const Input: React.FC<
       </div>
 
       {validationError && (
-        <FieldError className="absolute hidden mt-1.5 text-2xs text-red-500 group-data-[invalid=true]:block">
+        <FieldError className="absolute mt-1.5 hidden text-2xs text-red-500 group-data-[invalid=true]:block">
           {validationError}
         </FieldError>
       )}

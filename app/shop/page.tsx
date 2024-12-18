@@ -145,7 +145,7 @@ export default function Page() {
                 ]}
               />
             </Filter>
-            <Filter name="Sort by" className="ml-auto">
+            <Filter name="Sort by" popoverAlignment="end" className="ml-auto">
               <SingleSelection
                 items={[
                   "Featured",

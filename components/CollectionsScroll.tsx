@@ -12,11 +12,12 @@ import "swiper/css/navigation";
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { CollectionCard } from "@/components/CollectionCard";
-import { ArrowIcon } from "@/components/Arrow";
+import { Arrow } from "@/components/Arrow";
 import { LinkAsButton } from "./LinkAsButton";
 
 // Assets
 import Collection from "@/public/assets/images/collection2.png";
+import { Icon } from "./Icon";
 
 export const CollectionsScroll: React.FC<
   React.ComponentPropsWithoutRef<"div"> & SwiperProps
@@ -43,15 +44,15 @@ export const CollectionsScroll: React.FC<
               </LinkAsButton>
 
               <button className="swiper-prev group hidden md:block">
-                <ArrowIcon
-                  variant="left"
+                <Arrow
+                  variant="right"
                   color="white"
-                  className="ml-6 hidden group-disabled:bg-transparent group-disabled:text-black md:flex"
+                  className="ml-6 hidden group-disabled:bg-transparent group-disabled:text-black md:flex rotate-180"
                 />
               </button>
 
-              <button className="swiper-next group right-2 top-1/2 hidden md:block">
-                <ArrowIcon
+              <button className="swiper-next group  hidden md:block">
+                <Arrow
                   color="white"
                   variant="right"
                   className="ml-2 group-disabled:bg-transparent group-disabled:text-black"

@@ -34,10 +34,10 @@ export const MobileFilters: React.FC<
         {trigger}
         {icon}
       </RadixDialog.Trigger>
-      <RadixDialog.Overlay className="fixed inset-0 z-50 bg-black bg-opacity-10" />
+      <RadixDialog.Overlay className="fixed inset-0 z-50 bg-black bg-opacity-10 data-[state=closed]:animate-overlayHide data-[state=open]:animate-overlayShow" />
       <RadixDialog.Content
         className={twMerge(
-          `mobile-filter fixed bottom-0 left-0 right-0 z-[70] overflow-y-scroll bg-white scrollbar-hide`,
+          "mobile-filter data-[state=closed]:animate-mobileFilterHide data-[state=open]:animate-mobileFilterShow fixed bottom-0 left-0 right-0 z-[70] overflow-y-scroll bg-white scrollbar-hide",
           contentClassName,
         )}
       >

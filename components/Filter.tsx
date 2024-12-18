@@ -6,6 +6,8 @@ import {
   DialogTrigger,
   Popover,
   DialogTriggerProps,
+  Menu,
+  MenuItem,
 } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 
@@ -14,8 +16,12 @@ import { Icon } from "@/components/Icon";
 import { Button } from "@/components/Button";
 
 export const Filter: React.FC<
-  DialogTriggerProps & { name: string; className?: string }
-> = ({ name, children, className, ...rest }) => {
+  DialogTriggerProps & {
+    name: string;
+    popoverAlignment?: "start" | "end";
+    className?: string;
+  }
+> = ({ name, popoverAlignment = "start", children, className, ...rest }) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   return (
     <DialogTrigger
@@ -26,10 +32,7 @@ export const Filter: React.FC<
     >
       <Button
         aria-label="menu"
-        className={twMerge(
-          "border-gray-200 px-3 py-2 outline-none", //TODO text-2xs baca gresku???
-          className,
-        )}
+        className={twMerge("border-gray-200 px-3 py-2 outline-none", className)}
         iconRight={
           <Icon
             name="chevronDown"
@@ -41,7 +44,8 @@ export const Filter: React.FC<
         {name}
       </Button>
       <Popover
-        className={`absolute left-0 z-[100] flex cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none hover:cursor-default md:min-w-64`}
+        className={`z-[100] flex cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none hover:cursor-default md:min-w-64`}
+        placement={popoverAlignment === "start" ? "bottom start" : "bottom end"}
       >
         {children}
       </Popover>

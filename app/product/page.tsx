@@ -1,11 +1,11 @@
 // External packages
 import Image from "next/image";
+import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/Button";
 import { ProductCard } from "@/components/ProductCard";
 import { ImageSwiper } from "@/components/ImageSwiper";
 
@@ -125,12 +125,12 @@ export default function Page() {
             <p className="mb-8 text-lg lg:ml-15 lg:mt-20 lg:text-4xl">
               The Paloma Haven sofa is a masterpiece of minimalism and luxury.
             </p>
-            <Button
-              variant="link"
-              className="md:xtext-base lg:ml-15 lg:text-lg"
+            <Link
+              href={"/collection"}
+              className="underline underline-offset-4 md:text-base lg:ml-15 lg:text-lg"
             >
               See more out of 'Modern Luxe' collection
-            </Button>
+            </Link>
           </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="mb-8 md:mb-16">

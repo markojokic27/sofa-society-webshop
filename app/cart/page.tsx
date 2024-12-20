@@ -10,6 +10,7 @@ import { Icon } from "@/components/Icon";
 import { Counter } from "@/components/Counter";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
+import { LinkAsButton } from "@/components/LinkAsButton";
 
 // Assets
 import ProductImage from "@/public/assets/images/cart-product.png";
@@ -86,7 +87,12 @@ export default function Page() {
                 Apply
               </Button>
             </div>
-            <Button className="w-full">Proceed to checkout</Button>
+            <LinkAsButton
+              href={"/checkout"}
+              className="block w-full text-center"
+            >
+              Proceed to checkout
+            </LinkAsButton>
           </LayoutColumn>
         </LayoutRow>
       </Layout>

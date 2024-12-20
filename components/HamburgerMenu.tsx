@@ -18,6 +18,7 @@ export const HamburgerMenu: React.FC<
     </RadixDialog.Trigger>
     <RadixDialog.Overlay className="data-[state=closed]:animate-overlayShow data-[state=open]:animate-overlayHide">
       <RadixDialog.Content
+        data-pointer-events="true"
         className={`hamburger-menu fixed bottom-0 left-0 top-0 z-[70] bg-black data-[state=closed]:animate-hamburgerMenuOut data-[state=open]:animate-hamburgerMenu`}
       >
         <RadixDialog.Title />

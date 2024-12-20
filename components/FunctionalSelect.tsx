@@ -79,7 +79,7 @@ export const FunctionalSelect: React.FC<
         offset={20}
         crossOffset={-17}
         className={twMerge(
-          "data-[entering]:animate-popoverShow data-[exiting]:animate-popoverHide z-[100] flex w-60 cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none transition-none",
+          "z-[100] flex w-60 cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none transition-none data-[entering]:animate-popoverShow data-[exiting]:animate-popoverHide",
           variant === "order-settings" ? "popout-width sm:min-w-60" : "",
         )}
       >

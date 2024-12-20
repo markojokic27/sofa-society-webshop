@@ -32,9 +32,14 @@ export const Accordion = () => {
   const handleNext = (item: string) => {
     const index = items.indexOf(item);
     if (index === items.length - 1) return;
-    setOpen(items.find((item) => !filled.includes(item)) || "");
+
     setFilled((prevFilled) => {
-      return prevFilled.includes(item) ? prevFilled : [...prevFilled, item];
+      const updatedFilled = prevFilled.includes(item)
+        ? prevFilled
+        : [...prevFilled, item];
+      const nextItem = items.find((i) => !updatedFilled.includes(i)) || "";
+      setOpen(nextItem);
+      return updatedFilled;
     });
   };
 

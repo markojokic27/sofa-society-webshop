@@ -1,48 +1,23 @@
 "use client";
 
 // External packages
-import * as React from "react";
-import { Link, Button, Select } from "react-aria-components";
+import { usePathname } from "next/navigation";
+import { Link, Button } from "react-aria-components";
 
 // Components
 import { Icon } from "@/components/Icon";
 import { HamburgerMenu } from "@/components/HamburgerMenu";
 import { FunctionalSelect } from "@/components/FunctionalSelect";
+import { HeaderWrapper } from "@/components/HeaderWrapper";
 
-export const Header: React.FC<{
-  headerTheme?: "light" | "dark";
-}> = ({ headerTheme = "dark" }) => {
-  const headerRef = React.useRef<HTMLDivElement | null>(null);
+export const Header: React.FC = () => {
+  const pathName = usePathname();
 
-  React.useEffect(() => {
-    const element = headerRef.current;
-
-    if (element) {
-      element.dataset.theme = headerTheme;
-    }
-
-    const handleScroll = () => {
-      if (element && headerTheme === "light") {
-        const headerHeight = window.innerWidth < 768 ? 72 : 85;
-        if (window.scrollY > window.innerHeight - headerHeight) {
-          element.dataset.theme = "dark";
-        } else {
-          element.dataset.theme = "light";
-        }
-      }
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  const hasHeroImage = ["/", "/about", "/inspiration", "/collection"].includes(
+    pathName,
+  );
   return (
-    <div
-      ref={headerRef}
-      className="group fixed top-0 z-40 mx-auto w-full bg-white md:data-[theme=light]:bg-transparent"
-    >
+    <HeaderWrapper>
       <div className="mx-auto grid grid-cols-2 items-center px-8 py-6 sm:container md:grid-cols-[1fr_auto_1fr] md:px-6 md:py-7.5 md:group-data-[theme=light]:text-white">
         <Link
           href="/"
@@ -90,10 +65,10 @@ export const Header: React.FC<{
             </Link>
           </li>
           <li className="flex h-6 w-6 items-center md:hidden">
-            <HamburgerMenu headerTheme={headerTheme} />
+            <HamburgerMenu headerTheme={hasHeroImage ? "dark" : "light"} />
           </li>
         </ul>
       </div>
-    </div>
+    </HeaderWrapper>
   );
 };

@@ -13,7 +13,7 @@ import registerImage from "@/public/assets/images/register.png";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="dark" />
+      <Header />
       <div className="mt-21 flex h-full">
         <div className="register-image hidden w-1/2 md:block">
           <Image

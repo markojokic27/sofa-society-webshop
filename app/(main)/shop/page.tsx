@@ -23,7 +23,6 @@ import Sofa from "@/public/assets/images/product-card.png";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="dark" />
       <CollectionsScroll className="mb-26 mt-26 md:mb-36 md:mt-48 md:hidden" />
       <Layout className="mb-26 mr-0 mt-26 hidden pr-0 sm:mx-auto md:mb-36 md:mt-48 md:flex md:pr-6">
         <LayoutRow>
@@ -185,8 +184,6 @@ export default function Page() {
             ))}
         </LayoutRow>
       </Layout>
-
-      <Footer />
     </>
   );
 }

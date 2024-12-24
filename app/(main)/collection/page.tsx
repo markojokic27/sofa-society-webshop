@@ -21,7 +21,6 @@ import Sofa from "@/public/assets/images/sofa.png";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="light" />
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
         <Image
           alt="header image"
@@ -226,8 +225,6 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-
-      <Footer />
     </>
   );
 }

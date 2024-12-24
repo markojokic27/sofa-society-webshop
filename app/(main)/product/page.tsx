@@ -21,7 +21,6 @@ import { OrderSettings } from "@/components/OrderSettings";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="dark" />
       <Layout className="mb-16 mt-18 sm:mt-36 md:mb-26">
         <LayoutRow>
           <LayoutColumn smSpan={6}>
@@ -187,7 +186,6 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <Footer />
     </>
   );
 }

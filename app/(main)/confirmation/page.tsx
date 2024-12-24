@@ -7,8 +7,7 @@ import { LinkAsButton } from "@/components/LinkAsButton";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="dark" />
-      <Layout className="md:mt-39 mb-26 mt-24 md:mb-36">
+      <Layout className="mb-26 mt-24 md:mb-36 md:mt-39">
         <LayoutRow>
           <LayoutColumn
             span={12}
@@ -76,7 +75,6 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <Footer />
     </>
   );
 }

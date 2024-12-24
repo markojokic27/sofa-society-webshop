@@ -7,13 +7,13 @@ import { LayoutLinks } from "@/components/account/LayoutLinks";
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Header headerTheme="dark" />
+      <Header />
       <Layout className="mt:18 md:mt-21">
         <LayoutRow className="relative">
           <LayoutColumn
             span={12}
             lgSpan={3}
-            className='pulled-background-account top-18 md:top-21 z-10 mt-18 flex  before:absolute before:right-0 before:top-0 before:z-[-1] before:block before:bg-grayscale-50 before:content-[""] after:absolute after:top-0 after:z-[-1] after:block after:bg-grayscale-50 after:content-[""] md:mt-0 lg:fixed lg:after:right-0'
+            className='pulled-background-account top-18 md:top-21 z-10 mt-18 flex before:absolute before:right-0 before:top-0 before:z-[-1] before:block before:bg-grayscale-50 before:content-[""] after:absolute after:top-0 after:z-[-1] after:block after:bg-grayscale-50 after:content-[""] md:mt-0 lg:fixed lg:after:right-0'
           >
             <div className="relative flex w-full flex-col justify-between py-4 lg:justify-start lg:py-0">
               <h2 className="mb-6 text-lg font-semibold leading-none md:mb-10 lg:mb-16 lg:mt-24 lg:text-xl lg:leading-normal">

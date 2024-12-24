@@ -18,7 +18,6 @@ import ProductImage from "@/public/assets/images/cart-product.png";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="dark" />
       <Layout className="mb-26 mt-26 md:mb-36 md:mt-40">
         <LayoutRow>
           <LayoutColumn span={12} mdSpan={8} xlSpan={9}>
@@ -96,7 +95,6 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <Footer />
     </>
   );
 }

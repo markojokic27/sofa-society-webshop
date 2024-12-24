@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/Button";
 import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 // Assets
@@ -17,7 +16,6 @@ import AboutImage from "@/public/assets/images/about-sofa.png";
 export default function Page() {
   return (
     <>
-      <Header headerTheme="light" />
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
         <Image
           alt="header image"
@@ -40,7 +38,10 @@ export default function Page() {
             className="flex flex-col justify-center md:text-lg"
           >
             <p>Discover Your Perfect Sofa Today</p>
-            <Link href="/shop" className="underline underline-offset-4 md:underline-offset-">
+            <Link
+              href="/shop"
+              className="md:underline-offset- underline underline-offset-4"
+            >
               Explore Now
             </Link>
           </LayoutColumn>
@@ -115,8 +116,6 @@ export default function Page() {
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-
-      <Footer />
     </>
   );
 }

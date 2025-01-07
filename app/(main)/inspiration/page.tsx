@@ -3,8 +3,6 @@ import Image from "next/image";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { CollectionsScroll } from "@/components/CollectionsScroll";
 

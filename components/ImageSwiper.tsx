@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import { twMerge } from "tailwind-merge";
 
 //components
-import { Arrow } from "./Arrow";
+import { Arrow } from "@/components/Arrow";
 
 export const ImageSwiper: React.FC<
   SwiperProps & { images: React.ReactNode[] }

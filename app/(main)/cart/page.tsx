@@ -3,8 +3,6 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
 // Components
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Icon } from "@/components/Icon";
 import { Counter } from "@/components/Counter";

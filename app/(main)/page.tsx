@@ -4,8 +4,6 @@ import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 // Assets

@@ -1,6 +1,4 @@
 // Components
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { LinkAsButton } from "@/components/LinkAsButton";
 

@@ -1,5 +1,3 @@
-"use client";
-
 // External packages
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import Image from "next/image";

@@ -6,8 +6,6 @@ import {
   DialogTrigger,
   Popover,
   DialogTriggerProps,
-  Menu,
-  MenuItem,
 } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 

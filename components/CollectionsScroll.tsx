@@ -1,7 +1,6 @@
 "use client";
 
 // External packages
-import * as React from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { Swiper, SwiperSlide, SwiperProps } from "swiper/react";
@@ -13,11 +12,10 @@ import "swiper/css/navigation";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { CollectionCard } from "@/components/CollectionCard";
 import { Arrow } from "@/components/Arrow";
-import { LinkAsButton } from "./LinkAsButton";
+import { LinkAsButton } from "@/components/LinkAsButton";
 
 // Assets
 import Collection from "@/public/assets/images/collection2.png";
-import { Icon } from "./Icon";
 
 export const CollectionsScroll: React.FC<
   React.ComponentPropsWithoutRef<"div"> & SwiperProps
@@ -47,11 +45,11 @@ export const CollectionsScroll: React.FC<
                 <Arrow
                   variant="right"
                   color="white"
-                  className="ml-6 hidden group-disabled:bg-transparent group-disabled:text-black md:flex rotate-180"
+                  className="ml-6 hidden rotate-180 group-disabled:bg-transparent group-disabled:text-black md:flex"
                 />
               </button>
 
-              <button className="swiper-next group  hidden md:block">
+              <button className="swiper-next group hidden md:block">
                 <Arrow
                   color="white"
                   variant="right"

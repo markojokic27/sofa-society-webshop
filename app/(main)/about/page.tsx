@@ -3,8 +3,6 @@ import Image from "next/image";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header-about.png";

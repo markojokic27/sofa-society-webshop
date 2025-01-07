@@ -4,10 +4,9 @@ import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { ImageSwiper } from "@/components/ImageSwiper";
+import { OrderSettings } from "@/components/OrderSettings";
 
 // Assets
 import AboutImage from "@/public/assets/images/about1.png";
@@ -16,7 +15,6 @@ import AboutImage3 from "@/public/assets/images/about3.png";
 import Sofa from "@/public/assets/images/product-card.png";
 import Product1 from "@/public/assets/images/product1.png";
 import Product2 from "@/public/assets/images/product2.png";
-import { OrderSettings } from "@/components/OrderSettings";
 
 export default function Page() {
   return (

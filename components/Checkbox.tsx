@@ -1,7 +1,6 @@
 "use client";
 
 // External packages
-import * as React from "react";
 import { Checkbox as AriaCheckbox, CheckboxProps } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 

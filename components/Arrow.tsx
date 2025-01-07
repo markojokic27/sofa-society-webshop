@@ -1,7 +1,9 @@
 // External packages
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import { Icon } from "./Icon";
+
+// Components
+import { Icon } from "@/components/Icon";
 
 export type ArrowOwnProps = {
   variant?: "left" | "right";

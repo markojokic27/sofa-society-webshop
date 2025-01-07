@@ -1,7 +1,6 @@
 "use client";
 
 // External components
-import * as React from "react";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import { twMerge } from "tailwind-merge";
 

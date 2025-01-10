@@ -10,17 +10,19 @@ export const HeaderWrapper: React.FC<{ children?: React.ReactNode }> = ({
   const pathName = usePathname();
   const hasHeroImage = ["/", "/about", "/inspiration", "/collection"].includes(
     pathName,
-  );
+  )
+    ? "light"
+    : "dark";
   const headerRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
     const element = headerRef.current;
 
     if (element) {
-      element.dataset.theme = hasHeroImage ? "light" : "dark";
+      element.dataset.theme = hasHeroImage;
     }
     const handleScroll = () => {
-      if (element && hasHeroImage) {
+      if (element && hasHeroImage === "light") {
         const headerHeight = window.innerWidth < 768 ? 72 : 85;
         if (window.scrollY > window.innerHeight - headerHeight) {
           element.dataset.theme = "dark";
@@ -29,17 +31,18 @@ export const HeaderWrapper: React.FC<{ children?: React.ReactNode }> = ({
         }
       }
     };
-
     handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathName]);
 
   return (
     <div
+      id="header"
       ref={headerRef}
       className="group fixed top-0 z-40 mx-auto w-full bg-white md:data-[theme=light]:bg-transparent"
+      data-theme={hasHeroImage}
     >
       {children}
     </div>

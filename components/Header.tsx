@@ -12,7 +12,6 @@ import { HeaderWrapper } from "@/components/HeaderWrapper";
 
 export const Header: React.FC = () => {
   const pathName = usePathname();
-
   const hasHeroImage = ["/", "/about", "/inspiration", "/collection"].includes(
     pathName,
   );

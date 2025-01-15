@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
 import { ImageSwiper } from "@/components/ImageSwiper";
-import { OrderSettings } from "@/components/OrderSettings";
+import { OrderSettings } from "@/components/product/OrderSettings";
 
 // Assets
 import AboutImage from "@/public/assets/images/about1.png";

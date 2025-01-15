@@ -14,7 +14,7 @@ import {
 export const SliderSelection: React.FC<
   SliderProps & { thumbLabels?: string[] }
 > = ({ thumbLabels, className, ...rest }) => {
-  let [value, setValue] = React.useState([0, 5000]);
+  const [value, setValue] = React.useState([0, 5000]);
   return (
     <Slider
       {...rest}

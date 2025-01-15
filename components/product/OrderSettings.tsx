@@ -6,8 +6,8 @@ import { twMerge } from "tailwind-merge";
 
 // Components
 import { FunctionalSelect } from "@/components/FunctionalSelect";
-import { ColorSelection } from "@/components/ColorSelection";
-import { Counter } from "@/components/Counter";
+import { ColorSelection } from "@/components/product/ColorSelection";
+import { Counter } from "@/components/product/Counter";
 import { Button } from "@/components/Button";
 
 export const OrderSettings: React.FC<
@@ -31,7 +31,6 @@ export const OrderSettings: React.FC<
         items={materials}
         className="mb-6 border px-4 py-3"
         variant="order-settings"
-        product={product}
         setProduct={setProduct}
         placeholder="Choose material"
       />
@@ -62,7 +61,9 @@ export const OrderSettings: React.FC<
           Add to cart
         </Button>
       </div>
-      <p className="text-grayscale-500 text-2xs md:text-base">Estimate delivery 2-3 days</p>
+      <p className="text-2xs text-grayscale-500 md:text-base">
+        Estimate delivery 2-3 days
+      </p>
     </div>
   );
 };

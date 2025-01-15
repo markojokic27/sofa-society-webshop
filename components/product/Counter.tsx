@@ -26,12 +26,13 @@ export const Counter: React.FC<
       minValue={1}
       maxValue={15}
       aria-label="Counter"
+      className={className?.toString()}
       {...rest}
     >
       <Group
         className={twMerge(
           "flex items-center justify-between rounded-1 border border-grayscale-200 px-6 py-3",
-          variant === "small" ? "w-22 py-1.75 px-3" : "md:w-40",
+          variant === "small" ? "w-22 px-3 py-1.75" : "md:w-40",
         )}
       >
         <Button

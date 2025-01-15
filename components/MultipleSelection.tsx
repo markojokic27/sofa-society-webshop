@@ -10,8 +10,8 @@ import { Checkbox } from "@/components/Checkbox";
 
 export const MultipleSelection: React.FC<
   CheckboxGroupProps & { items: string[]; checkboxClassName?: string }
-> = ({ items, className, checkboxClassName, ...rest }) => {
-  let [selected, setSelected] = React.useState([] as string[]);
+> = ({ items, checkboxClassName, ...rest }) => {
+  const [selected, setSelected] = React.useState([] as string[]);
 
   return (
     <CheckboxGroup

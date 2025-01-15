@@ -12,7 +12,7 @@ import { Arrow } from "@/components/Arrow";
 
 export const ImageSwiper: React.FC<
   SwiperProps & { images: React.ReactNode[] }
-> = ({ children, className, images, ...rest }) => {
+> = ({ className, images, ...rest }) => {
   const pagination = {
     el: ".custom-pagination",
     clickable: true,

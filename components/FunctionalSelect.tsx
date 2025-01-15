@@ -24,7 +24,6 @@ export const FunctionalSelect: React.FC<
     defaultValue?: string;
     placeholder?: string;
     items: Array<{ name: string; value: string }>;
-    product?: { material: string; color: string; quantity: number };
     setProduct?: React.Dispatch<
       React.SetStateAction<{
         material: string;
@@ -38,7 +37,6 @@ export const FunctionalSelect: React.FC<
   items,
   defaultValue,
   placeholder,
-  product,
   setProduct,
   className,
   ...rest

@@ -8,11 +8,9 @@ import { Input } from "@/components/Input";
 import { FunctionalSelect } from "@/components/FunctionalSelect";
 
 export const HamburgerMenu: React.FC<
-  React.ComponentPropsWithoutRef<"button"> & {
-    headerTheme?: "light" | "dark";
-  }
-> = ({ headerTheme = "dark", ...rest }) => (
-  <RadixDialog.Root {...rest}>
+  React.ComponentPropsWithoutRef<"button">
+> = () => (
+  <RadixDialog.Root>
     <RadixDialog.Trigger className="group h-6 w-6 focus:outline-none">
       <Icon name="hamburger" className="group-data-[state=open]:hidden" />
     </RadixDialog.Trigger>

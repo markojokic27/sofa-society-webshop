@@ -1,6 +1,7 @@
 // External packages
 import * as React from "react";
 import { Radio, RadioGroup, RadioGroupProps } from "react-aria-components";
+import { twMerge } from "tailwind-merge";
 
 export const ColorSelection: React.FC<
   RadioGroupProps & {
@@ -21,7 +22,10 @@ export const ColorSelection: React.FC<
       onChange={(color) => {
         setProduct((prev) => ({ ...prev, color }));
       }}
-      className={"mb-8 flex flex-row gap-4 sm:mb-10 lg:mb-24"}
+      className={twMerge(
+        "mb-8 flex flex-row gap-4 sm:mb-10 lg:mb-24",
+        className?.toString(),
+      )}
       aria-label="Color Selection"
       {...rest}
     >

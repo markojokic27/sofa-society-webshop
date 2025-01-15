@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Icon } from "@/components/Icon";
-import { Counter } from "@/components/Counter";
+import { Counter } from "@/components/product/Counter";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { LinkAsButton } from "@/components/LinkAsButton";

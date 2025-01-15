@@ -1,7 +1,6 @@
 "use client";
 
 // External packages
-import { usePathname } from "next/navigation";
 import { Link, Button } from "react-aria-components";
 
 // Components
@@ -11,10 +10,6 @@ import { FunctionalSelect } from "@/components/FunctionalSelect";
 import { HeaderWrapper } from "@/components/HeaderWrapper";
 
 export const Header: React.FC = () => {
-  const pathName = usePathname();
-  const hasHeroImage = ["/", "/about", "/inspiration", "/collection"].includes(
-    pathName,
-  );
   return (
     <HeaderWrapper>
       <div className="mx-auto grid grid-cols-2 items-center px-8 py-6 sm:container md:grid-cols-[1fr_auto_1fr] md:px-6 md:py-7.5 md:group-data-[theme=light]:text-white">
@@ -64,7 +59,7 @@ export const Header: React.FC = () => {
             </Link>
           </li>
           <li className="flex h-6 w-6 items-center md:hidden">
-            <HamburgerMenu headerTheme={hasHeroImage ? "dark" : "light"} />
+            <HamburgerMenu/>
           </li>
         </ul>
       </div>

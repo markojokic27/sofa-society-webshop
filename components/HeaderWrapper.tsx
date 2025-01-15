@@ -35,7 +35,7 @@ export const HeaderWrapper: React.FC<{ children?: React.ReactNode }> = ({
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathName]);
+  }, [pathName, hasHeroImage]);
 
   return (
     <div

@@ -98,7 +98,7 @@ export default function Page() {
           Delete your account (subject to applicable laws and regulations).
         </li>
       </ul>
-      <h2>7. Children's Privacy:</h2>
+      <h2>7. Children&apos;s Privacy:</h2>
       <p>
         Our services are not intended for individuals under the age of 16. If we
         become aware that we have collected personal information from children

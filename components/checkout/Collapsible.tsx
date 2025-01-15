@@ -11,7 +11,7 @@ import ImageOrder from "@/public/assets/images/product1.png";
 
 export const Collapsible = () => {
   return (
-    <RadixCollapsible.Root className="mt-21 group bg-grayscale-50 lg:hidden">
+    <RadixCollapsible.Root className="group mt-18 bg-grayscale-50 lg:hidden">
       <RadixCollapsible.Trigger className="trigger container mx-auto mt-18 flex items-center justify-end gap-4 px-8 py-4">
         <p className="mr-auto">Order Summary</p>
         <p>€1250</p>
@@ -20,7 +20,7 @@ export const Collapsible = () => {
           className="transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-180"
         />
       </RadixCollapsible.Trigger>
-      <RadixCollapsible.Content className="collapsible-content data-[state=open]:animate-slideDownCollapsible data-[state=closed]:animate-slideUpCollapsible overflow-hidden bg-grayscale-50">
+      <RadixCollapsible.Content className="collapsible-content overflow-hidden bg-grayscale-50 data-[state=closed]:animate-slideUpCollapsible data-[state=open]:animate-slideDownCollapsible">
         <OrderContent
           image={
             <Image

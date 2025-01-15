@@ -105,7 +105,7 @@ export default function Page() {
               with eclectic vibes.
             </h2>
             <p className="md:text-lg lg:max-w-lg">
-              Whether you're looking for bold statement pieces or subtle
+              Whether you&apos;re looking for bold statement pieces or subtle
               elegance, this collection elevates your home with a touch of
               glamour, sophistication, and unmatched coziness.
             </p>

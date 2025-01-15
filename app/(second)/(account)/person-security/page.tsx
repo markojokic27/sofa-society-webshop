@@ -191,7 +191,7 @@ export default function Page() {
       </Dialog>
       <p className="mb-6 mt-16 text-md">Change password</p>
       <p className="mb-10 max-w-2xl text-grayscale-500">
-        To change your password, we'll send you an email. Just click on the
+        To change your password, we&apos;ll send you an email. Just click on the
         reset button below.
       </p>
       <Dialog

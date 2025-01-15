@@ -39,7 +39,6 @@ export const HeaderWrapper: React.FC<{ children?: React.ReactNode }> = ({
 
   return (
     <div
-      id="header"
       ref={headerRef}
       className="group fixed top-0 z-40 mx-auto w-full bg-white md:data-[theme=light]:bg-transparent"
       data-theme={hasHeroImage}

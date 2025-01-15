@@ -28,7 +28,7 @@ export default function Page() {
             Analytics and Performance Cookies: These cookies help us understand
             how visitors interact with our website by collecting information
             such as the number of visitors, pages visited, and sources of
-            traffic. This data helps us improve our website's performance and
+            traffic. This data helps us improve our website&apos;s performance and
             usability.
           </li>
           <li>

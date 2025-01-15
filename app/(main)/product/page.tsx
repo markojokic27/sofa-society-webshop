@@ -126,7 +126,7 @@ export default function Page() {
               href={"/collection"}
               className="underline underline-offset-4 md:text-base lg:ml-15 lg:text-lg"
             >
-              See more out of 'Modern Luxe' collection
+              See more out of &apos;Modern Luxe&apos; collection
             </Link>
           </LayoutColumn>
         </LayoutRow>

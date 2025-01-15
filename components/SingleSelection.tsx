@@ -24,9 +24,11 @@ export const SingleSelection: React.FC<
           <ListBoxItem
             key={key}
             onAction={() => {
-              item === selectedValue
-                ? setSelectedValue("")
-                : setSelectedValue(item);
+              if (item === selectedValue) {
+                setSelectedValue("");
+              } else {
+                setSelectedValue(item);
+              }
             }}
             className={`border-none p-4 text-2xs outline-none hover:cursor-pointer md:text-base ${item === selectedValue ? "font-semibold" : ""}`}
           >

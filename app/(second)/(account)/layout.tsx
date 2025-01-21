@@ -7,7 +7,6 @@ import { LayoutLinks } from "@/components/account/LayoutLinks";
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header />
       <Layout className="mt:18 md:mt-21">
         <LayoutRow className="relative">
           <LayoutColumn

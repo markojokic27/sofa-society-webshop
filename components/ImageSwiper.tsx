@@ -55,7 +55,7 @@ export const ImageSwiper: React.FC<
           className="rotate-180 group-disabled:bg-transparent group-disabled:text-black"
         />
       </button>
-      <div className="custom-pagination -mt-10 mb-8 flex justify-center gap-2 sm:mb-0 sm:mt-6"></div>
+      <div className="custom-pagination -mt-10 mb-8 flex justify-center gap-2 sm:mb-0 sm:mt-6" />
     </div>
   );
 };

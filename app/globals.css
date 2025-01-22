@@ -6,7 +6,7 @@
   .register-image {
     min-height: calc(100vh - 84px);
   }
-  .hamburger-menu {
+  .drawer {
     width: calc(100% - 72px);
   }
   .mobile-filter {
@@ -174,14 +174,14 @@
     }
   }
   @media (min-width: 1536px) {
-    .swiper-container {
-      padding-inline: calc(50% - 768px);
-    }
     .pulled-background::after {
       width: calc((100% + 60px) + ((100vw - 1536px) / 2));
     }
     .pulled-background-account::after {
       width: calc((100% + 48px) + ((100vw - 1536px) / 2));
+    }
+    .container {
+      max-width: 1296px;
     }
   }
 }

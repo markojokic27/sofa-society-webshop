@@ -1,5 +1,6 @@
 // External packages
 import { twMerge } from "tailwind-merge";
+import Link from "next/link";
 
 // Components
 import { Button } from "@/components/Button";
@@ -18,9 +19,9 @@ export const OrderContent: React.FC<
   <div className="container mx-auto px-8 py-4 lg:p-0" {...rest}>
     <div className="mb-8 flex justify-between text-base lg:mb-16">
       <p>Order - 1 item</p>
-      <Button variant="link" className="md:text-base">
-        Edit card
-      </Button>
+      <Link href="/cart" className="underline underline-offset-4">
+        Edit cart
+      </Link>
     </div>
     <div className="mb-8 flex gap-4 lg:gap-6">
       <div className="min-w-24 lg:min-w-32">{image}</div>

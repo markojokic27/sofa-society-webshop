@@ -1,11 +1,12 @@
 "use client";
 
 // External packages
-import { Link, Button } from "react-aria-components";
+import { Button } from "react-aria-components";
+import Link from "next/link";
 
 // Components
 import { Icon } from "@/components/Icon";
-import { HamburgerMenu } from "@/components/HamburgerMenu";
+import { Drawer } from "@/components/Drawer";
 import { FunctionalSelect } from "@/components/FunctionalSelect";
 import { HeaderWrapper } from "@/components/HeaderWrapper";
 
@@ -59,7 +60,7 @@ export const Header: React.FC = () => {
             </Link>
           </li>
           <li className="flex h-6 w-6 items-center md:hidden">
-            <HamburgerMenu/>
+            <Drawer />
           </li>
         </ul>
       </div>

@@ -49,28 +49,32 @@ export default function Page() {
             <h2 className="text-xl md:text-4xl">Our products</h2>
           </LayoutColumn>
           <LayoutColumn span={6}>
-            <div>
-              <Image
-                alt="sofa image"
-                src={Sofa}
-                className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
-                height={225}
-                width={168}
-              />
-            </div>
-            <p className="text-2xs md:text-lg">Sofas</p>
+            <Link href="/shop">
+              <div>
+                <Image
+                  alt="sofa image"
+                  src={Sofa}
+                  className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
+                  height={225}
+                  width={168}
+                />
+              </div>
+              <p className="text-2xs md:text-lg">Sofas</p>
+            </Link>
           </LayoutColumn>
           <LayoutColumn span={6}>
-            <div>
-              <Image
-                alt="sofa image"
-                src={Sofa}
-                className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
-                height={225}
-                width={168}
-              />
-            </div>
-            <p className="text-2xs md:text-lg">Sofas</p>
+            <Link href="/shop">
+              <div>
+                <Image
+                  alt="sofa image"
+                  src={Sofa}
+                  className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
+                  height={225}
+                  width={168}
+                />
+              </div>
+              <p className="text-2xs md:text-lg">Sofas</p>
+            </Link>
           </LayoutColumn>
         </LayoutRow>
       </Layout>

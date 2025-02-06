@@ -10,11 +10,16 @@ import {
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { Input } from "@/components/Input";
-import { FunctionalSelect } from "@/components/FunctionalSelect";
+import { CountrySelect } from "@/components/CountrySelect";
+
+// Medusa
+import { HttpTypes } from "@medusajs/types";
 
 export const Drawer: React.FC<
-  React.ComponentPropsWithoutRef<"button">
-> = () => {
+  React.ComponentPropsWithoutRef<"button"> & {
+    regions: HttpTypes.StoreRegion[];
+  }
+> = ({ regions }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
@@ -29,7 +34,7 @@ export const Drawer: React.FC<
           isDismissable
           isOpen={isOpen}
           onOpenChange={setIsOpen}
-          className="data-[entering]:animate-drawer data-[exiting]:animate-drawerOut fixed bottom-0 left-0 top-0 z-[70] w-full"
+          className="fixed bottom-0 left-0 top-0 z-[70] w-full data-[entering]:animate-drawer data-[exiting]:animate-drawerOut"
         >
           <Modal className="drawer fixed bottom-0 left-0 top-0 z-[70] bg-black">
             <Dialog className="flex h-full flex-col justify-between outline-none">
@@ -73,22 +78,7 @@ export const Drawer: React.FC<
                 </ul>
               </div>
               <div className="m-8 text-grayscale-10">
-                <FunctionalSelect
-                  variant="language-select-mobile"
-                  items={[
-                    { name: "Arabic", value: "AR" },
-                    { name: "Chinese", value: "ZH" },
-                    { name: "Hrvatski", value: "HR" },
-                    { name: "English", value: "EN" },
-                    { name: "Français", value: "FR" },
-                    { name: "Deutsch", value: "DE" },
-                    { name: "Italiano", value: "IT" },
-                    { name: "Japanese", value: "JA" },
-                    { name: "Russian", value: "RU" },
-                    { name: "Español", value: "ES" },
-                  ]}
-                  defaultValue={"HR"}
-                />
+                <CountrySelect defaultValue="HR" variant="mobile" />
               </div>
             </Dialog>
           </Modal>

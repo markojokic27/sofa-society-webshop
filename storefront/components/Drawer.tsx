@@ -12,14 +12,9 @@ import { Icon } from "@/components/Icon";
 import { Input } from "@/components/Input";
 import { CountrySelect } from "@/components/CountrySelect";
 
-// Medusa
-import { HttpTypes } from "@medusajs/types";
-
 export const Drawer: React.FC<
-  React.ComponentPropsWithoutRef<"button"> & {
-    regions: HttpTypes.StoreRegion[];
-  }
-> = ({ regions }) => {
+  React.ComponentPropsWithoutRef<"button">
+> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>

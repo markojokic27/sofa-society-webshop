@@ -1,17 +1,18 @@
 // External packages
 import Image from "next/image";
-import Link from "next/link";
+import { getPathnameCountry } from "@/utils/getPathnameCountry";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { CollectionsScroll } from "@/components/CollectionsScroll";
+import { LocalizedLink } from "@/components/LocalizedLink";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 import AboutImage from "@/public/assets/images/about-sofa.png";
 
-export default function Page() {
+export default function Page({ params }: { params: { country: string } }) {
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
@@ -36,12 +37,13 @@ export default function Page() {
             className="flex flex-col justify-center md:text-lg"
           >
             <p>Discover Your Perfect Sofa Today</p>
-            <Link
+            <LocalizedLink
+              country={params.country}
               href="/shop"
               className="md:underline-offset- underline underline-offset-4"
             >
               Explore Now
-            </Link>
+            </LocalizedLink>
           </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="mb-26 md:mb-36">
@@ -49,7 +51,7 @@ export default function Page() {
             <h2 className="text-xl md:text-4xl">Our products</h2>
           </LayoutColumn>
           <LayoutColumn span={6}>
-            <Link href="/shop">
+            <LocalizedLink country={params.country} href="/shop">
               <div>
                 <Image
                   alt="sofa image"
@@ -60,10 +62,10 @@ export default function Page() {
                 />
               </div>
               <p className="text-2xs md:text-lg">Sofas</p>
-            </Link>
+            </LocalizedLink>
           </LayoutColumn>
           <LayoutColumn span={6}>
-            <Link href="/shop">
+            <LocalizedLink country={params.country} href="/shop">
               <div>
                 <Image
                   alt="sofa image"
@@ -74,7 +76,7 @@ export default function Page() {
                 />
               </div>
               <p className="text-2xs md:text-lg">Sofas</p>
-            </Link>
+            </LocalizedLink>
           </LayoutColumn>
         </LayoutRow>
       </Layout>
@@ -112,9 +114,13 @@ export default function Page() {
               Our mission is to transform your living space into a sanctuary of
               relaxation and beauty, with products built to last.
             </p>
-            <Link href="/about" className="underline underline-offset-4">
+            <LocalizedLink
+              country={params.country}
+              href="/about"
+              className="underline underline-offset-4"
+            >
               Read more about Sofa Society
-            </Link>
+            </LocalizedLink>
           </LayoutColumn>
         </LayoutRow>
       </Layout>

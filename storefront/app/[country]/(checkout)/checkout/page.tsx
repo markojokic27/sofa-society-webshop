@@ -1,26 +1,31 @@
 //External packages
-import Link from "next/link";
 import Image from "next/image";
+import { getPathnameCountry } from "@/utils/getPathnameCountry";
 
 // Components
 import { Layout, LayoutColumn, LayoutRow } from "@/components/Layout";
 import { Accordion } from "@/components/checkout/Accordion";
 import { Collapsible } from "@/components/checkout/Collapsible";
 import { OrderContent } from "@/components/checkout/OrderContent";
+import { LocalizedLink } from "@/components/LocalizedLink";
 
 // Assets
 import ImageOrder from "@/public/assets/images/product1.png";
 
-export default function Page() {
+export default function Page({ params }: { params: { country: string } }) {
   return (
     <>
       <div className="absolute left-0 right-0 top-0 bg-white py-6 lg:z-[-2]">
         <Layout className="px-8 md:px-8 lg:px-6">
           <LayoutRow>
             <LayoutColumn className="flex items-center justify-between">
-              <Link href={"/"} className="text-lg leading-none">
+              <LocalizedLink
+                country={params.country}
+                href={"/"}
+                className="text-lg leading-none"
+              >
                 SofaSocietyCo.
-              </Link>
+              </LocalizedLink>
               <h3 className="font-bold lg:hidden">Checkout</h3>
             </LayoutColumn>
           </LayoutRow>

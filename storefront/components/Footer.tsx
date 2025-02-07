@@ -5,8 +5,9 @@ import Link from "next/link";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
+import { LocalizedLink } from "@/components/LocalizedLink";
 
-export const Footer = () => {
+export const Footer = ({ params }: { params: { country: string } }) => {
   return (
     <div className="bg-grayscale-50">
       <Layout className="px-8 sm:px-6">
@@ -47,16 +48,24 @@ export const Footer = () => {
             <div className="flex">
               <ul className="flex flex-1 flex-col gap-4">
                 <li>
-                  <Link href={"faq"}>FAQ</Link>
+                  <LocalizedLink country="hr" href={"/faq"}>
+                    FAQ
+                  </LocalizedLink>
                 </li>
                 <li>
-                  <Link href={"help"}>Help</Link>
+                  <LocalizedLink country="hr" href={"/help"}>
+                    Help
+                  </LocalizedLink>
                 </li>
                 <li>
-                  <Link href={"delivery"}>Delivery</Link>
+                  <LocalizedLink country="hr" href={"/delivery"}>
+                    Delivery
+                  </LocalizedLink>
                 </li>
                 <li>
-                  <Link href={"returns"}>Returns</Link>
+                  <LocalizedLink country="hr" href={"/returns"}>
+                    Returns
+                  </LocalizedLink>
                 </li>
               </ul>
               <ul className="flex flex-1 flex-col gap-4">
@@ -75,13 +84,28 @@ export const Footer = () => {
               </ul>
               <ul className="flex flex-1 flex-col gap-4">
                 <li>
-                  <Link href={"privacy-policy"}>Privacy Policy</Link>
+                  <LocalizedLink
+                    country="hr"
+                    href={"/privacy-policy"}
+                  >
+                    Privacy Policy
+                  </LocalizedLink>
                 </li>
                 <li>
-                  <Link href={"cookie-policy"}>Cookie Policy</Link>
+                  <LocalizedLink
+                    country="hr"
+                    href={"/cookie-policy"}
+                  >
+                    Cookie Policy
+                  </LocalizedLink>
                 </li>
                 <li>
-                  <Link href={"terms-of-use"}>Terms of Use</Link>
+                  <LocalizedLink
+                    country="hr"
+                    href={"/terms-of-use"}
+                  >
+                    Terms of Use
+                  </LocalizedLink>
                 </li>
               </ul>
             </div>

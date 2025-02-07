@@ -16,7 +16,7 @@ import { ProductCard } from "@/components/ProductCard";
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 
-export default function Page() {
+export default function Page({ params }: { params: { country: string } }) {
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
@@ -157,6 +157,7 @@ export default function Page() {
         <LayoutRow className="-mx-2 mb-26 md:-mx-4 lg:-mx-6 lg:mb-36">
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
+              country={params.country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -173,6 +174,7 @@ export default function Page() {
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
+              country={params.country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -190,6 +192,7 @@ export default function Page() {
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
+              country={params.country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -206,6 +209,7 @@ export default function Page() {
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
+              country={params.country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"

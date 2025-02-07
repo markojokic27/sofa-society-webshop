@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export const HeaderWrapper: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
-  const pathName = usePathname();
+  const pathName = usePathname().slice(3) || "/";
   const hasHeroImage = ["/", "/about", "/inspiration", "/collection"].includes(
     pathName,
   )

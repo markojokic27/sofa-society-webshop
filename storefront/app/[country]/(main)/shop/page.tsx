@@ -13,12 +13,13 @@ import { MobileFilters } from "@/components/MobileFilters";
 import { Icon } from "@/components/Icon";
 import { SliderSelection } from "@/components/SliderSelection";
 import { RadioButton, RadioGroup } from "@/components/RadioGroup";
+import { LocalizedLink } from "@/components/LocalizedLink";
 
 // Assets
 import Collection from "@/public/assets/images/collection.png";
 import Sofa from "@/public/assets/images/product-card.png";
 
-export default function Page() {
+export default function Page({ params }: { params: { country: string } }) {
   return (
     <>
       <CollectionsScroll className="mb-26 mt-26 md:mb-36 md:mt-48 md:hidden" />
@@ -28,22 +29,38 @@ export default function Page() {
             <h1 className="mb-8 text-xl md:text-4xl">Collections</h1>
           </LayoutColumn>
           <LayoutColumn className="flex gap-6">
-            <Link href={"/collection"} className="flex-1">
+            <LocalizedLink
+              country={params.country}
+              href={"/collection"}
+              className="flex-1"
+            >
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
-            </Link>
-            <Link href={"/collection"} className="flex-1">
+            </LocalizedLink>
+            <LocalizedLink
+              country={params.country}
+              href={"/collection"}
+              className="flex-1"
+            >
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
-            </Link>
-            <Link href={"/collection"} className="flex-1">
+            </LocalizedLink>
+            <LocalizedLink
+              country={params.country}
+              href={"/collection"}
+              className="flex-1"
+            >
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
-            </Link>
-            <Link href={"/collection"} className="flex-1">
+            </LocalizedLink>
+            <LocalizedLink
+              country={params.country}
+              href={"/collection"}
+              className="flex-1"
+            >
               <Image src={Collection} alt="Collection" className="mb-6" />
               <p>Scandinavian Simplicity</p>
-            </Link>
+            </LocalizedLink>
           </LayoutColumn>
         </LayoutRow>
       </Layout>
@@ -165,6 +182,7 @@ export default function Page() {
                 className="px-2 md:px-4 lg:px-6"
               >
                 <ProductCard
+                  country={params.country}
                   name="Nordic Haven"
                   description="Scandinavian Simplicity"
                   price="1000€"

@@ -1,6 +1,8 @@
 // External packages
 import { twMerge } from "tailwind-merge";
-import Link from "next/link";
+
+// Components
+import { LocalizedLink } from "./LocalizedLink";
 
 export const ProductCard: React.FC<
   React.ComponentPropsWithoutRef<"div"> & {
@@ -9,6 +11,7 @@ export const ProductCard: React.FC<
     description?: string;
     price: string;
     originalPrice?: string;
+    country: string;
   }
 > = ({
   image,
@@ -16,11 +19,12 @@ export const ProductCard: React.FC<
   description,
   price,
   originalPrice,
+  country,
   className,
   ...rest
 }) => (
   <div {...rest} className={twMerge("w-full", className)}>
-    <Link href={"/product"}>
+    <LocalizedLink country={country} href={"/product"}>
       <div className="mb-6 w-full">{image}</div>
       <div className="flex justify-between">
         <div>
@@ -40,6 +44,6 @@ export const ProductCard: React.FC<
           )}
         </div>
       </div>
-    </Link>
+    </LocalizedLink>
   </div>
 );

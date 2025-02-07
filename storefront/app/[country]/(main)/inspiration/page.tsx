@@ -12,7 +12,7 @@ import Sofa from "@/public/assets/images/product-card.png";
 import AboutImage from "@/public/assets/images/about1.png";
 import AboutImage2 from "@/public/assets/images/about3.png";
 
-export default function Page() {
+export default function Page({ params }: { params: { country: string } }) {
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
@@ -39,6 +39,7 @@ export default function Page() {
           </LayoutColumn>
           <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
+              country={params.country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -72,6 +73,7 @@ export default function Page() {
           </LayoutColumn>
           <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
+              country={params.country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -79,6 +81,7 @@ export default function Page() {
               className="mb-8 md:mb-16"
             />
             <ProductCard
+              country={params.country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -112,6 +115,7 @@ export default function Page() {
           </LayoutColumn>
           <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
+              country={params.country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"

@@ -16,7 +16,12 @@ import Sofa from "@/public/assets/images/product-card.png";
 import Product1 from "@/public/assets/images/product1.png";
 import Product2 from "@/public/assets/images/product2.png";
 
-export default function Page({ params }: { params: { country: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ country: string }>;
+}) {
+  const { country } = await params;
   return (
     <>
       <Layout className="mb-16 mt-18 sm:mt-36 md:mb-26">
@@ -101,7 +106,6 @@ export default function Page({ params }: { params: { country: string } }) {
           alt="sofa image"
           src={AboutImage3}
           className="w-full object-cover"
-          priority={true}
           width={1440}
           height={809}
         />
@@ -114,7 +118,6 @@ export default function Page({ params }: { params: { country: string } }) {
                 alt="sofa image"
                 src={AboutImage2}
                 className="w-full object-cover"
-                priority={true}
               />
             </div>
           </LayoutColumn>
@@ -138,7 +141,7 @@ export default function Page({ params }: { params: { country: string } }) {
         <LayoutRow className="l -mx-2 mb-24 md:-mx-4 md:mb-36 lg:-mx-6">
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -147,14 +150,13 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                  priority={true}
                 />
               }
             />
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -164,14 +166,13 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                  priority={true}
                 />
               }
             />
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="hidden md:flex">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -180,7 +181,6 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                  priority={true}
                 />
               }
             />

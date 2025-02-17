@@ -12,7 +12,12 @@ import Sofa from "@/public/assets/images/product-card.png";
 import AboutImage from "@/public/assets/images/about1.png";
 import AboutImage2 from "@/public/assets/images/about3.png";
 
-export default function Page({ params }: { params: { country: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ country: string }>;
+}) {
+  const { country } = await params;
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
@@ -39,7 +44,7 @@ export default function Page({ params }: { params: { country: string } }) {
           </LayoutColumn>
           <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -53,7 +58,6 @@ export default function Page({ params }: { params: { country: string } }) {
               alt="sofa image"
               src={AboutImage}
               className="w-full object-cover"
-              priority={true}
               height={702}
               width={1248}
             />
@@ -73,7 +77,7 @@ export default function Page({ params }: { params: { country: string } }) {
           </LayoutColumn>
           <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -81,7 +85,7 @@ export default function Page({ params }: { params: { country: string } }) {
               className="mb-8 md:mb-16"
             />
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -95,7 +99,6 @@ export default function Page({ params }: { params: { country: string } }) {
           alt="sofa image"
           src={AboutImage2}
           className="w-full object-cover"
-          priority={true}
           width={1440}
           height={809}
         />
@@ -115,7 +118,7 @@ export default function Page({ params }: { params: { country: string } }) {
           </LayoutColumn>
           <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Havenc"
               description="Scandinavian Simplicity"
               price="1000€"

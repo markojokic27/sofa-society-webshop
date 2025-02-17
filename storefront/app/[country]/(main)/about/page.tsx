@@ -50,7 +50,6 @@ export default function Page() {
               alt="sofa image"
               src={AboutImage1}
               className="w-full object-cover"
-              priority={true}
               height={702}
               width={1248}
             />
@@ -86,7 +85,6 @@ export default function Page() {
                 alt="sofa image"
                 src={AboutImage2}
                 className="w-full object-cover"
-                priority={true}
                 width={600}
                 height={800}
               />
@@ -121,7 +119,6 @@ export default function Page() {
           alt="sofa image"
           src={AboutImage3}
           className="w-full object-cover"
-          priority={true}
           width={1440}
           height={809}
         />

@@ -1,6 +1,5 @@
 //External packages
 import Image from "next/image";
-import { getPathnameCountry } from "@/utils/getPathnameCountry";
 
 // Components
 import { Layout, LayoutColumn, LayoutRow } from "@/components/Layout";
@@ -13,6 +12,7 @@ import { LocalizedLink } from "@/components/LocalizedLink";
 import ImageOrder from "@/public/assets/images/product1.png";
 
 export default function Page({ params }: { params: { country: string } }) {
+  const country = params.country || "hr";
   return (
     <>
       <div className="absolute left-0 right-0 top-0 bg-white py-6 lg:z-[-2]">
@@ -20,7 +20,7 @@ export default function Page({ params }: { params: { country: string } }) {
           <LayoutRow>
             <LayoutColumn className="flex items-center justify-between">
               <LocalizedLink
-                country={params.country}
+                country={country}
                 href={"/"}
                 className="text-lg leading-none"
               >

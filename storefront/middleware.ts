@@ -1,29 +1,21 @@
-// External packages
 import { NextRequest, NextResponse } from "next/server";
-
-// Lib
 import { getSupportedCountries } from "@/lib/data/Regions";
-
-// Medusa
-
-// Lista svih podržanih jezika
-const supportedCountries = await getSupportedCountries();
-const supportedLocales = supportedCountries.map(
-  (country: { iso_2: string }) => country.iso_2,
-);
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Provjera da li pathname ne počinje s jednim od podržanih jezika
+  const supportedCountries = await getSupportedCountries();
+  const supportedLocales = supportedCountries.map(
+    (country: { iso_2: string }) => country.iso_2,
+  );
+
   const isSupportedLocale = supportedLocales.some((locale: string) =>
     pathname.startsWith(`/${locale}`),
   );
 
-  // Ako nije podržani jezik, preusmjeravamo na `/hr`
-  if (!isSupportedLocale) {
+  if (!isSupportedLocale && !pathname.startsWith("/hr")) {
     return NextResponse.redirect(
-      `${request.nextUrl.origin}/hr${pathname}`, // Preusmjerava na `/hr` + trenutni pathname
+      `${request.nextUrl.origin}/hr${pathname}`,
       307,
     );
   }

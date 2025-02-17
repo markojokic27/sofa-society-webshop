@@ -16,7 +16,12 @@ import { ProductCard } from "@/components/ProductCard";
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 
-export default function Page({ params }: { params: { country: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ country: string }>;
+}) {
+  const { country } = await params;
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
@@ -157,7 +162,7 @@ export default function Page({ params }: { params: { country: string } }) {
         <LayoutRow className="-mx-2 mb-26 md:-mx-4 lg:-mx-6 lg:mb-36">
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -166,7 +171,6 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
-                  priority
                 />
               }
               className="mb-10 md:mb-16"
@@ -174,7 +178,7 @@ export default function Page({ params }: { params: { country: string } }) {
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -184,7 +188,6 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
-                  priority={true}
                 />
               }
               className="mb-10 md:mb-16"
@@ -192,7 +195,7 @@ export default function Page({ params }: { params: { country: string } }) {
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -201,7 +204,6 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
-                  priority={true}
                 />
               }
               className="mb-10 md:mb-16"
@@ -209,7 +211,7 @@ export default function Page({ params }: { params: { country: string } }) {
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={params.country}
+              country={country}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -219,7 +221,6 @@ export default function Page({ params }: { params: { country: string } }) {
                   alt="about image"
                   src={Sofa}
                   className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
-                  priority={true}
                 />
               }
               className="mb-10 md:mb-16"

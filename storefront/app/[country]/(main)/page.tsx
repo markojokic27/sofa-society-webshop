@@ -1,18 +1,21 @@
 // External packages
 import Image from "next/image";
-import { getPathnameCountry } from "@/utils/getPathnameCountry";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { CollectionsScroll } from "@/components/CollectionsScroll";
 import { LocalizedLink } from "@/components/LocalizedLink";
+import { ProductTypes } from "@/components/ProductTypes";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header.png";
-import Sofa from "@/public/assets/images/sofa.png";
 import AboutImage from "@/public/assets/images/about-sofa.png";
-
-export default function Page({ params }: { params: { country: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ country: string }>;
+}) {
+  const { country } = await params;
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
@@ -20,7 +23,7 @@ export default function Page({ params }: { params: { country: string } }) {
           alt="header image"
           src={HeaderImage}
           className="w-full object-cover md:h-full"
-          priority={true}
+          priority
           height={750}
           width={1440}
         />
@@ -38,7 +41,7 @@ export default function Page({ params }: { params: { country: string } }) {
           >
             <p>Discover Your Perfect Sofa Today</p>
             <LocalizedLink
-              country={params.country}
+              country={country}
               href="/shop"
               className="md:underline-offset- underline underline-offset-4"
             >
@@ -46,40 +49,8 @@ export default function Page({ params }: { params: { country: string } }) {
             </LocalizedLink>
           </LayoutColumn>
         </LayoutRow>
-        <LayoutRow className="mb-26 md:mb-36">
-          <LayoutColumn span={12} className="mb-8 md:mb-15">
-            <h2 className="text-xl md:text-4xl">Our products</h2>
-          </LayoutColumn>
-          <LayoutColumn span={6}>
-            <LocalizedLink country={params.country} href="/shop">
-              <div>
-                <Image
-                  alt="sofa image"
-                  src={Sofa}
-                  className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
-                  height={225}
-                  width={168}
-                />
-              </div>
-              <p className="text-2xs md:text-lg">Sofas</p>
-            </LocalizedLink>
-          </LayoutColumn>
-          <LayoutColumn span={6}>
-            <LocalizedLink country={params.country} href="/shop">
-              <div>
-                <Image
-                  alt="sofa image"
-                  src={Sofa}
-                  className="mb-2 w-full object-cover md:mb-8 md:aspect-4/3"
-                  height={225}
-                  width={168}
-                />
-              </div>
-              <p className="text-2xs md:text-lg">Sofas</p>
-            </LocalizedLink>
-          </LayoutColumn>
-        </LayoutRow>
       </Layout>
+      <ProductTypes country={country} />
 
       <CollectionsScroll />
       <Layout>
@@ -94,7 +65,6 @@ export default function Page({ params }: { params: { country: string } }) {
               className="w-full object-cover"
               height={702}
               width={1248}
-              priority={true}
             />
           </LayoutColumn>
         </LayoutRow>
@@ -115,7 +85,7 @@ export default function Page({ params }: { params: { country: string } }) {
               relaxation and beauty, with products built to last.
             </p>
             <LocalizedLink
-              country={params.country}
+              country={country}
               href="/about"
               className="underline underline-offset-4"
             >

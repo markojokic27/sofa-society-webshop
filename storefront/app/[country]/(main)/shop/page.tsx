@@ -36,7 +36,7 @@ export default async function Page({
           <LayoutColumn className="flex gap-6">
             <LocalizedLink
               country={country}
-              href={"/collection"}
+              href={"/collections"}
               className="flex-1"
             >
               <Image
@@ -49,7 +49,7 @@ export default async function Page({
             </LocalizedLink>
             <LocalizedLink
               country={country}
-              href={"/collection"}
+              href={"/collections"}
               className="flex-1"
             >
               <Image
@@ -62,7 +62,7 @@ export default async function Page({
             </LocalizedLink>
             <LocalizedLink
               country={country}
-              href={"/collection"}
+              href={"/collections"}
               className="flex-1"
             >
               <Image
@@ -75,7 +75,7 @@ export default async function Page({
             </LocalizedLink>
             <LocalizedLink
               country={country}
-              href={"/collection"}
+              href={"/collections"}
               className="flex-1"
             >
               <Image

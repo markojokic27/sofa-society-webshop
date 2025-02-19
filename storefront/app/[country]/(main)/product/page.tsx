@@ -126,7 +126,7 @@ export default async function Page({
               The Paloma Haven sofa is a masterpiece of minimalism and luxury.
             </p>
             <Link
-              href={"/collection"}
+              href={"/collections"}
               className="underline underline-offset-4 md:text-base lg:ml-15 lg:text-lg"
             >
               See more out of &apos;Modern Luxe&apos; collection

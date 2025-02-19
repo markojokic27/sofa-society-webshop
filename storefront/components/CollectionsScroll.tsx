@@ -1,6 +1,7 @@
 "use client";
 
 // External packages
+import * as React from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { Swiper, SwiperSlide, SwiperProps } from "swiper/react";
@@ -17,9 +18,30 @@ import { LinkAsButton } from "@/components/LinkAsButton";
 // Assets
 import Collection from "@/public/assets/images/collection2.png";
 
+// Lib
+import { getCollections } from "@/lib/data/Collections";
+
+// Medusa
+import { HttpTypes } from "@medusajs/types";
+
 export const CollectionsScroll: React.FC<
   React.ComponentPropsWithoutRef<"div"> & SwiperProps
 > = ({ className, ...rest }) => {
+  const [collections, setCollections] = React.useState<
+    HttpTypes.StoreCollection[]
+  >([]);
+  React.useEffect(() => {
+    const fetchTypes = async () => {
+      try {
+        const data = await getCollections();
+        console.log(data);
+        setCollections(data);
+      } catch (err) {
+        console.error("Error fetching regions:", err);
+      }
+    };
+    fetchTypes();
+  }, []);
   return (
     <div
       className={twMerge("mb-26 w-full overflow-hidden md:mb-36", className)}
@@ -83,21 +105,21 @@ export const CollectionsScroll: React.FC<
           className={twMerge("swiper-padding overflow-visible")}
           {...rest}
         >
-          {[...Array(4)].map((_, index) => (
-            <SwiperSlide key={index}>
+          {collections.map((c) => (
+            <SwiperSlide key={c.id}>
               <CollectionCard
                 image={
                   <Image
                     alt="collection image"
-                    src={Collection}
+                    src={(c.metadata?.image as { url: string })?.url}
                     className="mb-4 w-full object-cover lg:mb-10"
-                    priority={true}
                     height={661}
                     width={496}
                   />
                 }
-                name="Scandinavian Simplicity"
-                description="Minimalistic designs, neutral colors, and high-quality textures"
+                name={c.title}
+                description={c.metadata?.description as string}
+                route={c.handle}
               />
             </SwiperSlide>
           ))}

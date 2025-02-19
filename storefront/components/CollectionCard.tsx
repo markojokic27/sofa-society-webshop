@@ -12,12 +12,13 @@ export const CollectionCard: React.FC<
     image: React.ReactNode;
     name: string;
     description?: string;
+    route?: string;
   }
-> = ({ name, description, image, className, ...rest }) => {
+> = ({ name, description, image, route, className, ...rest }) => {
   const country = getPathnameCountry();
   return (
     <div {...rest} className={twMerge("", className)}>
-      <LocalizedLink country={country} href={"/collection"}>
+      <LocalizedLink country={country} href={`/collections/${route}`}>
         <div className="w-full">{image}</div>
         <h3 className="mb-2 lg:mb-4 lg:text-xl">{name}</h3>
         <p className="text-2xs text-grayscale-500 lg:text-lg">{description}</p>

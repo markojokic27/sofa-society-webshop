@@ -8,11 +8,11 @@ export const HeaderWrapper: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
   const pathName = usePathname().slice(3) || "/";
-  const hasHeroImage = ["/", "/about", "/inspiration", "/collection"].includes(
-    pathName,
-  )
-    ? "light"
-    : "dark";
+  const hasHeroImage =
+    ["/", "/about", "/inspiration"].includes(pathName) ||
+    pathName.startsWith("/collections")
+      ? "light"
+      : "dark";
   const headerRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {

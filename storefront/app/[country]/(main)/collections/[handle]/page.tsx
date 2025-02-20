@@ -16,18 +16,31 @@ import { ProductCard } from "@/components/ProductCard";
 import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 
+// Lib
+import { getCollectionByHandle } from "@/lib/data/Collections";
+
+// Medusa
+import { HttpTypes } from "@medusajs/types";
+
 export default async function Page({
-  params,
+  params: paramsPromise,
 }: {
-  params: Promise<{ country: string }>;
+  params: Promise<{ country: string; handle: string }>;
 }) {
-  const { country } = await params;
+  const params = await paramsPromise;
+  const collection: (HttpTypes.StoreCollection & {
+    metadata: {
+      collection_page_image: { url: string };
+      collection_page_heading: string;
+      collection_page_content: string;
+    };
+  })[] = await getCollectionByHandle(params.handle);
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
         <Image
           alt="header image"
-          src={HeaderImage}
+          src={collection[0]?.metadata?.collection_page_image?.url}
           className="w-full object-cover md:h-full"
           priority={true}
           height={750}
@@ -37,16 +50,19 @@ export default async function Page({
       <Layout>
         <LayoutRow className="mb-26 lg:mb-36">
           <LayoutColumn lgSpan={6} className="mb-6 text-xl lg:text-4xl">
-            Scandinavian Simplicity: Effortless elegance, timeless comfort
+            {collection[0]?.metadata?.collection_page_heading}
           </LayoutColumn>
           <LayoutColumn lgSpan={6} className="lg:text-lg">
-            <p className="lg:ml-15 lg:mt-18">
-              Minimalistic designs, neutral colors, and high-quality textures.
-              Perfect for those who seek comfort with a clean and understated
-              aesthetic. <br />
-              <br /> This collection brings the essence of Scandinavian elegance
-              to your living room.
-            </p>
+            <div className="lg:ml-15 lg:mt-18">
+              {collection[0]?.metadata?.collection_page_content
+                ?.split("\n")
+                .map((line, index) => (
+                  <p key={index}>
+                    {line}
+                    <br />
+                  </p>
+                ))}
+            </div>
           </LayoutColumn>
         </LayoutRow>
       </Layout>
@@ -54,11 +70,11 @@ export default async function Page({
         <LayoutRow>
           <LayoutColumn>
             <h1 className="mb-6 text-xl md:mb-8 md:text-4xl">
-              Scandinavian Simplicity
+              {collection[0]?.title}
             </h1>
           </LayoutColumn>
         </LayoutRow>
-
+        {/* TODO Shop komponenta u koju cu poslat category=collection.nesto */}
         <LayoutRow className="mb-8">
           <LayoutColumn className="flex justify-between md:hidden">
             <MobileFilters
@@ -162,7 +178,7 @@ export default async function Page({
         <LayoutRow className="-mx-2 mb-26 md:-mx-4 lg:-mx-6 lg:mb-36">
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={country}
+              country={params?.country || ""}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -178,7 +194,7 @@ export default async function Page({
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={country}
+              country={params?.country || ""}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -195,7 +211,7 @@ export default async function Page({
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={country}
+              country={params?.country || ""}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"
@@ -211,7 +227,7 @@ export default async function Page({
           </LayoutColumn>
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
-              country={country}
+              country={params?.country || ""}
               name="Nordic Haven"
               description="Scandinavian Simplicity"
               price="1000€"

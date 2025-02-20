@@ -15,9 +15,6 @@ import { CollectionCard } from "@/components/CollectionCard";
 import { Arrow } from "@/components/Arrow";
 import { LinkAsButton } from "@/components/LinkAsButton";
 
-// Assets
-import Collection from "@/public/assets/images/collection2.png";
-
 // Lib
 import { getCollections } from "@/lib/data/Collections";
 
@@ -34,7 +31,6 @@ export const CollectionsScroll: React.FC<
     const fetchTypes = async () => {
       try {
         const data = await getCollections();
-        console.log(data);
         setCollections(data);
       } catch (err) {
         console.error("Error fetching regions:", err);

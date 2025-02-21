@@ -1,5 +1,5 @@
 "use client";
-
+// TODO ne moze ovo ic na client, koristi async/await makni react
 // External packages
 import * as React from "react";
 import Image from "next/image";

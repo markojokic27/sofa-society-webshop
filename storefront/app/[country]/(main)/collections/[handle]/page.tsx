@@ -13,7 +13,6 @@ import { SingleSelection } from "@/components/SingleSelection";
 import { ProductCard } from "@/components/ProductCard";
 
 // Assets
-import HeaderImage from "@/public/assets/images/header.png";
 import Sofa from "@/public/assets/images/sofa.png";
 
 // Lib

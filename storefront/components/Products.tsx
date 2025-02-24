@@ -12,16 +12,12 @@ import { Icon } from "@/components/Icon";
 import { SliderSelection } from "@/components/SliderSelection";
 import { RadioButton, RadioGroup } from "@/components/RadioGroup";
 
-// Assets
-import Sofa from "@/public/assets/images/product-card.png";
-
 // Medusa
 import { HttpTypes } from "@medusajs/types";
 
 export const Products: React.FC<
   React.ComponentPropsWithoutRef<"div"> & { country: string; products: any }
 > = ({ country, products }) => {
-  console.log(products);
   return (
     <Layout>
       <LayoutRow className="mb-8">
@@ -144,6 +140,7 @@ export const Products: React.FC<
                   className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
                   width={459}
                   height={612}
+                  priority
                 />
               }
               className="mb-10 md:mb-16"

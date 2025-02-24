@@ -90,7 +90,6 @@ export const CountrySelect: React.FC<
                     onClick={() => {
                       setSelectedValue(item.iso_2?.toUpperCase() || "");
                       setIsOpen(false);
-                      console.log();
                     }}
                     href={`/${item.iso_2}${pathName.replace(/^\/[a-z]{2}/, "")}`}
                   >

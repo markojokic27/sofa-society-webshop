@@ -1,4 +1,4 @@
-const Medusa = require("@medusajs/js-sdk").default;
+import Medusa from "@medusajs/js-sdk";
 
 let MEDUSA_BACKEND_URL = "http://localhost:9000";
 

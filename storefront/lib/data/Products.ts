@@ -1,3 +1,5 @@
+import { sdk } from "@/lib/Config";
+
 export const getProducts = async (limit?: number, offset?: number) => {
   const url = new URL("http://localhost:9000/store/products");
 
@@ -17,4 +19,20 @@ export const getProducts = async (limit?: number, offset?: number) => {
   }
   const data = await res.json();
   return data;
+};
+
+export const getSdk = async (limit?: number, offset?: number) => {
+  return sdk.store.product
+    .list({
+      limit,
+      offset,
+    })
+    .then(({ products, count }) => {
+      return {
+        response: {
+          products,
+          count,
+        },
+      };
+    });
 };

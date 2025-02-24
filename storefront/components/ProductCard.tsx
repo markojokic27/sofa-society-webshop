@@ -11,7 +11,6 @@ export const ProductCard: React.FC<
     description?: string;
     price: string;
     originalPrice?: string;
-    
     country: string;
   }
 > = ({
@@ -26,22 +25,31 @@ export const ProductCard: React.FC<
 }) => (
   <div {...rest} className={twMerge("w-full", className)}>
     <LocalizedLink country={country} href={"/products/"}>
-      <div className="mb-6 w-full">{image}</div>
-      <div className="flex justify-between">
+      <div className="mb-4 w-full md:mb-6">{image}</div>
+      <div className="md:flex md:justify-between">
         <div>
-          <p>{name}</p>
-          <p className="mt-1 text-2xs text-gray-500">{description}</p>
+          <p className="text-2xs text-gray-500 md:text-base md:text-black">
+            {name}
+          </p>
+          <p className="mt-1 hidden text-2xs text-gray-500 md:block">
+            {description}
+          </p>
         </div>
         <div>
           {price && (
             <p
-              className={twMerge(originalPrice && "text-red-700", "font-bold")}
+              className={twMerge(
+                originalPrice && "text-red-700",
+                "text-2xs font-semibold md:text-base md:font-bold",
+              )}
             >
               {price}
             </p>
           )}
           {originalPrice && (
-            <p className="text-gray-400 line-through">{originalPrice}</p>
+            <p className="text-2xs text-gray-400 line-through md:text-base">
+              {originalPrice}
+            </p>
           )}
         </div>
       </div>

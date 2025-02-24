@@ -4,7 +4,7 @@ import { CollectionsScroll } from "@/components/CollectionsScroll";
 import { Products } from "@/components/Products";
 
 // Lib
-import { getProducts } from "@/lib/data/Products";
+import { getProducts, getSdk } from "@/lib/data/Products";
 
 // Medusa
 import { HttpTypes } from "@medusajs/types";
@@ -15,8 +15,9 @@ export default async function Page({
   params: Promise<{ country: string }>;
 }) {
   const { country } = await params;
+
   const productList: HttpTypes.StoreProductListResponse = await getProducts();
-  
+  const productListSdk = await getSdk();
 
   return (
     <>
@@ -28,7 +29,7 @@ export default async function Page({
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <Products country={country} products={productList.products} />
+      <Products country={country} products={productListSdk.response.products} />
     </>
   );
 }

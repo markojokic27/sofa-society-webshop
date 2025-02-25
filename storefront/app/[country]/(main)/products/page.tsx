@@ -4,7 +4,6 @@ import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
-import { ProductCard } from "@/components/ProductCard";
 import { ImageSwiper } from "@/components/ImageSwiper";
 import { OrderSettings } from "@/components/product/OrderSettings";
 
@@ -12,7 +11,6 @@ import { OrderSettings } from "@/components/product/OrderSettings";
 import AboutImage from "@/public/assets/images/about1.png";
 import AboutImage2 from "@/public/assets/images/about2.png";
 import AboutImage3 from "@/public/assets/images/about3.png";
-import Sofa from "@/public/assets/images/product-card.png";
 import Product1 from "@/public/assets/images/product1.png";
 import Product2 from "@/public/assets/images/product2.png";
 
@@ -138,7 +136,8 @@ export default async function Page({
             <h2 className="text-xl lg:text-4xl">Related products</h2>
           </LayoutColumn>
         </LayoutRow>
-        <LayoutRow className="l -mx-2 mb-24 md:-mx-4 md:mb-36 lg:-mx-6">
+
+        {/*TODO Rjesi ovo <LayoutRow className="l -mx-2 mb-24 md:-mx-4 md:mb-36 lg:-mx-6">
           <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
             <ProductCard
               country={country}
@@ -185,7 +184,7 @@ export default async function Page({
               }
             />
           </LayoutColumn>
-        </LayoutRow>
+        </LayoutRow> */}
       </Layout>
     </>
   );

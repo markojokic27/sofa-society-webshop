@@ -4,7 +4,8 @@ import { CollectionsScroll } from "@/components/CollectionsScroll";
 import { Products } from "@/components/Products";
 
 // Lib
-import { getProducts, getSdk } from "@/lib/data/Products";
+import { getProducts } from "@/lib/data/Products";
+import { getRegion } from "@/lib/data/Regions";
 
 // Medusa
 import { HttpTypes } from "@medusajs/types";
@@ -15,10 +16,9 @@ export default async function Page({
   params: Promise<{ country: string }>;
 }) {
   const { country } = await params;
+  const region = await getRegion(country);
 
-  const productList: HttpTypes.StoreProductListResponse = await getProducts();
-  const productListSdk = await getSdk();
-
+  const productListSdk = await getProducts(4, 0);
   return (
     <>
       <CollectionsScroll className="mb-26 mt-26 md:mb-36 md:mt-48" />
@@ -29,7 +29,11 @@ export default async function Page({
           </LayoutColumn>
         </LayoutRow>
       </Layout>
-      <Products country={country} products={productListSdk.response.products} />
+      <Products
+        country={country}
+        region={region as HttpTypes.StoreRegion}
+        products={productListSdk.response.products}
+      />
     </>
   );
 }

@@ -16,8 +16,12 @@ import { RadioButton, RadioGroup } from "@/components/RadioGroup";
 import { HttpTypes } from "@medusajs/types";
 
 export const Products: React.FC<
-  React.ComponentPropsWithoutRef<"div"> & { country: string; products: any }
-> = ({ country, products }) => {
+  React.ComponentPropsWithoutRef<"div"> & {
+    country: string;
+    products: HttpTypes.StoreProduct[];
+    region: HttpTypes.StoreRegion;
+  }
+> = ({ country, products, region }) => {
   return (
     <Layout>
       <LayoutRow className="mb-8">
@@ -129,10 +133,9 @@ export const Products: React.FC<
             className="px-2 md:px-4 lg:px-6"
           >
             <ProductCard
+              product={p}
               country={country}
-              name={p.title}
-              description={p.collection?.title}
-              price="1000€"
+              region={region}
               image={
                 <Image
                   alt="about image"

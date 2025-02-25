@@ -111,6 +111,7 @@ export const CollectionsScroll: React.FC<
                     className="mb-4 w-full object-cover lg:mb-10"
                     height={661}
                     width={496}
+                    priority
                   />
                 }
                 name={c.title}

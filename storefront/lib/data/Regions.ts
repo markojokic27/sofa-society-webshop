@@ -30,8 +30,6 @@ export const getSupportedCountries = async () => {
   }
 };
 
-
-
 export const listRegions = cache(async function () {
   return sdk.store.region
     .list({}, { next: { tags: ["regions"] } })

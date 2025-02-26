@@ -32,7 +32,7 @@ export const ProductCard: React.FC<
               {product.collection?.title}
             </p>
           </div>
-          <div>
+          <div className="md:text-right">
             {cheapestPrice?.calculated_price && (
               <p
                 className={twMerge(

@@ -29,7 +29,7 @@ export default async function Page({
   const { country } = await params;
   const region = await getRegion(country);
 
-  const productListSdk = await getProducts(4, 0);
+  const productListSdk = await getProducts(undefined, 0, collection[0]?.id);
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">

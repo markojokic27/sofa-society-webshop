@@ -42,7 +42,7 @@ export default async function Page({
               modern luxury, and timeless classics.
             </p>
           </LayoutColumn>
-          <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
+          {/* TODO <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
               country={country}
               name="Nordic Havenc"
@@ -50,7 +50,7 @@ export default async function Page({
               price="1000€"
               image={<Image alt="about image" src={Sofa} />}
             />
-          </LayoutColumn>
+          </LayoutColumn> */}
         </LayoutRow>
         <LayoutRow className="mb-8 md:mb-26">
           <LayoutColumn>
@@ -75,7 +75,7 @@ export default async function Page({
               elegance to your living room.
             </p>
           </LayoutColumn>
-          <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
+          {/*TODO <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
               country={country}
               name="Nordic Havenc"
@@ -91,7 +91,7 @@ export default async function Page({
               price="1000€"
               image={<Image alt="about image" src={Sofa} />}
             />
-          </LayoutColumn>
+          </LayoutColumn> */}
         </LayoutRow>
       </Layout>
       <div className="mx-auto px-4 pb-8 md:mb-26 md:w-full md:px-0">
@@ -116,7 +116,7 @@ export default async function Page({
               glamour, sophistication, and unmatched coziness.
             </p>
           </LayoutColumn>
-          <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
+          {/* TODO <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
               country={country}
               name="Nordic Havenc"
@@ -126,7 +126,7 @@ export default async function Page({
               image={<Image alt="about image" src={Sofa} />}
               className="mb-8 md:mb-16"
             />
-          </LayoutColumn>
+          </LayoutColumn> */}
         </LayoutRow>
       </Layout>
       <CollectionsScroll />

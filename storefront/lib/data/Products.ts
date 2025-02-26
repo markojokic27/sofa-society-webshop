@@ -1,7 +1,11 @@
 import { sdk } from "@/lib/Config";
 //import { cache } from "react";
 
-export const getProducts = async (limit?: number, offset?: number) => {
+export const getProducts = async (
+  limit?: number,
+  offset?: number,
+  collectionId?: string,
+) => {
   return sdk.store.product
     .list({
       limit,
@@ -9,6 +13,10 @@ export const getProducts = async (limit?: number, offset?: number) => {
       fields: "*variants.calculated_price,+variants.inventory_quantity",
     })
     .then(({ products, count }) => {
+      collectionId &&
+        (products = products.filter(
+          (product) => product.collection_id === collectionId,
+        ));
       return {
         response: {
           products,

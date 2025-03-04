@@ -1,5 +1,4 @@
 import { sdk } from "@/lib/Config";
-//import { cache } from "react";
 
 export const getProducts = async (
   limit?: number,

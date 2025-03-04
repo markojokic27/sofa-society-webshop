@@ -23,7 +23,7 @@ export const Products: React.FC<
   }
 > = ({ country, products, region }) => {
   return (
-    <Layout>
+    <>
       <LayoutRow className="mb-8">
         <LayoutColumn className="flex justify-between md:hidden">
           <MobileFilters
@@ -124,7 +124,7 @@ export const Products: React.FC<
           </Filter>
         </LayoutColumn>
       </LayoutRow>
-      <LayoutRow className="-mx-2 mb-20 md:-mx-4 lg:-mx-6">
+      <LayoutRow className="-mx-2 md:-mx-4 lg:-mx-6">
         {products.map((p: HttpTypes.StoreProduct) => (
           <LayoutColumn
             key={p.id}
@@ -151,6 +151,6 @@ export const Products: React.FC<
           </LayoutColumn>
         ))}
       </LayoutRow>
-    </Layout>
+    </>
   );
 };

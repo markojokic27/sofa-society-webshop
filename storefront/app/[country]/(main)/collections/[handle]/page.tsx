@@ -69,13 +69,12 @@ export default async function Page({
             </h1>
           </LayoutColumn>
         </LayoutRow>
+        <Products
+          country={country}
+          region={region as HttpTypes.StoreRegion}
+          products={productListSdk.response.products}
+        />
       </Layout>
-      {/* TODO Shop komponenta u koju cu poslat category=collection.nesto */}
-      <Products
-        country={country}
-        region={region as HttpTypes.StoreRegion}
-        products={productListSdk.response.products}
-      />
     </>
   );
 }

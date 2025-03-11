@@ -3,19 +3,23 @@ import { sdk } from "@/lib/Config";
 export const getProducts = async (
   limit?: number,
   offset?: number,
-  collectionId?: string,
+  collectionsId?: string | string[],
+  typesId?: string | string[],
+  categoriesId?: string | string[],
+  sort?: string,
 ) => {
+  console.log("ACAA", collectionsId);
+
   return sdk.store.product
     .list({
       limit,
       offset,
       fields: "*variants.calculated_price,+variants.inventory_quantity",
+      type_id: typesId,
+      collection_id: collectionsId,
+      category_id: categoriesId,
     })
     .then(({ products, count }) => {
-      collectionId &&
-        (products = products.filter(
-          (product) => product.collection_id === collectionId,
-        ));
       return {
         response: {
           products,

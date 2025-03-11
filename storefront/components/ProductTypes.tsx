@@ -40,7 +40,7 @@ export const ProductTypes: React.FC<
         </LayoutColumn>
         {productTypes.map((type) => (
           <LayoutColumn span={6} key={type.id}>
-            <LocalizedLink country={country} href="/shop">
+            <LocalizedLink country={country} href={`/shop?type=${type.value}`}>
               <div>
                 <Image
                   alt="sofa image"

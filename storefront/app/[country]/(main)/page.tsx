@@ -51,7 +51,6 @@ export default async function Page({
         </LayoutRow>
       </Layout>
       <ProductTypes country={country} />
-
       <CollectionsScroll />
       <Layout>
         <LayoutRow>

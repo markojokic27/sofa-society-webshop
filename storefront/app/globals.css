@@ -9,9 +9,6 @@
   .drawer {
     width: calc(100% - 72px);
   }
-  .mobile-filter {
-    height: calc(100vh - 144px);
-  }
   .react-aria-Popover[data-trigger="Select"] {
     width: var(--trigger-width);
   }

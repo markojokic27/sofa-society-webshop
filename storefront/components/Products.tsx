@@ -2,15 +2,13 @@
 import Image from "next/image";
 
 // Components
-import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
+import { LayoutRow, LayoutColumn } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
 import { Filter } from "@/components/Filter";
 import { MultipleSelection } from "@/components/MultipleSelection";
 import { SingleSelection } from "@/components/SingleSelection";
 import { MobileFilters } from "@/components/MobileFilters";
 import { Icon } from "@/components/Icon";
-import { SliderSelection } from "@/components/SliderSelection";
-import { RadioButton, RadioGroup } from "@/components/RadioGroup";
 
 // Medusa
 import { HttpTypes } from "@medusajs/types";
@@ -20,8 +18,20 @@ export const Products: React.FC<
     country: string;
     products: HttpTypes.StoreProduct[];
     region: HttpTypes.StoreRegion;
+    collections?: HttpTypes.StoreCollection[];
+    categories?: HttpTypes.AdminProductCategory[];
+    types?: HttpTypes.AdminProductType[];
+    collection?: string;
   }
-> = ({ country, products, region }) => {
+> = ({
+  country,
+  products,
+  region,
+  collections,
+  categories,
+  types,
+  collection,
+}) => {
   return (
     <>
       <LayoutRow className="mb-8">
@@ -29,97 +39,48 @@ export const Products: React.FC<
           <MobileFilters
             trigger="Filter"
             icon={<Icon name="plus" className="h-4 w-4" />}
-          >
-            <h2 className="mb-7 text-lg font-bold">Price</h2>
-            <SliderSelection className="px-2" />
-            <hr className="my-6 bg-grayscale-200" />
-            <h2 className="mb-6 text-lg font-bold">Color</h2>
-            <MultipleSelection
-              items={["Black", "Gray", "White", "Red"]}
-              checkboxClassName="px-0 flex-row-reverse justify-between text-base"
-            />
-            <hr className="my-6 bg-grayscale-200" />
-            <h2 className="mb-6 text-lg font-bold">Materials</h2>
-            <MultipleSelection
-              items={["Velvet", "Linen", "Bouclé", "Leather"]}
-              checkboxClassName="px-0 flex-row-reverse justify-between  text-base"
-            />
-            <hr className="my-6 bg-grayscale-200" />
-            <h2 className="mb-6 text-lg font-bold">Colections</h2>
-            <MultipleSelection
-              items={[
-                "Scandinavian Simplicity",
-                "Modern Luxe",
-                "Boho Chic",
-                "Timeless Classics",
-              ]}
-              checkboxClassName="px-0 flex-row-reverse justify-between  text-base"
-            />
-          </MobileFilters>
+            headers={["Colections", "Categories", "Types"]}
+            filterNames={["collection", "category", "type"]}
+            items={[
+              collections?.map((c) => c.title) ?? [],
+              categories?.map((c) => c.name) ?? [],
+              types?.map((c) => c.value) ?? [],
+            ]}
+          />
           <MobileFilters
             trigger="Sort by"
             icon={<Icon name="chevronDown" className="h-4 w-4" />}
             contentClassName="h-fit"
-          >
-            <h2 className="mb-6 text-lg font-bold">Sort by</h2>
-            <RadioGroup className="mb-3">
-              <RadioButton
-                value="Featured"
-                labelLeft="Featured"
-                className="flex-row-reverse justify-between border-0 p-0"
-              />
-              <RadioButton
-                value="Best selling"
-                labelLeft="Best selling"
-                className="flex-row-reverse justify-between border-0 p-0"
-              />
-              <RadioButton
-                value="Lowest price"
-                labelLeft="Lowest price"
-                className="flex-row-reverse justify-between border-0 p-0"
-              />
-              <RadioButton
-                value="Highest price"
-                labelLeft="Highest price"
-                className="flex-row-reverse justify-between border-0 p-0"
-              />
-            </RadioGroup>
-          </MobileFilters>
+            filterNames={["sort"]}
+            headers={["Sort by"]}
+            items={[["Latest Arrivals", "Lowest price", "Highest price"]]}
+            radio
+          />
         </LayoutColumn>
         <LayoutColumn className="hidden gap-4 md:flex">
-          <Filter name="Price">
-            <SliderSelection
-              thumbLabels={["Start", "End"]}
-              aria-label="Range selection"
-              className="px-6 pb-4 pt-6"
-            />
-          </Filter>
-          <Filter name="Color">
-            <MultipleSelection items={["Black", "Gray", "White", "Red"]} />
-          </Filter>
-          <Filter name="Materials">
-            <MultipleSelection
-              items={["Velvet", "Linen", "Bouclé", "Leather"]}
-            />
-          </Filter>
           <Filter name="Colection">
             <MultipleSelection
-              items={[
-                "Scandinavian Simplicity",
-                "Modern Luxe",
-                "Boho Chic",
-                "Timeless Classics",
-              ]}
+              filterName="collection"
+              preSelected={[collection].filter((item) => item !== undefined)}
+              items={collections?.map((c) => c.title) ?? []}
+            />
+          </Filter>
+          <Filter name="Categories">
+            <MultipleSelection
+              filterName="category"
+              items={categories?.map((c) => c.name) ?? []}
+            />
+          </Filter>
+          <Filter name="Types">
+            <MultipleSelection
+              filterName="type"
+              preSelected={[collection].filter((item) => item !== undefined)}
+              items={types?.map((c) => c.value) ?? []}
             />
           </Filter>
           <Filter name="Sort by" popoverAlignment="end" className="ml-auto">
             <SingleSelection
-              items={[
-                "Featured",
-                "Best selling",
-                "Lowest price",
-                "Highest price",
-              ]}
+              items={["Lastest Arrivals", "Lowest price", "Highest price"]}
             />
           </Filter>
         </LayoutColumn>
@@ -140,7 +101,7 @@ export const Products: React.FC<
                 <Image
                   alt="about image"
                   src={p.thumbnail || ""}
-                  className="mb-4 aspect-square object-cover md:mb-6 md:aspect-4/3"
+                  className="mb-4 aspect-square object-cover md:mb-6"
                   width={459}
                   height={612}
                   priority

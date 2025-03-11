@@ -21,6 +21,8 @@ export const Filter: React.FC<
   }
 > = ({ name, popoverAlignment = "start", children, className, ...rest }) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const closePopover = () => setIsOpen(false);
+
   return (
     <DialogTrigger
       onOpenChange={setIsOpen}
@@ -45,7 +47,7 @@ export const Filter: React.FC<
         className={`z-[100] flex cursor-pointer gap-5 rounded-1 border border-grayscale-200 bg-white outline-none hover:cursor-default md:min-w-64`}
         placement={popoverAlignment === "start" ? "bottom start" : "bottom end"}
       >
-        {children}
+        {React.cloneElement(children as React.ReactElement, { closePopover })}
       </Popover>
     </DialogTrigger>
   );

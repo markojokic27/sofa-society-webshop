@@ -1,5 +1,6 @@
 // External packages
 import Image from "next/image";
+import Link from "next/link";
 
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
@@ -9,16 +10,27 @@ import { Products } from "@/components/Products";
 import { getCollectionByHandle } from "@/lib/data/Collections";
 import { getProducts } from "@/lib/data/Products";
 import { getRegion } from "@/lib/data/Regions";
+import { getCategories } from "@/lib/data/Categories";
+import { getProductTypes } from "@/lib/data/ProductTypes";
 
 // Medusa
 import { HttpTypes } from "@medusajs/types";
 
 export default async function Page({
   params: paramsPromise,
+  searchParams,
 }: {
   params: Promise<{ country: string; handle: string }>;
+  searchParams: {
+    page?: string;
+    sort?: string;
+    collection?: string[] | string;
+    category?: string[] | string;
+    type?: string[] | string;
+  };
 }) {
   const params = await paramsPromise;
+  const { page, sort, category, type } = searchParams;
   const collection: (HttpTypes.StoreCollection & {
     metadata: {
       collection_page_image: { url: string };
@@ -26,10 +38,38 @@ export default async function Page({
       collection_page_content: string;
     };
   })[] = await getCollectionByHandle(params.handle);
+
   const { country } = await params;
   const region = await getRegion(country);
+  let categories = await getCategories();
+  categories = [categories[categories.length - 1], ...categories.slice(0, -1)];
+  const types = await getProductTypes();
 
-  const productListSdk = await getProducts(undefined, 0, collection[0]?.id);
+  const getFilteredIds = (
+    items: { id: string; value?: string; name?: string; title?: string }[],
+    filterValues?: string[] | string,
+  ) => {
+    if (!filterValues) return [];
+    return items
+      .filter((item) =>
+        typeof filterValues === "string"
+          ? filterValues === item.value ||
+            filterValues === item.name ||
+            filterValues === item.title
+          : filterValues.includes(item.value!) ||
+            filterValues.includes(item.name!) ||
+            filterValues.includes(item.title!),
+      )
+      .map((item) => item.id);
+  };
+
+  const productListSdk = await getProducts(
+    undefined,
+    0,
+    collection[0]?.id,
+    getFilteredIds(types, type),
+    getFilteredIds(categories, category),
+  );
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
@@ -73,7 +113,21 @@ export default async function Page({
           country={country}
           region={region as HttpTypes.StoreRegion}
           products={productListSdk.response.products}
+          collection={collection[0].id}
+          types={types}
+          categories={categories}
         />
+        {!productListSdk.response.products.length && (
+          <div className="py-16 text-center">
+            <p className="mb-4 text-lg">No results match!</p>
+            <Link
+              href={`${params.handle}`}
+              className="underline underline-offset-4"
+            >
+              Clear filters
+            </Link>
+          </div>
+        )}
       </Layout>
     </>
   );

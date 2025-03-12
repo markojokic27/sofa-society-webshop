@@ -19,8 +19,8 @@ export const Products: React.FC<
     products: HttpTypes.StoreProduct[];
     region: HttpTypes.StoreRegion;
     collections?: HttpTypes.StoreCollection[];
-    categories?: HttpTypes.AdminProductCategory[];
-    types?: HttpTypes.AdminProductType[];
+    categories: HttpTypes.AdminProductCategory[];
+    types: HttpTypes.AdminProductType[];
     collection?: string;
   }
 > = ({
@@ -58,13 +58,15 @@ export const Products: React.FC<
           />
         </LayoutColumn>
         <LayoutColumn className="hidden gap-4 md:flex">
-          <Filter name="Colection">
-            <MultipleSelection
-              filterName="collection"
-              preSelected={[collection].filter((item) => item !== undefined)}
-              items={collections?.map((c) => c.title) ?? []}
-            />
-          </Filter>
+          {!collection && (
+            <Filter name="Colection">
+              <MultipleSelection
+                filterName="collection"
+                preSelected={[collection].filter((item) => item !== undefined)}
+                items={collections?.map((c) => c.title) ?? []}
+              />
+            </Filter>
+          )}
           <Filter name="Categories">
             <MultipleSelection
               filterName="category"

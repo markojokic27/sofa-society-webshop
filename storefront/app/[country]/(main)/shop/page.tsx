@@ -34,46 +34,40 @@ export default async function Page({
   const { page, sort, collection, category, type } = searchParams;
   const region = await getRegion(country);
   const collections = await getCollections();
-  const categories = await getCategories();
+  let categories = await getCategories();
+  categories = [categories[categories.length - 1], ...categories.slice(0, -1)];
   const types = await getProductTypes();
 
   const activePage = page ? parseInt(page) : 1;
   const productsByPage = 12;
 
-  const typesId = types
-    .filter((t: HttpTypes.AdminProductType) => {
-      return typeof type === "string"
-        ? type === t.value
-        : type?.find((ty) => ty === t.value);
-    })
-    .map((t: HttpTypes.AdminProductType) => t.id);
-
-  const categoriesId = categories
-    .filter((c: HttpTypes.AdminProductCategory) => {
-      return typeof category === "string"
-        ? category === c.name
-        : category?.find((cat) => cat === c.name);
-    })
-    .map((c: HttpTypes.AdminProductCategory) => c.id);
-
-  const collectionsId = collections
-    .filter((c: HttpTypes.AdminCollection) => {
-      console.log("COLLECTION", collection, c.title);
-      return typeof collection === "string"
-        ? collection === c.title
-        : collection?.find((col) => col === c.title);
-    })
-    .map((c: HttpTypes.AdminCollection) => c.id);
+  const getFilteredIds = (
+    items: { id: string; value?: string; name?: string; title?: string }[],
+    filterValues?: string[] | string,
+  ) => {
+    if (!filterValues) return [];
+    return items
+      .filter((item) =>
+        typeof filterValues === "string"
+          ? filterValues === item.value ||
+            filterValues === item.name ||
+            filterValues === item.title
+          : filterValues.includes(item.value!) ||
+            filterValues.includes(item.name!) ||
+            filterValues.includes(item.title!),
+      )
+      .map((item) => item.id);
+  };
 
   const productListSdk = await getProducts(
     productsByPage,
     (activePage - 1) * productsByPage,
-    collectionsId,
-    typesId,
-    categoriesId,
+    getFilteredIds(collections, collection),
+    getFilteredIds(types, type),
+    getFilteredIds(categories, category),
   );
-  const pagesNumber = Math.ceil(productListSdk.response.count / productsByPage);
 
+  const pagesNumber = Math.ceil(productListSdk.response.count / productsByPage);
   return (
     <>
       <CollectionsScroll className="mb-26 mt-26 md:mb-36 md:mt-48" />

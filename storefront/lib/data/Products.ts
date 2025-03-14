@@ -1,4 +1,13 @@
+// Lib
 import { sdk } from "@/lib/Config";
+import { getProductPrice } from "@/lib/data/GetProductPrice";
+import { HttpTypes } from "@medusajs/types";
+
+type ProductWithPrice = HttpTypes.StoreProduct & {
+  cheapestPrice: {
+    calculated_price_number: number;
+  };
+};
 
 export const getProducts = async (
   limit?: number,
@@ -8,21 +17,47 @@ export const getProducts = async (
   categoriesId?: string | string[],
   sort?: string,
 ) => {
-  console.log("ACAA", collectionsId);
+  const order = sort === "created_at" ? "created_at" : undefined;
+  const limitSort = Boolean(sort?.startsWith("price")) ? undefined : limit;
+  const offsetSort = sort?.startsWith("price") ? undefined : offset;
 
   return sdk.store.product
     .list({
-      limit,
-      offset,
+      limit: limitSort,
+      offset: offsetSort,
       fields: "*variants.calculated_price,+variants.inventory_quantity",
       type_id: typesId,
       collection_id: collectionsId,
       category_id: categoriesId,
+      order: order,
     })
     .then(({ products, count }) => {
+      let productsWithPrice: ProductWithPrice[] = products.map((product) => {
+        const cheapestPrice = getProductPrice({ product }).cheapestPrice ?? {
+          calculated_price_number: 0,
+        };
+        return {
+          ...product,
+          cheapestPrice,
+        };
+      });
+      (sort === "price-asc" || sort === "price-desc") &&
+        productsWithPrice.sort((a, b) => {
+          const diff =
+            a.cheapestPrice.calculated_price_number -
+            b.cheapestPrice.calculated_price_number;
+          if (sort === "price-asc") return diff;
+          return -diff;
+        });
+      if (!limitSort) {
+        productsWithPrice = productsWithPrice.slice(
+          offset as number,
+          (offset as number) + (limit as number),
+        );
+      }
       return {
         response: {
-          products,
+          products: productsWithPrice,
           count,
         },
       };

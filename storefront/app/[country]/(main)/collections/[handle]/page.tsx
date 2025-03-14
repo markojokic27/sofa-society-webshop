@@ -5,6 +5,7 @@ import Link from "next/link";
 // Components
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { Products } from "@/components/Products";
+import { ProductsPagination } from "@/components/ProductsPagination";
 
 // Lib
 import { getCollectionByHandle } from "@/lib/data/Collections";
@@ -45,6 +46,9 @@ export default async function Page({
   categories = [categories[categories.length - 1], ...categories.slice(0, -1)];
   const types = await getProductTypes();
 
+  const productsByPage = 12;
+  const activePage = page ? parseInt(page) : 1;
+
   const getFilteredIds = (
     items: { id: string; value?: string; name?: string; title?: string }[],
     filterValues?: string[] | string,
@@ -64,12 +68,17 @@ export default async function Page({
   };
 
   const productListSdk = await getProducts(
-    undefined,
-    0,
+    productsByPage,
+    (activePage - 1) * productsByPage,
     collection[0]?.id,
     getFilteredIds(types, type),
     getFilteredIds(categories, category),
+    sort,
   );
+
+  !sort && productListSdk.response.products.sort(() => Math.random() - 0.5);
+  const pagesNumber = Math.ceil(productListSdk.response.count / productsByPage);
+
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-16 md:mt-0 md:h-screen">
@@ -117,13 +126,11 @@ export default async function Page({
           types={types}
           categories={categories}
         />
+        {pagesNumber > 1 && <ProductsPagination pagesNumber={pagesNumber} />}
         {!productListSdk.response.products.length && (
           <div className="py-16 text-center">
             <p className="mb-4 text-lg">No results match!</p>
-            <Link
-              href={`${params.handle}`}
-              className="underline underline-offset-4"
-            >
+            <Link href={"shop"} className="underline underline-offset-4">
               Clear filters
             </Link>
           </div>

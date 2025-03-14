@@ -58,14 +58,15 @@ export default async function Page({
       )
       .map((item) => item.id);
   };
-
   const productListSdk = await getProducts(
     productsByPage,
     (activePage - 1) * productsByPage,
     getFilteredIds(collections, collection),
     getFilteredIds(types, type),
     getFilteredIds(categories, category),
+    sort,
   );
+  !sort && productListSdk.response.products.sort(() => Math.random() - 0.5);
 
   const pagesNumber = Math.ceil(productListSdk.response.count / productsByPage);
   return (

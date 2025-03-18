@@ -4,6 +4,7 @@
 import * as React from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { twMerge } from "tailwind-merge";
+import { useRouter } from "next/navigation";
 
 // Components
 import { Button } from "@/components/Button";
@@ -34,6 +35,21 @@ export const MobileFilters: React.FC<
   ...rest
 }) => {
   const [open, setOpen] = React.useState(false);
+  const [mobileSelected, setMobileSelected] = React.useState<
+    Array<{
+      filterName: string;
+      item: string;
+    }>
+  >([]);
+
+  const router = useRouter();
+  const addFiltersToURL = () => {
+    const newParams = new URLSearchParams();
+    mobileSelected.forEach((filter) => {
+      newParams.append(filter.filterName, filter.item);
+    });
+    router.push(`?${newParams.toString()}`);
+  };
 
   return (
     <RadixDialog.Root open={open} onOpenChange={setOpen} {...rest}>
@@ -82,6 +98,9 @@ export const MobileFilters: React.FC<
                   filterName={filterNames[i]}
                   items={item}
                   checkboxClassName="px-0 flex-row-reverse justify-between text-base"
+                  mobileSelected={mobileSelected}
+                  setMobileSelected={setMobileSelected}
+                  isMobile
                 />
                 {items.length !== i + 1 && (
                   <hr className="my-6 bg-grayscale-200" />
@@ -92,8 +111,9 @@ export const MobileFilters: React.FC<
         </div>
         <div className="fixed bottom-0 h-18 w-full border-t bg-white px-6 py-4">
           <Button
-            onClick={() => {
+            onPress={() => {
               setOpen(false);
+              addFiltersToURL();
             }}
             className="h-full w-full py-2"
           >

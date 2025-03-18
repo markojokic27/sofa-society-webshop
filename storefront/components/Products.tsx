@@ -16,7 +16,14 @@ import { HttpTypes } from "@medusajs/types";
 export const Products: React.FC<
   React.ComponentPropsWithoutRef<"div"> & {
     country: string;
-    products: HttpTypes.StoreProduct[];
+    products: (HttpTypes.StoreProduct & {
+      cheapestPrice: {
+        calculated_price: string;
+        calculated_price_number: number;
+        original_price: string;
+        original_price_number: number;
+      };
+    })[];
     region: HttpTypes.StoreRegion;
     collections?: HttpTypes.StoreCollection[];
     categories: HttpTypes.AdminProductCategory[];
@@ -39,13 +46,17 @@ export const Products: React.FC<
           <MobileFilters
             trigger="Filter"
             icon={<Icon name="plus" className="h-4 w-4" />}
-            headers={["Colections", "Categories", "Types"]}
-            filterNames={["collection", "category", "type"]}
+            headers={["Collections", "Categories", "Types"].filter(
+              (_, i) => !(Boolean(collection) && i === 0),
+            )}
+            filterNames={["collection", "category", "type"].filter(
+              (_, i) => !(Boolean(collection) && i === 0),
+            )}
             items={[
               collections?.map((c) => c.title) ?? [],
               categories?.map((c) => c.name) ?? [],
               types?.map((c) => c.value) ?? [],
-            ]}
+            ].filter((_, i) => !(Boolean(collection) && i === 0))}
           />
           <MobileFilters
             trigger="Sort by"
@@ -88,31 +99,42 @@ export const Products: React.FC<
         </LayoutColumn>
       </LayoutRow>
       <LayoutRow className="-mx-2 md:-mx-4 lg:-mx-6">
-        {products.map((p: HttpTypes.StoreProduct) => (
-          <LayoutColumn
-            key={p.id}
-            span={6}
-            mdSpan={4}
-            className="px-2 md:px-4 lg:px-6"
-          >
-            <ProductCard
-              product={p}
-              country={country}
-              region={region}
-              image={
-                <Image
-                  alt="about image"
-                  src={p.thumbnail || ""}
-                  className="mb-4 aspect-square object-cover md:mb-6"
-                  width={459}
-                  height={612}
-                  priority
-                />
-              }
-              className="mb-10 md:mb-16"
-            />
-          </LayoutColumn>
-        ))}
+        {products.map(
+          (
+            p: HttpTypes.StoreProduct & {
+              cheapestPrice: {
+                calculated_price: string;
+                calculated_price_number: number;
+                original_price: string;
+                original_price_number: number;
+              };
+            },
+          ) => (
+            <LayoutColumn
+              key={p.id}
+              span={6}
+              mdSpan={4}
+              className="px-2 md:px-4 lg:px-6"
+            >
+              <ProductCard
+                product={p}
+                country={country}
+                region={region}
+                image={
+                  <Image
+                    alt="about image"
+                    src={p.thumbnail || ""}
+                    className="mb-4 aspect-square object-cover md:mb-6"
+                    width={459}
+                    height={612}
+                    priority
+                  />
+                }
+                className="mb-10 md:mb-16"
+              />
+            </LayoutColumn>
+          ),
+        )}
       </LayoutRow>
     </>
   );

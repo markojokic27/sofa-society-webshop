@@ -5,25 +5,19 @@ import { HttpTypes } from "@medusajs/types";
 // Components
 import { LocalizedLink } from "./LocalizedLink";
 
-type Product = {
-  title: string;
-  collection: {
-    title: string;
-  };
-  cheapestPrice: {
-    calculated_price: string;
-    calculated_price_number: number;
-    original_price: string;
-    original_price_number: number;
-  };
-};
-
 export const ProductCard: React.FC<
   React.ComponentPropsWithoutRef<"div"> & {
     image: React.ReactNode;
     country: string;
     region: HttpTypes.StoreRegion;
-    product: Product;
+    product: HttpTypes.StoreProduct & {
+      cheapestPrice: {
+        calculated_price: string;
+        calculated_price_number: number;
+        original_price: string;
+        original_price_number: number;
+      };
+    };
   }
 > = ({ image, country, region, product, className, ...rest }) => (
   <div {...rest} className={twMerge("w-full", className)}>

@@ -81,7 +81,16 @@ export default async function Page({
         <Products
           country={country}
           region={region as HttpTypes.StoreRegion}
-          products={productListSdk.response.products}
+          products={
+            productListSdk.response.products as (HttpTypes.StoreProduct & {
+              cheapestPrice: {
+                calculated_price: string;
+                calculated_price_number: number;
+                original_price: string;
+                original_price_number: number;
+              };
+            })[]
+          }
           collections={collections}
           categories={categories}
           types={types}

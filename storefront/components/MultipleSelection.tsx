@@ -47,14 +47,7 @@ export const MultipleSelection: React.FC<
     const selectedFromURL = searchParams.getAll(filterName) || [];
     return Array.from(new Set([...(preSelected || []), ...selectedFromURL]));
   });
-  React.useEffect(() => {
-    if (setMobileSelected) {
-      setMobileSelected((prev) => [
-        ...prev.filter((i) => i.filterName !== filterName),
-        ...selected.map((item) => ({ filterName, item })),
-      ]);
-    }
-  }, [selected, filterName, setMobileSelected]);
+
   const onCheckboxChange = (
     item: string,
     isChecked: boolean | React.FormEvent<HTMLLabelElement>,

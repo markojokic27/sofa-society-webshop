@@ -1,6 +1,7 @@
 "use client";
 
 // External packages
+import * as React from "react";
 import { twMerge } from "tailwind-merge";
 import {
   Label,
@@ -10,7 +11,27 @@ import {
   RadioGroupProps,
 } from "react-aria-components";
 
-export const RadioGroup: React.FC<RadioGroupProps & { className?: string }> = ({
+export const RadioGroup: React.FC<
+  RadioGroupProps & {
+    mobileSelected?: Array<{
+      filterName: string;
+      item: string;
+    }>;
+    setMobileSelected?: React.Dispatch<
+      React.SetStateAction<
+        Array<{
+          filterName: string;
+          item: string;
+        }>
+      >
+    >;
+    items: string[];
+    className?: string;
+  }
+> = ({
+  mobileSelected,
+  setMobileSelected,
+  items,
   className,
   children,
   ...rest
@@ -18,6 +39,18 @@ export const RadioGroup: React.FC<RadioGroupProps & { className?: string }> = ({
   return (
     <AriaRadioGroup
       className={twMerge("flex flex-col gap-6", className)}
+      onChange={(value) => {
+        setMobileSelected?.(() => {
+          const codes = ["created_at", "price-asc", "price-desc"];
+          return [
+            ...(mobileSelected || []).filter((i) => i.filterName !== "sort"),
+            {
+              filterName: "sort",
+              item: codes[items.indexOf(value)] || "",
+            },
+          ];
+        });
+      }}
       {...rest}
     >
       {children}

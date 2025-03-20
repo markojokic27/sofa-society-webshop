@@ -4,7 +4,7 @@
 import * as React from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { twMerge } from "tailwind-merge";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 // Components
 import { Button } from "@/components/Button";
@@ -35,13 +35,28 @@ export const MobileFilters: React.FC<
   ...rest
 }) => {
   const [open, setOpen] = React.useState(false);
+  const searchParams = useSearchParams();
+  const filters = [...new Set(searchParams.keys())];
+  let preMobileselected: { filterName: string; item: string }[] = [];
+
   const [mobileSelected, setMobileSelected] = React.useState<
     Array<{
       filterName: string;
       item: string;
     }>
-  >([]);
+  >([...preMobileselected]);
 
+  React.useEffect(() => {
+    preMobileselected = [];
+    filters.forEach((filter) => {
+      const values = searchParams.getAll(filter);
+      values.forEach((value) => {
+        preMobileselected.push({ filterName: filter, item: value });
+      });
+    });
+    setMobileSelected([...preMobileselected]);
+  }, [searchParams]);
+  
   const router = useRouter();
   const addFiltersToURL = () => {
     const newParams = new URLSearchParams();
@@ -79,7 +94,12 @@ export const MobileFilters: React.FC<
           {radio ? (
             <div>
               <h2 className="mb-6 text-lg font-bold">{headers[0]}</h2>
-              <RadioGroup className="mb-3">
+              <RadioGroup
+                mobileSelected={mobileSelected}
+                setMobileSelected={setMobileSelected}
+                items={items[0]}
+                className="mb-3"
+              >
                 {items[0]?.map((item, i) => (
                   <RadioButton
                     key={i}

@@ -1,3 +1,4 @@
+//TODO: pribaci na sdk
 export const getCategories = async () => {
   const res = await fetch(`http://localhost:9000/store/product-categories`, {
     credentials: "include",

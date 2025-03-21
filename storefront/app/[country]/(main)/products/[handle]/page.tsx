@@ -14,12 +14,26 @@ import AboutImage3 from "@/public/assets/images/about3.png";
 import Product1 from "@/public/assets/images/product1.png";
 import Product2 from "@/public/assets/images/product2.png";
 
+// Lib
+import { getRegion } from "@/lib/data/Regions";
+import { getProductByHandle } from "@/lib/data/Product";
+
 export default async function Page({
-  params,
+  params: paramsPromise,
 }: {
-  params: Promise<{ country: string }>;
+  params: Promise<{ country: string; handle: string }>;
 }) {
-  const { country } = await params;
+  const params = await paramsPromise;
+  const region = await getRegion(params.country);
+
+  const { product, cheapestPrice } = await getProductByHandle(
+    params.handle,
+    region!,
+  );
+
+  console.log(product);
+  console.log(cheapestPrice);
+
   return (
     <>
       <Layout className="mb-16 mt-18 sm:mt-36 md:mb-26">
@@ -31,7 +45,7 @@ export default async function Page({
                   <Image
                     key="1"
                     alt="sofa image"
-                    src={Product1}
+                    src={product?.images?.[0]?.url || ""}
                     className="w-full object-cover"
                     priority={true}
                     height={612}
@@ -40,7 +54,7 @@ export default async function Page({
                   <Image
                     key="2"
                     alt="sofa image"
-                    src={Product2}
+                    src={product?.images?.[1]?.url || ""}
                     className="w-full object-cover"
                     priority={true}
                     height={612}
@@ -52,24 +66,32 @@ export default async function Page({
           </LayoutColumn>
           <LayoutColumn smSpan={6}>
             <div className="sm:ml-8 lg:ml-10">
-              <p className="mb-2 text-grayscale-500">Modern Luxe</p>
+              <p className="mb-2 text-grayscale-500">
+                {product.collection?.title}
+              </p>
               <h2 className="mb-2 text-lg font-bold sm:font-normal md:text-3xl">
-                Paloma Haven
+                {product.title}
               </h2>
-              <h3 className="mb-8 text-lg">€12000</h3>
+              <h3 className="mb-8 text-lg">{cheapestPrice.calculated_price}</h3>
               <p className="sm:md-16 mb-8 text-2xs text-grayscale-500 sm:text-black md:text-base xl:mb-16">
-                Minimalistic designs, neutral colors, and high-quality textures.
-                Perfect for those who seek comfort with a clean and understated
-                aesthetic. This collection brings the essence of Scandinavian
-                elegance to your living room.
+                {product.description}
               </p>
               <OrderSettings
-                materials={[
-                  { name: "Welvet", value: "Welwet" },
-                  { name: "Linen", value: "Linen" },
-                  { name: "Boucle", value: "Boucle" },
-                  { name: "Leather", value: "Leather" },
-                ]}
+                materials={
+                  (product?.options?.[1]?.values ?? []).map((material) => ({
+                    name: material.value,
+                    value: material.value,
+                  })) || []
+                }
+                // materials={[
+                //   { name: "Welvet", value: "Welwet" },
+                //   { name: "Linen", value: "Linen" },
+                //   { name: "Boucle", value: "Boucle" },
+                //   { name: "Leather", value: "Leather" },
+                // ]}
+
+                //TODO Problem sa bojama, nema #hex vrijednosti
+                //triba za svaki materijal posebno dobavljat boje fashion/[product_handle]
                 colors={[
                   { name: "Dark Gray", value: "#a2a2a2" },
                   { name: "Black", value: "#353535" },

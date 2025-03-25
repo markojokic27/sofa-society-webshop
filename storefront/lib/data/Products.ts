@@ -64,6 +64,33 @@ export const getProducts = async (
     });
 };
 
+export const getRelatedProducts = async (
+  handle: string,
+  collection_id: string,
+) => {
+  return sdk.store.product
+    .list(
+      {
+        collection_id: collection_id,
+        fields: "*variants.calculated_price,+variants.inventory_quantity",
+      },
+      { next: { tags: ["products"] } },
+    )
+    .then(({ products }) => {
+      let productsWithPrice: ProductWithPrice[] = products.map((product) => {
+        const cheapestPrice = getProductPrice({ product }).cheapestPrice ?? {
+          calculated_price_number: 0,
+        };
+        return {
+          ...product,
+          cheapestPrice,
+        };
+      });
+
+      return productsWithPrice.filter((product) => product.handle !== handle);
+    });
+};
+
 // export const getProductsById = cache(async function ({
 //   ids,
 //   regionId,

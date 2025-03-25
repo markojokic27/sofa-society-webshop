@@ -119,7 +119,6 @@ export const Products: React.FC<
               <ProductCard
                 product={p}
                 country={country}
-                region={region}
                 image={
                   <Image
                     alt="about image"

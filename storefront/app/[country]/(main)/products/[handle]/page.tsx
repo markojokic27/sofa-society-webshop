@@ -6,17 +6,13 @@ import Link from "next/link";
 import { Layout, LayoutRow, LayoutColumn } from "@/components/Layout";
 import { ImageSwiper } from "@/components/ImageSwiper";
 import { OrderSettings } from "@/components/product/OrderSettings";
-
-// Assets
-import AboutImage from "@/public/assets/images/about1.png";
-import AboutImage2 from "@/public/assets/images/about2.png";
-import AboutImage3 from "@/public/assets/images/about3.png";
-import Product1 from "@/public/assets/images/product1.png";
-import Product2 from "@/public/assets/images/product2.png";
+import { ProductCard } from "@/components/ProductCard";
 
 // Lib
 import { getRegion } from "@/lib/data/Regions";
 import { getProductByHandle } from "@/lib/data/Product";
+import { getRelatedProducts } from "@/lib/data/Products";
+import { HttpTypes } from "@medusajs/types";
 
 export default async function Page({
   params: paramsPromise,
@@ -25,14 +21,25 @@ export default async function Page({
 }) {
   const params = await paramsPromise;
   const region = await getRegion(params.country);
+  const country = params.country;
 
   const { product, cheapestPrice } = await getProductByHandle(
     params.handle,
     region!,
   );
+  const relatedProducts = (await getRelatedProducts(
+    product.handle,
+    product.collection_id || "",
+  )) as (HttpTypes.StoreProduct & {
+    cheapestPrice: {
+      calculated_price: string;
+      calculated_price_number: number;
+      original_price: string;
+      original_price_number: number;
+    };
+  })[];
 
-  console.log(product);
-  console.log(cheapestPrice);
+  console.log(relatedProducts);
 
   return (
     <>
@@ -106,13 +113,20 @@ export default async function Page({
         <LayoutRow className="mb-8 lg:mb-20">
           <LayoutColumn className="mb-8 lg:mb-6">
             <h2 className="text-xl lg:text-4xl">
-              Collection Inspired Interior
+              {product.collection?.metadata?.product_page_heading?.toString() ||
+                ""}
             </h2>
           </LayoutColumn>
           <LayoutColumn>
             <Image
               alt="sofa image"
-              src={AboutImage}
+              src={
+                (
+                  product.collection?.metadata?.product_page_image as {
+                    url: string;
+                  }
+                )?.url
+              }
               className="w-full object-cover"
               priority={true}
               height={702}
@@ -124,7 +138,13 @@ export default async function Page({
       <div className="mx-auto mb-8 px-4 sm:w-full sm:px-0 md:mb-20">
         <Image
           alt="sofa image"
-          src={AboutImage3}
+          src={
+            (
+              product.collection?.metadata?.product_page_wide_image as {
+                url: string;
+              }
+            )?.url
+          }
           className="w-full object-cover"
           width={1440}
           height={809}
@@ -136,20 +156,28 @@ export default async function Page({
             <div className="mx-auto mb-8 w-full lg:mb-0 lg:w-fit">
               <Image
                 alt="sofa image"
-                src={AboutImage2}
+                width={492}
+                height={656}
+                src={
+                  (
+                    product.collection?.metadata?.product_page_cta_image as {
+                      url: string;
+                    }
+                  )?.url
+                }
                 className="w-full object-cover"
               />
             </div>
           </LayoutColumn>
           <LayoutColumn span={12} lgSpan={7}>
             <p className="mb-8 text-lg lg:ml-15 lg:mt-20 lg:text-4xl">
-              The Paloma Haven sofa is a masterpiece of minimalism and luxury.
+              {product.collection?.metadata?.product_page_cta_heading?.toString()}
             </p>
             <Link
-              href={"/collections"}
+              href={`/collections/${product.collection?.handle}`}
               className="underline underline-offset-4 md:text-base lg:ml-15 lg:text-lg"
             >
-              See more out of &apos;Modern Luxe&apos; collection
+              {product.collection?.metadata?.product_page_cta_link?.toString()}
             </Link>
           </LayoutColumn>
         </LayoutRow>
@@ -158,55 +186,43 @@ export default async function Page({
             <h2 className="text-xl lg:text-4xl">Related products</h2>
           </LayoutColumn>
         </LayoutRow>
-
-        {/*TODO Rjesi ovo <LayoutRow className="l -mx-2 mb-24 md:-mx-4 md:mb-36 lg:-mx-6">
-          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
-            <ProductCard
-              country={country}
-              name="Nordic Haven"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              image={
-                <Image
-                  alt="about image"
-                  src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
+        <LayoutRow className="-mx-2 md:-mx-4 lg:-mx-6">
+          {relatedProducts.map(
+            (
+              p: HttpTypes.StoreProduct & {
+                cheapestPrice: {
+                  calculated_price: string;
+                  calculated_price_number: number;
+                  original_price: string;
+                  original_price_number: number;
+                };
+              },
+            ) => (
+              <LayoutColumn
+                key={p.id}
+                span={6}
+                mdSpan={4}
+                className="px-2 md:px-4 lg:px-6"
+              >
+                <ProductCard
+                  product={p}
+                  country={country}
+                  image={
+                    <Image
+                      alt="about image"
+                      src={p.thumbnail || ""}
+                      className="mb-4 aspect-square object-cover md:mb-6"
+                      width={459}
+                      height={612}
+                      priority
+                    />
+                  }
+                  className="mb-10 md:mb-16"
                 />
-              }
-            />
-          </LayoutColumn>
-          <LayoutColumn span={6} mdSpan={4} className="px-2 md:px-4 lg:px-6">
-            <ProductCard
-              country={country}
-              name="Nordic Haven"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              originalPrice="1200€"
-              image={
-                <Image
-                  alt="about image"
-                  src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                />
-              }
-            />
-          </LayoutColumn>
-          <LayoutColumn span={6} mdSpan={4} className="hidden md:flex">
-            <ProductCard
-              country={country}
-              name="Nordic Haven"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              image={
-                <Image
-                  alt="about image"
-                  src={Sofa}
-                  className="mb-4 aspect-square w-full md:mb-6 md:aspect-4/3"
-                />
-              }
-            />
-          </LayoutColumn>
-        </LayoutRow> */}
+              </LayoutColumn>
+            ),
+          )}
+        </LayoutRow>
       </Layout>
     </>
   );

@@ -9,7 +9,6 @@ export const ProductCard: React.FC<
   React.ComponentPropsWithoutRef<"div"> & {
     image: React.ReactNode;
     country: string;
-    region: HttpTypes.StoreRegion;
     product: HttpTypes.StoreProduct & {
       cheapestPrice: {
         calculated_price: string;
@@ -19,7 +18,7 @@ export const ProductCard: React.FC<
       };
     };
   }
-> = ({ image, country, region, product, className, ...rest }) => (
+> = ({ image, country, product, className, ...rest }) => (
   <div {...rest} className={twMerge("w-full", className)}>
     <LocalizedLink country={country} href={`/products/${product.handle}`}>
       <div className="mb-4 w-full md:mb-6">{image}</div>

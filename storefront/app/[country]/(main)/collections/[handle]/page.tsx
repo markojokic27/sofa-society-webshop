@@ -43,6 +43,7 @@ export default async function Page({
   const { country } = await params;
   const region = await getRegion(country);
   let categories = await getCategories();
+  console.log(categories);
   categories = [categories[categories.length - 1], ...categories.slice(0, -1)];
   const types = await getProductTypes();
 

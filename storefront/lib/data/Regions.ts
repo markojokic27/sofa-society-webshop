@@ -2,22 +2,13 @@ import { sdk } from "@/lib/Config";
 import { cache } from "react";
 import { HttpTypes } from "@medusajs/types";
 
-//TODO pribaci sa getregions na sdk-listRegions vjv
 export const getRegions = async () => {
-  const res = await fetch(`http://localhost:9000/store/regions`, {
-    credentials: "include",
-    headers: {
-      "x-publishable-api-key":
-        process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "temp",
-    },
-  });
-
-  if (!res.ok) {
+  try {
+    const { regions } = await sdk.store.region.list();
+    return regions;
+  } catch (error) {
     throw new Error("Failed to fetch regions");
   }
-
-  const { regions } = await res.json();
-  return regions;
 };
 
 export const getSupportedCountries = async () => {

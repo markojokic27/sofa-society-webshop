@@ -26,7 +26,7 @@ export const Products: React.FC<
     })[];
     region: HttpTypes.StoreRegion;
     collections?: HttpTypes.StoreCollection[];
-    categories: HttpTypes.AdminProductCategory[];
+    categories: HttpTypes.StoreProductCategory[];
     types: HttpTypes.AdminProductType[];
     collection?: string;
   }

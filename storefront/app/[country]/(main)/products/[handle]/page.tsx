@@ -23,10 +23,7 @@ export default async function Page({
   const region = await getRegion(params.country);
   const country = params.country;
 
-  const { product, cheapestPrice } = await getProductByHandle(
-    params.handle,
-    region!,
-  );
+  const product = await getProductByHandle(params.handle, region!);
   const relatedProducts = (await getRelatedProducts(
     product.handle,
     product.collection_id || "",
@@ -38,9 +35,6 @@ export default async function Page({
       original_price_number: number;
     };
   })[];
-
-  console.log(relatedProducts);
-
   return (
     <>
       <Layout className="mb-16 mt-18 sm:mt-36 md:mb-26">
@@ -79,7 +73,9 @@ export default async function Page({
               <h2 className="mb-2 text-lg font-bold sm:font-normal md:text-3xl">
                 {product.title}
               </h2>
-              <h3 className="mb-8 text-lg">{cheapestPrice.calculated_price}</h3>
+              <h3 className="mb-8 text-lg">
+                {product.cheapestPrice.calculated_price}
+              </h3>
               <p className="sm:md-16 mb-8 text-2xs text-grayscale-500 sm:text-black md:text-base xl:mb-16">
                 {product.description}
               </p>
@@ -99,6 +95,7 @@ export default async function Page({
 
                 //TODO Problem sa bojama, nema #hex vrijednosti
                 //triba za svaki materijal posebno dobavljat boje fashion/[product_handle]
+
                 colors={[
                   { name: "Dark Gray", value: "#a2a2a2" },
                   { name: "Black", value: "#353535" },
@@ -170,15 +167,17 @@ export default async function Page({
             </div>
           </LayoutColumn>
           <LayoutColumn span={12} lgSpan={7}>
-            <p className="mb-8 text-lg lg:ml-15 lg:mt-20 lg:text-4xl">
-              {product.collection?.metadata?.product_page_cta_heading?.toString()}
-            </p>
-            <Link
-              href={`/collections/${product.collection?.handle}`}
-              className="underline underline-offset-4 md:text-base lg:ml-15 lg:text-lg"
-            >
-              {product.collection?.metadata?.product_page_cta_link?.toString()}
-            </Link>
+            <div className="lg:ml-15">
+              <p className="mb-8 text-lg lg:mt-20 lg:text-4xl">
+                {product.collection?.metadata?.product_page_cta_heading?.toString()}
+              </p>
+              <Link
+                href={`/collections/${product.collection?.handle}`}
+                className="underline underline-offset-4 md:text-base lg:text-lg"
+              >
+                {product.collection?.metadata?.product_page_cta_link?.toString()}
+              </Link>
+            </div>
           </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="mb-8 md:mb-16">

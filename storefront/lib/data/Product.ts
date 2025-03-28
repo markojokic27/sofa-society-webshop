@@ -4,7 +4,10 @@ import { getProductPrice } from "@/lib/data/GetProductPrice";
 
 type ProductWithPrice = HttpTypes.StoreProduct & {
   cheapestPrice: {
+    calculated_price: string;
     calculated_price_number: number;
+    original_price: string;
+    original_price_number: number;
   };
 };
 
@@ -23,8 +26,13 @@ export const getProductByHandle = async (
         .cheapestPrice ?? {
         calculated_price_number: 0,
         calculated_price: "0",
+        original_price_number: 0,
+        original_price: "0",
       };
-      let productWithPrice = { product: products[0], cheapestPrice };
+      let productWithPrice: ProductWithPrice = {
+        ...products[0],
+        cheapestPrice: cheapestPrice,
+      };
       return productWithPrice;
     });
 };

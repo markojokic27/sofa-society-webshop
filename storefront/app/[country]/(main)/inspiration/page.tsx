@@ -8,9 +8,13 @@ import { CollectionsScroll } from "@/components/CollectionsScroll";
 
 // Assets
 import HeaderImage from "@/public/assets/images/header-inspiration.png";
-import Sofa from "@/public/assets/images/product-card.png";
 import AboutImage from "@/public/assets/images/about1.png";
 import AboutImage2 from "@/public/assets/images/about3.png";
+
+// Lib
+import { getRegion } from "@/lib/data/Regions";
+import { getProductByHandle } from "@/lib/data/Product";
+import { HttpTypes } from "@medusajs/types";
 
 export default async function Page({
   params,
@@ -18,6 +22,23 @@ export default async function Page({
   params: Promise<{ country: string }>;
 }) {
   const { country } = await params;
+  const region = await getRegion(country);
+
+  type ProductWithPrice = HttpTypes.StoreProduct & {
+    cheapestPrice: {
+      calculated_price: string;
+      calculated_price_number: number;
+      original_price: string;
+      original_price_number: number;
+    };
+  };
+  const [product1, product2, product3, product4] = (await Promise.all([
+    getProductByHandle("astrid-curve", region!),
+    getProductByHandle("nordic-haven", region!),
+    getProductByHandle("nordic-breeze", region!),
+    getProductByHandle("oslo-drift", region!),
+  ])) as ProductWithPrice[];
+
   return (
     <>
       <div className="mb-8 mt-18 w-full overflow-hidden md:mb-26 md:mt-0 md:h-screen">
@@ -42,15 +63,23 @@ export default async function Page({
               modern luxury, and timeless classics.
             </p>
           </LayoutColumn>
-          {/* TODO <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
+          <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
+              product={product1}
               country={country}
-              name="Nordic Havenc"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              image={<Image alt="about image" src={Sofa} />}
+              image={
+                <Image
+                  alt="about image"
+                  src={product1.thumbnail || ""}
+                  className="mb-4 aspect-square object-cover md:mb-6"
+                  width={459}
+                  height={612}
+                  priority
+                />
+              }
+              className="mx-auto w-fit"
             />
-          </LayoutColumn> */}
+          </LayoutColumn>
         </LayoutRow>
         <LayoutRow className="mb-8 md:mb-26">
           <LayoutColumn>
@@ -75,23 +104,38 @@ export default async function Page({
               elegance to your living room.
             </p>
           </LayoutColumn>
-          {/*TODO <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
+          <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
+              product={product2}
               country={country}
-              name="Nordic Havenc"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              image={<Image alt="about image" src={Sofa} />}
-              className="mb-8 md:mb-16"
+              image={
+                <Image
+                  alt="image"
+                  src={product2.thumbnail || ""}
+                  className="mb-4 aspect-square object-cover md:mb-6"
+                  width={459}
+                  height={612}
+                  priority
+                />
+              }
+              className="mx-auto mb-16 w-fit lg:mb-26"
             />
             <ProductCard
+              product={product3}
               country={country}
-              name="Nordic Havenc"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              image={<Image alt="about image" src={Sofa} />}
+              image={
+                <Image
+                  alt="image"
+                  src={product3.thumbnail || ""}
+                  className="mb-4 aspect-square object-cover md:mb-6"
+                  width={459}
+                  height={612}
+                  priority
+                />
+              }
+              className="mx-auto w-fit"
             />
-          </LayoutColumn> */}
+          </LayoutColumn>
         </LayoutRow>
       </Layout>
       <div className="mx-auto px-4 pb-8 md:mb-26 md:w-full md:px-0">
@@ -116,17 +160,23 @@ export default async function Page({
               glamour, sophistication, and unmatched coziness.
             </p>
           </LayoutColumn>
-          {/* TODO <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
+          <LayoutColumn lgOffset={1} mdSpan={8} mdOffset={2} lgSpan={4}>
             <ProductCard
+              product={product4}
               country={country}
-              name="Nordic Havenc"
-              description="Scandinavian Simplicity"
-              price="1000€"
-              originalPrice="1200€"
-              image={<Image alt="about image" src={Sofa} />}
-              className="mb-8 md:mb-16"
+              image={
+                <Image
+                  alt="image"
+                  src={product4.thumbnail || ""}
+                  className="mb-4 aspect-square object-cover md:mb-6"
+                  width={459}
+                  height={612}
+                  priority
+                />
+              }
+              className="mx-auto w-fit"
             />
-          </LayoutColumn> */}
+          </LayoutColumn>
         </LayoutRow>
       </Layout>
       <CollectionsScroll />
